@@ -2,10 +2,10 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://yoursite.com
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
+url: http://mashirogod.github.io
+title: pwn_expoit Blog
+subtitle: Pwner is pwning
+author: pwn_expoit
 simple_search: https://www.google.com/search
 description:
 
