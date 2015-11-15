@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://mashirogod.github.com/sitemap.xml 
+Sitemap: http://mashirogod.github.io/sitemap.xml 
