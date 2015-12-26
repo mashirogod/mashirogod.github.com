@@ -220,8 +220,10 @@
 
 <p>first select function is Battle system with wild Pokemon
 it is algorithm that encounter pokemon with &lsquo;an&rsquo; sequence(0: fail, 1: Kakuna, 2: charizar)
-[a1 = 0, a2 = 1, a3 = 0, a4 = 1, a5 = 0 &hellip;&hellip; a13 = 2]
-wild Pokemon is producted with other function. this function product struct using malloc. this method can become vulnerability on UAF. for now, i perceived it vulnerabilty</p>
+[a1 = 0, a2 = 1, a3 = 0, a4 = 1, a5 = 0 &hellip;&hellip; a13 = 2]</p>
+
+<p>wild Pokemon is producted with other function. this function product struct using malloc.
+this method can become vulnerability on UAF. for now, i perceived it vulnerabilty</p>
 
 <figure class='code'><figcaption><span>[wild Pokemon struct] (kappawild.c)</span> <a href='/codeview/kappawild.c'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -291,8 +293,9 @@ wild Pokemon is producted with other function. this function product struct usin
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>i find out vulnerability in Battle function that wild producted function include. it is type confusion.
-this vulnerability is happened when i throw pokeball to wild pokemon with filling all of pokeball room</p>
+<p>i find out vulnerability in Battle function that wild producted function include. it is type confusion.</p>
+
+<p>this vulnerability is happened when i throw pokeball to wild pokemon with filling all of pokeball room</p>
 
 <figure class='code'><figcaption><span>[type confusion] (kappavuln.c)</span> <a href='/codeview/kappavuln.c'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -392,18 +395,73 @@ this vulnerability is happened when i throw pokeball to wild pokemon with fillin
 
 <p>change artwork function change each other pokemon artwork(heap+15). if i cover type using vunlerblilty.</p>
 
-<h1>kakuna struct: </h1>
+<p>kakuna struct:
+|name|      art      |0x878|hp|attack|technic|func_ptr</p>
 
-<h1>|name|      art      |0x878|hp|attack|technic|func_ptr</h1>
+<p>charizar struct:
+|name|       art      |0x204|hp|attack|technic|func_ptr</p>
 
-<h1>charizar struct:</h1>
+<figure class='code'><figcaption><span>[exploit] (kappaexploit.c)</span> <a href='/codeview/kappaexploit.c'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="kt">int</span> <span class="nf">vuln_execute</span><span class="p">()</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="kt">int</span> <span class="n">result</span><span class="p">;</span> <span class="c1">// eax@1</span>
+</span><span class='line'>  <span class="kt">signed</span> <span class="kt">int</span> <span class="n">i</span><span class="p">;</span> <span class="c1">// [sp+1Ch] [bp-Ch]@1</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">result</span> <span class="o">=</span> <span class="n">puts</span><span class="p">(</span><span class="s">&quot;Here are all of the stats on your current Pokemon!&quot;</span><span class="p">);</span>
+</span><span class='line'>  <span class="k">for</span> <span class="p">(</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">4</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span> <span class="p">)</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>    <span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="o">&amp;</span><span class="n">My_poke</span> <span class="o">+</span> <span class="n">i</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="n">result</span> <span class="p">)</span>
+</span><span class='line'>      <span class="k">break</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span> <span class="n">type_data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span> <span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>      <span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="o">*</span><span class="p">((</span><span class="kt">int</span> <span class="p">(</span><span class="kr">__cdecl</span> <span class="o">**</span><span class="p">)(</span><span class="n">_DWORD</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="o">&amp;</span><span class="n">My_poke</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="mh">0x17E</span><span class="p">))(</span><span class="o">*</span><span class="p">(</span><span class="o">&amp;</span><span class="n">My_poke</span> <span class="o">+</span> <span class="n">i</span><span class="p">));</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="n">type_data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>      <span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="o">*</span><span class="p">((</span><span class="kt">int</span> <span class="p">(</span><span class="kr">__cdecl</span> <span class="o">**</span><span class="p">)(</span><span class="n">_DWORD</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="o">&amp;</span><span class="n">My_poke</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="mh">0x221</span><span class="p">))(</span><span class="o">*</span><span class="p">(</span><span class="o">&amp;</span><span class="n">My_poke</span> <span class="o">+</span> <span class="n">i</span><span class="p">));</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="k">else</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>      <span class="n">result</span> <span class="o">=</span> <span class="n">type_data</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span><span class='line'>      <span class="k">if</span> <span class="p">(</span> <span class="n">result</span> <span class="o">==</span> <span class="mi">2</span> <span class="p">)</span>
+</span><span class='line'>        <span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="o">*</span><span class="p">((</span><span class="kt">int</span> <span class="p">(</span><span class="kr">__cdecl</span> <span class="o">**</span><span class="p">)(</span><span class="n">_DWORD</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="o">&amp;</span><span class="n">My_poke</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="mi">132</span><span class="p">))(</span><span class="o">*</span><span class="p">(</span><span class="o">&amp;</span><span class="n">My_poke</span> <span class="o">+</span> <span class="n">i</span><span class="p">));</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<h1>|name|       art      |0x204|hp|attack|technic|func_ptr</h1>
 
-<hr />
-
-<p>File /home/pwn/Desktop/octopress/source/codeview/kappaexploit.c could not be found
-Do you find out?</p>
+<p>Do you find out?</p>
 
 <p>i change charizar to kakuna, set free func_ptr using above function</p>
 
