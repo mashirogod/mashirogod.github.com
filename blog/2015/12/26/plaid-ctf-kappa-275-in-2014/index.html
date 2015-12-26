@@ -168,14 +168,130 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>there are 1-5 select that can choose. opening binary with IDA pro, i could see select function and Battle function.
-File /home/pwn/Desktop/octopress/source/codeview/KappaChoose1.c could not be found
-first select function is Battle system with wild Pokemon
+<p>there are 1-5 select that can choose. opening binary with IDA pro, i could see select function and Battle function.</p>
+
+<figure class='code'><figcaption><span>[Choose 1] (KappaChoose1.c)</span> <a href='/codeview/KappaChoose1.c'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="kt">void</span> <span class="nf">sub_8048DE3</span><span class="p">()</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="n">puts</span><span class="p">(</span><span class="s">&quot;You walk into the tall grass!&quot;</span><span class="p">);</span>
+</span><span class='line'>  <span class="n">sleep</span><span class="p">(</span><span class="mi">1u</span><span class="p">);</span>
+</span><span class='line'>  <span class="n">puts</span><span class="p">(</span><span class="s">&quot;.&quot;</span><span class="p">);</span>
+</span><span class='line'>  <span class="n">sleep</span><span class="p">(</span><span class="mi">1u</span><span class="p">);</span>
+</span><span class='line'>  <span class="n">puts</span><span class="p">(</span><span class="s">&quot;.&quot;</span><span class="p">);</span>
+</span><span class='line'>  <span class="n">sleep</span><span class="p">(</span><span class="mi">1u</span><span class="p">);</span>
+</span><span class='line'>  <span class="n">puts</span><span class="p">(</span><span class="s">&quot;.&quot;</span><span class="p">);</span>
+</span><span class='line'>  <span class="n">sleep</span><span class="p">(</span><span class="mi">1u</span><span class="p">);</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span> <span class="o">++</span><span class="n">dword_804BFA8</span> <span class="o">%</span> <span class="mi">13</span> <span class="p">)</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span> <span class="n">dword_804BFA8</span> <span class="o">&amp;</span> <span class="mi">1</span> <span class="p">)</span>
+</span><span class='line'>      <span class="n">puts</span><span class="p">(</span><span class="s">&quot;You failed to find any Pokemon!&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">else</span>
+</span><span class='line'>      <span class="n">sub_8048C59</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="k">else</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>    <span class="n">sub_8048C59</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>first select function is Battle system with wild Pokemon
 it is algorithm that encounter pokemon with &lsquo;an&rsquo; sequence(0: fail, 1: Kakuna, 2: charizar)
 [a1 = 0, a2 = 1, a3 = 0, a4 = 1, a5 = 0 &hellip;&hellip; a13 = 2]
-wild Pokemon is producted with other function. this function product struct using malloc. this method can become vulnerability on UAF. for now, i perceived it vulnerabilty
-(%include_code [wild Pokemon struct] kappawild.c%)
-i find out vulnerability in Battle function that wild producted function include. it is type confusion.
+wild Pokemon is producted with other function. this function product struct using malloc. this method can become vulnerability on UAF. for now, i perceived it vulnerabilty</p>
+
+<figure class='code'><figcaption><span>[wild Pokemon struct] (kappawild.c)</span> <a href='/codeview/kappawild.c'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="kt">void</span> <span class="kr">__cdecl</span> <span class="nf">sub_8048C59</span><span class="p">(</span><span class="kt">int</span> <span class="n">type</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="n">struct_ptr</span> <span class="o">*</span><span class="n">Pokemon1</span><span class="p">;</span> <span class="c1">// ST2C_4@2</span>
+</span><span class='line'>  <span class="n">struct_buf</span> <span class="o">*</span><span class="n">Pokemon2</span><span class="p">;</span> <span class="c1">// ST28_4@4</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span> <span class="n">type</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">)</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>    <span class="n">Pokemon1</span> <span class="o">=</span> <span class="p">(</span><span class="n">struct_ptr</span> <span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="mh">0x888u</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">Pokemon1</span><span class="o">-&gt;</span><span class="n">name</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">rahC</span><span class="err">&#39;</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">Pokemon1</span><span class="o">-&gt;</span><span class="n">name_</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">razi</span><span class="err">&#39;</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">Pokemon1</span><span class="o">-&gt;</span><span class="n">name__</span> <span class="o">=</span> <span class="sc">&#39;d&#39;</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">strcpy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Pokemon1</span><span class="o">-&gt;</span><span class="n">art</span><span class="p">,</span> <span class="n">src</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">Pokemon1</span><span class="o">-&gt;</span><span class="n">dword880</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">off_804BF78</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">Pokemon1</span><span class="o">-&gt;</span><span class="n">HP</span><span class="o">?</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">Pokemon1</span><span class="o">-&gt;</span><span class="n">dword87C</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">Pokemon1</span><span class="o">-&gt;</span><span class="n">profile</span> <span class="o">=</span> <span class="n">Profile</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">Battle</span><span class="p">(</span><span class="n">Pokemon1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Pokemon1</span><span class="o">-&gt;</span><span class="n">HP</span><span class="o">?</span><span class="p">,</span> <span class="n">Pokemon1</span><span class="o">-&gt;</span><span class="n">dword87C</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="n">_DWORD</span> <span class="o">*</span><span class="p">)</span><span class="n">Pokemon1</span><span class="o">-&gt;</span><span class="n">dword880</span><span class="p">,</span> <span class="n">Pokemon1</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="n">type</span> <span class="o">==</span> <span class="mi">2</span> <span class="p">)</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>    <span class="n">Pokemon2</span> <span class="o">=</span> <span class="p">(</span><span class="n">struct_buf</span> <span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="mh">0x214u</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">Pokemon2</span><span class="o">-&gt;</span><span class="n">dword0</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">ukaK</span><span class="err">&#39;</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">Pokemon2</span><span class="o">-&gt;</span><span class="n">word4</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">an</span><span class="err">&#39;</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">Pokemon2</span><span class="o">-&gt;</span><span class="n">byte6</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">strcpy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Pokemon2</span><span class="o">-&gt;</span><span class="n">charF</span><span class="p">,</span> <span class="n">a_________</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">Pokemon2</span><span class="o">-&gt;</span><span class="n">dword20C</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">off_804BF7C</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">Pokemon2</span><span class="o">-&gt;</span><span class="n">dword204</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">Pokemon2</span><span class="o">-&gt;</span><span class="n">dword208</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">Pokemon2</span><span class="o">-&gt;</span><span class="n">dword210</span> <span class="o">=</span> <span class="n">Profile_</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">Battle</span><span class="p">(</span><span class="n">Pokemon2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">Pokemon2</span><span class="o">-&gt;</span><span class="n">dword204</span><span class="p">,</span> <span class="n">Pokemon2</span><span class="o">-&gt;</span><span class="n">dword208</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="n">_DWORD</span> <span class="o">*</span><span class="p">)</span><span class="n">Pokemon2</span><span class="o">-&gt;</span><span class="n">dword20C</span><span class="p">,</span> <span class="n">Pokemon2</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>i find out vulnerability in Battle function that wild producted function include. it is type confusion.
 this vulnerability is happened when i throw pokeball to wild pokemon with filling all of pokeball room</p>
 
 <figure class='code'><figcaption><span>[type confusion] (kappavuln.c)</span> <a href='/codeview/kappavuln.c'>download</a></figcaption>
