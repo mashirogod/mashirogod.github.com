@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://mashirogod.github.io/blog/2015/12/31/32c3-pwn-200-readme-write-up/</loc>
+    <lastmod>2015-12-31T07:16:00-08:00</lastmod>
+  </url>
+  <url>
     <loc>http://mashirogod.github.io/blog/2015/12/26/plaid-ctf-kappa-275-in-2014/</loc>
     <lastmod>2015-12-26T01:13:36-08:00</lastmod>
   </url>

