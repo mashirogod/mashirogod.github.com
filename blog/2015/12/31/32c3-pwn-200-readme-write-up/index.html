@@ -173,7 +173,19 @@ this binary is likely to analysis,but i am too stupid to can&rsquo;t solved</p>
 <p>At first, unfortunately i had thought puts null byte leak(like codegate 2014 nuclear)but IO_gets generate \x00 in string lately
 After many tries, i find out that infomation leak from &ldquo;<strong><em> stack smashing detected </em></strong>&rdquo;</p>
 
-<p>File /home/pwn/Desktop/octopress/source/codeview/readmeleak could not be found</p>
+<figure class='code'><figcaption><span>[information leak] (readmeleak)</span> <a href='/codeview/readmeleak'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'><span class="vg">What</span><span class="c1">&#39;s your name? AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</span>
+</span><span class='line'><span class="vg">Nice</span><span class="w"> </span><span class="vg">to</span><span class="w"> </span><span class="vg">meet</span><span class="w"> </span><span class="vg">you</span><span class="p">,</span><span class="w"> </span><span class="vg">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</span><span class="o">.</span>
+</span><span class='line'><span class="vg">Please</span><span class="w"> </span><span class="vg">overwrite</span><span class="w"> </span><span class="vg">the</span><span class="w"> </span><span class="nl">flag:</span><span class="w"> </span><span class="il">1</span>
+</span><span class='line'><span class="vg">Thank</span><span class="w"> </span><span class="vg">you</span><span class="p">,</span><span class="w"> </span><span class="vg">bye!</span>
+</span><span class='line'><span class="o">***</span><span class="w"> </span><span class="vg">stack</span><span class="w"> </span><span class="vg">smashing</span><span class="w"> </span><span class="vg">detected</span><span class="w"> </span><span class="o">***:</span><span class="w"> </span><span class="o">/</span><span class="vg">home</span><span class="o">/</span><span class="vg">pwn</span><span class="o">/</span><span class="vg">readme</span><span class="o">.</span><span class="vg">bin</span><span class="w"> </span><span class="vg">terminated</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>above printing show argv[0] possible to overwirte. argv[0] pointer is located on $rsp+0x218</p>
 
