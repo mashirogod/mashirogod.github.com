@@ -4,7 +4,7 @@
   <title><![CDATA[pwn_expoit Blog]]></title>
   <link href="http://mashirogod.github.io/atom.xml" rel="self"/>
   <link href="http://mashirogod.github.io/"/>
-  <updated>2015-12-31T08:51:58-08:00</updated>
+  <updated>2016-01-09T06:57:43-08:00</updated>
   <id>http://mashirogod.github.io/</id>
   <author>
     <name><![CDATA[pwn_expoit]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[32c3 Pwn[200] Readme Write Up]]></title>
+    <title type="html"><![CDATA[32c3 pwn[200] readme write up]]></title>
     <link href="http://mashirogod.github.io/blog/2015/12/31/32c3-pwn-200-readme-write-up/"/>
     <updated>2015-12-31T07:16:00-08:00</updated>
     <id>http://mashirogod.github.io/blog/2015/12/31/32c3-pwn-200-readme-write-up</id>
@@ -258,7 +258,7 @@ above the environment variable it make that show error messege on remote server<
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Plaid Ctf Kappa[275] in 2014]]></title>
+    <title type="html"><![CDATA[Plaid ctf kappa[275] in 2014]]></title>
     <link href="http://mashirogod.github.io/blog/2015/12/26/plaid-ctf-kappa-275-in-2014/"/>
     <updated>2015-12-26T01:13:36-08:00</updated>
     <id>http://mashirogod.github.io/blog/2015/12/26/plaid-ctf-kappa-275-in-2014</id>
@@ -792,7 +792,7 @@ this method can become vulnerability on UAF. for now, i perceived it vulnerabilt
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Exploit-exercise Fusion Level4]]></title>
+    <title type="html"><![CDATA[exploit-exercise fusion level4]]></title>
     <link href="http://mashirogod.github.io/blog/2015/11/15/exploit-exercise-fusion-level4/"/>
     <updated>2015-11-15T05:51:33-08:00</updated>
     <id>http://mashirogod.github.io/blog/2015/11/15/exploit-exercise-fusion-level4</id>
@@ -1135,7 +1135,7 @@ this method can become vulnerability on UAF. for now, i perceived it vulnerabilt
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[2015 DEFCON Babyfirstheap]]></title>
+    <title type="html"><![CDATA[2015 DEFCON babyfirstheap]]></title>
     <link href="http://mashirogod.github.io/blog/2015/11/15/2015-defcon-babyfirstheap/"/>
     <updated>2015-11-15T04:21:48-08:00</updated>
     <id>http://mashirogod.github.io/blog/2015/11/15/2015-defcon-babyfirstheap</id>
