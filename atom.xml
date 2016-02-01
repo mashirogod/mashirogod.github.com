@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[pwn_expoit Blog]]></title>
-  <link href="http://mashirogod.github.io/atom.xml" rel="self"/>
-  <link href="http://mashirogod.github.io/"/>
-  <updated>2016-01-31T18:51:30-08:00</updated>
-  <id>http://mashirogod.github.io/</id>
+  <link href="http://naver.com/atom.xml" rel="self"/>
+  <link href="http://naver.com/"/>
+  <updated>2016-01-31T18:53:58-08:00</updated>
+  <id>http://naver.com/</id>
   <author>
     <name><![CDATA[pwn_expoit]]></name>
     <email><![CDATA[pwn_expoit@naver.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[2016 nullcon pwn 200]]></title>
-    <link href="http://mashirogod.github.io/blog/2016/01/31/2016-nullcon-pwn-200/"/>
+    <link href="http://naver.com/blog/2016/01/31/2016-nullcon-pwn-200/"/>
     <updated>2016-01-31T17:35:45-08:00</updated>
-    <id>http://mashirogod.github.io/blog/2016/01/31/2016-nullcon-pwn-200</id>
+    <id>http://naver.com/blog/2016/01/31/2016-nullcon-pwn-200</id>
     <content type="html"><![CDATA[<p>recently, I challenge nullcon 2016. when hold ctf, i catched pwnable.However, pwn 100 is arm exploit that i can&rsquo;t solve. So i decide to challengepwn 200.<br>
 at frist, pwn 200 seem very easy:) . analyzing it, i think that this is sandbox. it was first time for me. <br></p>
 
@@ -26,7 +26,7 @@ at frist, pwn 200 seem very easy:) . analyzing it, i think that this is sandbox.
 <p>this binary conserve with process using pipe. parent process could not exploit because it is sandbox that only use syscall(exit, read, write).
 <br></p>
 
-<figure class='code'><figcaption><span>[function] (parent.c)</span> <a href='http://mashirogod.github.io/codeview/parent.c'>download</a></figcaption>
+<figure class='code'><figcaption><span>[function] (parent.c)</span> <a href='http://naver.com/codeview/parent.c'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -144,7 +144,7 @@ and then, i analyze child function. there are some inputs in child function.<br>
 
 <p>after input, heap buffer(3rd input) is copied dest buffer(rbp-0x220).yet, heap buffer is possible 0x1000. it overwrite rip !!!! :)<br></p>
 
-<figure class='code'><figcaption><span>[vuln] (child.c)</span> <a href='http://mashirogod.github.io/codeview/child.c'>download</a></figcaption>
+<figure class='code'><figcaption><span>[vuln] (child.c)</span> <a href='http://naver.com/codeview/child.c'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -242,7 +242,7 @@ However, finding shellcode address is very hard. on this account, i faild to sol
 i saved stack. then stack overwrite rip :P.
 <br></p>
 
-<figure class='code'><figcaption><span>[shellcoding] (pipe.asm)</span> <a href='http://mashirogod.github.io/codeview/pipe.asm'>download</a></figcaption>
+<figure class='code'><figcaption><span>[shellcoding] (pipe.asm)</span> <a href='http://naver.com/codeview/pipe.asm'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -370,7 +370,7 @@ i saved stack. then stack overwrite rip :P.
 
 <h2>exploit</h2>
 
-<figure class='code'><figcaption><span>[exploit] (exploit)</span> <a href='http://mashirogod.github.io/codeview/exploit'>download</a></figcaption>
+<figure class='code'><figcaption><span>[exploit] (exploit)</span> <a href='http://naver.com/codeview/exploit'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -386,13 +386,13 @@ i saved stack. then stack overwrite rip :P.
   
   <entry>
     <title type="html"><![CDATA[32c3 pwn[200] readme write up]]></title>
-    <link href="http://mashirogod.github.io/blog/2015/12/31/32c3-pwn-200-readme-write-up/"/>
+    <link href="http://naver.com/blog/2015/12/31/32c3-pwn-200-readme-write-up/"/>
     <updated>2015-12-31T07:16:00-08:00</updated>
-    <id>http://mashirogod.github.io/blog/2015/12/31/32c3-pwn-200-readme-write-up</id>
+    <id>http://naver.com/blog/2015/12/31/32c3-pwn-200-readme-write-up</id>
     <content type="html"><![CDATA[<p>after 32c3 ctf, i am sorry that sovled readme. so i challenge it again
 this binary is likely to analysis,but i am too stupid to can&rsquo;t solved</p>
 
-<figure class='code'><figcaption><span>[main func] (readmemain.c)</span> <a href='http://mashirogod.github.io/codeview/readmemain.c'>download</a></figcaption>
+<figure class='code'><figcaption><span>[main func] (readmemain.c)</span> <a href='http://naver.com/codeview/readmemain.c'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -463,7 +463,7 @@ this binary is likely to analysis,but i am too stupid to can&rsquo;t solved</p>
 <p>At first, unfortunately i had thought puts null byte leak(like codegate 2014 nuclear)but IO_gets generate \x00 in string lately
 After many tries, i find out that infomation leak from &ldquo;<strong><em> stack smashing detected </em></strong>&rdquo;</p>
 
-<figure class='code'><figcaption><span>[information leak] (readmeleak)</span> <a href='http://mashirogod.github.io/codeview/readmeleak'>download</a></figcaption>
+<figure class='code'><figcaption><span>[information leak] (readmeleak)</span> <a href='http://naver.com/codeview/readmeleak'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -479,7 +479,7 @@ After many tries, i find out that infomation leak from &ldquo;<strong><em> stack
 
 <p>above printing show argv[0] possible to overwirte. argv[0] pointer is located on $rsp+0x218</p>
 
-<figure class='code'><figcaption><span>[argv[0]] (readmeargv)</span> <a href='http://mashirogod.github.io/codeview/readmeargv'>download</a></figcaption>
+<figure class='code'><figcaption><span>[argv[0]] (readmeargv)</span> <a href='http://naver.com/codeview/readmeargv'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -501,7 +501,7 @@ After many tries, i find out that infomation leak from &ldquo;<strong><em> stack
 
 <p>so i execute Poc</p>
 
-<figure class='code'><figcaption><span>[POC code] (readmepoc.py)</span> <a href='http://mashirogod.github.io/codeview/readmepoc.py'>download</a></figcaption>
+<figure class='code'><figcaption><span>[POC code] (readmepoc.py)</span> <a href='http://naver.com/codeview/readmepoc.py'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -519,7 +519,7 @@ After many tries, i find out that infomation leak from &ldquo;<strong><em> stack
 
 
 
-<figure class='code'><figcaption><span>[POC leak] (readmepoc2)</span> <a href='http://mashirogod.github.io/codeview/readmepoc2'>download</a></figcaption>
+<figure class='code'><figcaption><span>[POC leak] (readmepoc2)</span> <a href='http://naver.com/codeview/readmepoc2'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -540,7 +540,7 @@ After many tries, i find out that infomation leak from &ldquo;<strong><em> stack
 <p>gdb-peda$ x/s 0x400d20
 0x400d20:   &ldquo;32C3_TheServerHasTheFlagHere&hellip;&rdquo;</p>
 
-<figure class='code'><figcaption><span>[POC again] (readmepoc3)</span> <a href='http://mashirogod.github.io/codeview/readmepoc3'>download</a></figcaption>
+<figure class='code'><figcaption><span>[POC again] (readmepoc3)</span> <a href='http://naver.com/codeview/readmepoc3'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -558,7 +558,7 @@ After many tries, i find out that infomation leak from &ldquo;<strong><em> stack
 finally i open other write up, i notice &lsquo;LIBC_FATAL_STDERR_=1&rsquo;
 above the environment variable it make that show error messege on remote server</p>
 
-<figure class='code'><figcaption><span>[memory] (readmememory)</span> <a href='http://mashirogod.github.io/codeview/readmememory'>download</a></figcaption>
+<figure class='code'><figcaption><span>[memory] (readmememory)</span> <a href='http://naver.com/codeview/readmememory'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -592,7 +592,7 @@ above the environment variable it make that show error messege on remote server<
 
 <p>this is final payload</p>
 
-<figure class='code'><figcaption><span>[final] (readmepayload.py)</span> <a href='http://mashirogod.github.io/codeview/readmepayload.py'>download</a></figcaption>
+<figure class='code'><figcaption><span>[final] (readmepayload.py)</span> <a href='http://naver.com/codeview/readmepayload.py'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -630,14 +630,14 @@ above the environment variable it make that show error messege on remote server<
   
   <entry>
     <title type="html"><![CDATA[Plaid ctf kappa[275] in 2014]]></title>
-    <link href="http://mashirogod.github.io/blog/2015/12/26/plaid-ctf-kappa-275-in-2014/"/>
+    <link href="http://naver.com/blog/2015/12/26/plaid-ctf-kappa-275-in-2014/"/>
     <updated>2015-12-26T01:13:36-08:00</updated>
-    <id>http://mashirogod.github.io/blog/2015/12/26/plaid-ctf-kappa-275-in-2014</id>
+    <id>http://naver.com/blog/2015/12/26/plaid-ctf-kappa-275-in-2014</id>
     <content type="html"><![CDATA[<p>i recently prepare Codegate held in 2016,So i needed to write up ctf. i writed up ezhp(plaid ctf), now it&rsquo;s time to write up kappa. Let&rsquo;s start breaking kappa</p>
 
 <p>Kappa is Pokemon Game binary</p>
 
-<figure class='code'><figcaption><span>[Kappa Menu] (kappaMenu.c)</span> <a href='http://mashirogod.github.io/codeview/kappaMenu.c'>download</a></figcaption>
+<figure class='code'><figcaption><span>[Kappa Menu] (kappaMenu.c)</span> <a href='http://naver.com/codeview/kappaMenu.c'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -705,7 +705,7 @@ above the environment variable it make that show error messege on remote server<
 
 <p>there are 1-5 select that can choose. opening binary with IDA pro, i could see select function and Battle function.</p>
 
-<figure class='code'><figcaption><span>[Choose 1] (KappaChoose1.c)</span> <a href='http://mashirogod.github.io/codeview/KappaChoose1.c'>download</a></figcaption>
+<figure class='code'><figcaption><span>[Choose 1] (KappaChoose1.c)</span> <a href='http://naver.com/codeview/KappaChoose1.c'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -760,7 +760,7 @@ it is algorithm that encounter pokemon with &lsquo;an&rsquo; sequence(0: fail, 1
 <p>wild Pokemon is producted with other function. this function product struct using malloc.
 this method can become vulnerability on UAF. for now, i perceived it vulnerabilty</p>
 
-<figure class='code'><figcaption><span>[wild Pokemon struct] (kappawild.c)</span> <a href='http://mashirogod.github.io/codeview/kappawild.c'>download</a></figcaption>
+<figure class='code'><figcaption><span>[wild Pokemon struct] (kappawild.c)</span> <a href='http://naver.com/codeview/kappawild.c'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -832,7 +832,7 @@ this method can become vulnerability on UAF. for now, i perceived it vulnerabilt
 
 <p>this vulnerability is happened when i throw pokeball to wild pokemon with filling all of pokeball room</p>
 
-<figure class='code'><figcaption><span>[type confusion] (kappavuln.c)</span> <a href='http://mashirogod.github.io/codeview/kappavuln.c'>download</a></figcaption>
+<figure class='code'><figcaption><span>[type confusion] (kappavuln.c)</span> <a href='http://naver.com/codeview/kappavuln.c'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -888,7 +888,7 @@ this method can become vulnerability on UAF. for now, i perceived it vulnerabilt
 
 <p>it ignore their type, blindly cover type field. then attacker can overflow in select 5</p>
 
-<figure class='code'><figcaption><span>[change art] (kappaart.c)</span> <a href='http://mashirogod.github.io/codeview/kappaart.c'>download</a></figcaption>
+<figure class='code'><figcaption><span>[change art] (kappaart.c)</span> <a href='http://naver.com/codeview/kappaart.c'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -936,7 +936,7 @@ this method can become vulnerability on UAF. for now, i perceived it vulnerabilt
 <p>charizar struct:
 |name|       art      |0x204|hp|attack|technic|func_ptr</p>
 
-<figure class='code'><figcaption><span>[exploit] (kappaexploit.c)</span> <a href='http://mashirogod.github.io/codeview/kappaexploit.c'>download</a></figcaption>
+<figure class='code'><figcaption><span>[exploit] (kappaexploit.c)</span> <a href='http://naver.com/codeview/kappaexploit.c'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -1002,7 +1002,7 @@ this method can become vulnerability on UAF. for now, i perceived it vulnerabilt
 
 <p>this is final payload</p>
 
-<figure class='code'><figcaption><span>[Payload] (kappa_final.py)</span> <a href='http://mashirogod.github.io/codeview/kappa_final.py'>download</a></figcaption>
+<figure class='code'><figcaption><span>[Payload] (kappa_final.py)</span> <a href='http://naver.com/codeview/kappa_final.py'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -1164,10 +1164,10 @@ this method can become vulnerability on UAF. for now, i perceived it vulnerabilt
   
   <entry>
     <title type="html"><![CDATA[exploit-exercise fusion level4]]></title>
-    <link href="http://mashirogod.github.io/blog/2015/11/15/exploit-exercise-fusion-level4/"/>
+    <link href="http://naver.com/blog/2015/11/15/exploit-exercise-fusion-level4/"/>
     <updated>2015-11-15T05:51:33-08:00</updated>
-    <id>http://mashirogod.github.io/blog/2015/11/15/exploit-exercise-fusion-level4</id>
-    <content type="html"><![CDATA[<figure class='code'><figcaption><span>[fusion 4 only exploit] (fusion.py)</span> <a href='http://mashirogod.github.io/codeview/fusion.py'>download</a></figcaption>
+    <id>http://naver.com/blog/2015/11/15/exploit-exercise-fusion-level4</id>
+    <content type="html"><![CDATA[<figure class='code'><figcaption><span>[fusion 4 only exploit] (fusion.py)</span> <a href='http://naver.com/codeview/fusion.py'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -1507,12 +1507,12 @@ this method can become vulnerability on UAF. for now, i perceived it vulnerabilt
   
   <entry>
     <title type="html"><![CDATA[2015 DEFCON babyfirstheap]]></title>
-    <link href="http://mashirogod.github.io/blog/2015/11/15/2015-defcon-babyfirstheap/"/>
+    <link href="http://naver.com/blog/2015/11/15/2015-defcon-babyfirstheap/"/>
     <updated>2015-11-15T04:21:48-08:00</updated>
-    <id>http://mashirogod.github.io/blog/2015/11/15/2015-defcon-babyfirstheap</id>
+    <id>http://naver.com/blog/2015/11/15/2015-defcon-babyfirstheap</id>
     <content type="html"><![CDATA[<p>This binary how to using doubler free bug rather than finding vuln '</p>
 
-<figure class='code'><figcaption><span>[double free part] (vuln.c)</span> <a href='http://mashirogod.github.io/codeview/vuln.c'>download</a></figcaption>
+<figure class='code'><figcaption><span>[double free part] (vuln.c)</span> <a href='http://naver.com/codeview/vuln.c'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -1528,7 +1528,7 @@ this method can become vulnerability on UAF. for now, i perceived it vulnerabilt
 
 <p>when open binary to hex-rays, i could see that successive free. it is very vulnerable So i debuged binary, then i faced segment fault</p>
 
-<figure class='code'><figcaption><span>[crash the binary] (debug)</span> <a href='http://mashirogod.github.io/codeview/debug'>download</a></figcaption>
+<figure class='code'><figcaption><span>[crash the binary] (debug)</span> <a href='http://naver.com/codeview/debug'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -1668,7 +1668,7 @@ this method can become vulnerability on UAF. for now, i perceived it vulnerabilt
 
 <p>i hereby control got overwrite.(specific technic about this vuln that reference<a href="https://www.blackhat.com/presentations/bh-usa-07/Ferguson/Whitepaper/bh-usa-07-ferguson-WP.pdf">https://www.blackhat.com/presentations/bh-usa-07/Ferguson/Whitepaper/bh-usa-07-ferguson-WP.pdf</a></p>
 
-<figure class='code'><figcaption><span>[Baby's first heap] (babyfirstheap.py)</span> <a href='http://mashirogod.github.io/codeview/babyfirstheap.py'>download</a></figcaption>
+<figure class='code'><figcaption><span>[Baby's first heap] (babyfirstheap.py)</span> <a href='http://naver.com/codeview/babyfirstheap.py'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
