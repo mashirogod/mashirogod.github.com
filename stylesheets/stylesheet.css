@@ -43,7 +43,7 @@ li {
 header {
   background: rgba(0, 0, 0, 0.1);
   width: 100%;
-  border-bottom: 1px dashed #b5e853;
+  border-bottom: 1px dashed #d82542;
   padding: 20px 0 0 0;
   margin: 0 0 40px 0;
 }
@@ -54,7 +54,7 @@ header h1 {
   margin: 0 0 0 -40px;
   font-weight: bold;
   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
-  color: #b5e853;
+  color: #a0a597;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
                0 0 5px rgba(181, 232, 83, 0.1),
                0 0 10px rgba(181, 232, 83, 0.1);
@@ -63,7 +63,7 @@ header h1 {
 }
 
 header h1:before {
-  content: "./ ";
+  content: "$ ";
   font-size: 24px;
 }
 
