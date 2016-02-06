@@ -4,7 +4,7 @@
   <title><![CDATA[pwn_expoit Blog]]></title>
   <link href="http://naver.com/atom.xml" rel="self"/>
   <link href="http://naver.com/"/>
-  <updated>2016-02-06T07:13:13-08:00</updated>
+  <updated>2016-02-06T07:17:13-08:00</updated>
   <id>http://naver.com/</id>
   <author>
     <name><![CDATA[pwn_expoit]]></name>
@@ -1001,12 +1001,9 @@ this method can become vulnerability on UAF. for now, i perceived it vulnerabilt
 <p>i change charizar to kakuna, set free func_ptr using above function</p>
 
 <p>this is final payload
-<link rel="stylesheet" href="http://naver.com/codejs/styles/default.css"></p>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css"></p>
 
-<script src="http://naver.com/codejs/highlight.pack.js"></script>
-
-
-<script>hljs.initHighlightingOnLoad();</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
 
 
 <pre><code class="python">
