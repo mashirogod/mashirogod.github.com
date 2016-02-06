@@ -1,0 +1,15 @@
+
+binary memory
+
+========
+AAAAAAAA
+AAAAAAAA
+AAAAAAAA
+....
+======== < ------------------ argv[0]
+0x400d20
+========
+00000000
+======== < ------------------ environment variable
+0x600d20 < ------------LIBC_FATAL_STDERR_=1
+	     input

