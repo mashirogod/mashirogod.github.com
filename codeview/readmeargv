@@ -1,9 +1,0 @@
-gdb-peda$ find 0x7fffffffe8cc
-Searching for '0x7fffffffe8cc' in: None ranges
-Found 2 results, display max 2 items:
-   libc : 0x7ffff7dd4018 --> 0x7fffffffe8cc ("/home/pwn/readme.bin")
-[stack] : 0x7fffffffe6b8 --> 0x7fffffffe8cc ("/home/pwn/readme.bin")
-gdb-peda$ print 0x7fffffffe6b8-0x7fffffffe4a0
-$2 = 0x218
-gdb-peda$ 
-
