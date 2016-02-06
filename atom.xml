@@ -4,7 +4,7 @@
   <title><![CDATA[pwn_expoit Blog]]></title>
   <link href="http://naver.com/atom.xml" rel="self"/>
   <link href="http://naver.com/"/>
-  <updated>2016-02-06T06:57:13-08:00</updated>
+  <updated>2016-02-06T06:59:40-08:00</updated>
   <id>http://naver.com/</id>
   <author>
     <name><![CDATA[pwn_expoit]]></name>
@@ -145,7 +145,14 @@ Do you find out?</p>
 
 <p>i change charizar to kakuna, set free func_ptr using above function</p>
 
-<p>this is final payload</p>
+<p>this is final payload
+<link rel="stylesheet" href="http://naver.com/codejs/styles/default.css"></p>
+
+<script src="http://naver.com/codejs/highlight.pack.js"></script>
+
+
+<script>hljs.initHighlightingOnLoad();</script>
+
 
 <pre><code class="python">
 from pwn_expoit import *
