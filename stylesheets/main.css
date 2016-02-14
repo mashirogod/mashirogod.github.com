@@ -1,299 +1,65 @@
-.sans {
-  font-family: "PT Sans", "Helvetica Neue", Arial, sans-serif;
-}
+/*
+Error: File to import not found or unreadable: bourbon/bourbon.
+       Load paths:
+         Sass::Globbing::Importer
+         Compass::SpriteImporter
+         /home/pwn/Desktop/octopress/sass
+         /home/pwn/.rvm/gems/ruby-1.9.3-p551/gems/compass-core-1.0.3/stylesheets
+        on line 1 of /home/pwn/Desktop/octopress/sass/main.scss
 
-.serif {
-  font-family: "PT Serif", Georgia, Times, "Times New Roman", serif;
-}
+1: @import "bourbon/bourbon";
+2: @import "typography";
+3: @import "variables";
+4: @import "responsive";
+5: 
+6: *::selection {
 
-.mono {
-  font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;
-}
-
-/* Colors */
-/* Typography */
-/* On the category listing page */
-/* Layout */
-/* Width of the content area */
-/* Space above and below the header section */
-/* Weight of the line at the top of the page */
-/* Space between header links (this will be in ems) */
-/* Space between the date and the post */
-/* Space between the post and the author/tags */
-/* Space between posts in ems */
-/* Author tags top and bottom spacing */
-/* Space before and after a <hr> */
-/* Respond to different screen sizes and media types 
- * Adapted from http://thesassway.com/intermediate/responsive-web-design-in-sass-using-media-queries-in-sass-32 */
-*::selection {
-  background: red;
-  color: #fff;
-}
-
-*::-moz-selection {
-  background: red;
-  color: #fff;
-}
-
-*::-webkit-selection {
-  background: red;
-  color: #fff;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  border-top: 8px solid #333;
-  font-family: "sorts-mill-goudy";
-  font-size: 1.1em;
-  color: #333;
-}
-@media only screen and (max-width: 1000px) {
-  body {
-    font-size: 0.9em;
-  }
-}
-
-em {
-  font-style: normal;
-  font-family: "sorts-mill-goudy-italic";
-}
-
-h1 {
-  margin-top: 2em;
-  font-size: 1.4em;
-  font-weight: normal;
-  font-style: normal;
-  text-align: center;
-}
-
-h2 {
-  margin-top: 2em;
-  font-size: 1.1em;
-  font-weight: bold;
-  font-style: normal;
-}
-
-.wrap {
-  margin: 0 auto;
-  width: 45%;
-  /* blog footer */
-}
-@media only screen and (min-width: 0px) and (max-width: 1200px) {
-  .wrap {
-    width: 90%;
-  }
-}
-.wrap > footer {
-  margin-top: 2em;
-  padding: 2em 0;
-  border-top: 1px solid #dfdfdf;
-  text-align: center;
-  font-size: 0.8em;
-}
-
-/* The main blog header */
-header {
-  margin-bottom: 4em;
-  padding: 150px 0;
-  border-bottom: 1px solid #dfdfdf;
-  text-align: center;
-  /* // .navi */
-}
-header .title {
-  font-family: "nevis";
-  font-size: 2.3em;
-  text-transform: uppercase;
-}
-header .navi {
-  font-family: "sorts-mill-goudy";
-  font-size: 1.15em;
-  /* // ul */
-}
-header .navi ul {
-  margin: 0.4em 0 0 0;
-  padding: 0;
-  list-style: none;
-  /* // li */
-}
-header .navi ul li {
-  display: inline-block;
-  vertical-align: baseline;
-  zoom: 1;
-  *display: inline;
-  *vertical-align: auto;
-  margin: 0;
-  padding: 0 0.4em;
-  /* // a */
-}
-header .navi ul li a {
-  color: #333;
-  text-decoration: none;
-}
-header .navi ul li a:hover, header .navi ul li a:active {
-  color: red;
-}
-
-/* // header */
-a {
-  color: red;
-  text-decoration: none;
-}
-a:hover {
-  color: #333;
-}
-
-blockquote {
-  font-family: "sorts-mill-goudy-italic";
-  font-size: 1em;
-}
-
-article {
-  margin-bottom: 8em;
-  padding: 0;
-  font-size: 1.1em;
-  line-height: 1.7em;
-  text-align: justify;
-}
-article .content {
-  padding-bottom: 2em;
-}
-article footer {
-  padding: 1em 0;
-  border-bottom: 1px solid #dfdfdf;
-  border-top: 1px solid #dfdfdf;
-}
-article h1, article h2, article h3 {
-  text-align: left;
-}
-article h1 a, article h2 a, article h3 a {
-  color: #333;
-}
-article h1 a:hover, article h2 a:hover, article h3 a:hover {
-  color: red;
-}
-article header {
-  margin: 0 0 3em 0;
-  padding: 0;
-  border: 0px;
-  text-align: center;
-}
-article header h1 {
-  font-size: 1.6em;
-  font-weight: normal;
-  font-style: normal;
-  line-height: 1.3em;
-  text-align: center;
-}
-article header time {
-  font-size: 1em;
-  font-style: normal;
-}
-article hr {
-  margin: 4em !important;
-  height: 1px;
-  border: none;
-  color: #dfdfdf;
-  background-color: #dfdfdf;
-}
-article p .caption {
-  font-family: "sorts-mill-goudy-italic";
-  font-size: 0.9em;
-}
-article p img {
-  max-width: 100%;
-  padding: 4px;
-  -webkit-box-shadow: 0 0 0px 1px #b0b0b0;
-  box-shadow: 0 0 0px 1px #b0b0b0;
-}
-article p .word1,
-article p .word2,
-article p .word3 {
-  font-size: 1em;
-  font-variant: small-caps;
-}
-
-/* Code blocks */
-pre {
-  position: relative;
-  border: 1px solid #dfdfdf;
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
-  line-height: 1.8em;
-  background-color: #fff;
-  overflow: hidden;
-}
-pre .clip-btn {
-  position: absolute;
-  top: 0px;
-  right: 1em;
-  font-size: 0.8em;
-  text-decoration: underline;
-}
-@media only screen and (max-width: 1000) {
-  pre .clip-btn {
-    display: none;
-  }
-}
-
-code {
-  margin: 0.4em 0;
-  padding: 0.4em;
-  font-family: "Cousine";
-  font-size: 0.75em;
-}
-
-/* Inline code */
-p > code {
-  border: 1px solid #dfdfdf;
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
-  background-color: #fff;
-  white-space: nowrap;
-}
-
-.pagination {
-  position: relative;
-  margin: 5em 0;
-}
-.pagination a {
-  font-family: "sorts-mill-goudy";
-  font-size: 1em;
-  color: #333;
-  text-decoration: none;
-}
-.pagination a:hover {
-  color: red;
-}
-.pagination .newer {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-.pagination .older {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.pagination span {
-  display: block;
-  width: 100%;
-  text-align: center;
-}
-
-/* Archive and tags listings */
-.cat-year {
-  padding-top: 1.5em;
-  font-family: "nevis";
-  font-size: 1.3em;
-}
-
-.cat-month {
-  margin: 2em 0 0.5em 2em;
-  font-family: "nevis";
-  font-size: 1em;
-}
-
-.title-listing {
-  margin-left: 2em;
-}
+Backtrace:
+/home/pwn/Desktop/octopress/sass/main.scss:1
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/gems/sass-3.4.19/lib/sass/tree/import_node.rb:67:in `rescue in import'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/gems/sass-3.4.19/lib/sass/tree/import_node.rb:45:in `import'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/gems/sass-3.4.19/lib/sass/tree/import_node.rb:28:in `imported_file'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/gems/sass-3.4.19/lib/sass/tree/import_node.rb:37:in `css_import?'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:311:in `visit_import'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:36:in `visit'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/gems/sass-3.4.19/lib/sass/stack.rb:79:in `block in with_base'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/gems/sass-3.4.19/lib/sass/stack.rb:115:in `with_frame'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/gems/sass-3.4.19/lib/sass/stack.rb:79:in `with_base'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:52:in `map'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:36:in `visit'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/gems/sass-3.4.19/lib/sass/tree/root_node.rb:36:in `css_tree'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/gems/sass-3.4.19/lib/sass/tree/root_node.rb:20:in `render'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/gems/sass-3.4.19/lib/sass/engine.rb:278:in `render'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/gems/sass-3.4.19/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/gems/sass-3.4.19/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/gems/sass-3.4.19/lib/sass/plugin/compiler.rb:209:in `each'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/gems/sass-3.4.19/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/gems/compass-1.0.3/lib/compass/sass_compiler.rb:40:in `compile!'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/gems/compass-1.0.3/lib/compass/commands/update_project.rb:49:in `perform'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/gems/compass-1.0.3/lib/compass/commands/base.rb:18:in `execute'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/gems/compass-1.0.3/lib/compass/commands/project_base.rb:19:in `execute'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/gems/compass-1.0.3/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/gems/compass-1.0.3/lib/compass/exec/sub_command_ui.rb:15:in `run!'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/gems/compass-1.0.3/bin/compass:30:in `block in <top (required)>'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/gems/compass-1.0.3/bin/compass:44:in `call'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/gems/compass-1.0.3/bin/compass:44:in `<top (required)>'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/bin/compass:23:in `load'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/bin/compass:23:in `<main>'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/bin/ruby_executable_hooks:15:in `eval'
+/home/pwn/.rvm/gems/ruby-1.9.3-p551/bin/ruby_executable_hooks:15:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: File to import not found or unreadable: bourbon/bourbon.\A        Load paths:\A          Sass::Globbing::Importer\A          Compass::SpriteImporter\A          /home/pwn/Desktop/octopress/sass\A          /home/pwn/.rvm/gems/ruby-1.9.3-p551/gems/compass-core-1.0.3/stylesheets\A         on line 1 of /home/pwn/Desktop/octopress/sass/main.scss\A \A 1: @import \"bourbon/bourbon\";\A 2: @import \"typography\";\A 3: @import \"variables\";\A 4: @import \"responsive\";\A 5: \A 6: *::selection {"; }
