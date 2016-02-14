@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-    <title><![CDATA[pwn_expoit Blog]]></title>
-    <link href="http://naver.com/atom.xml" rel="self"/>
-    <link href="http://naver.com/"/>
-    <updated>2016-02-13T01:59:37-08:00</updated>
-    <id>http://naver.com/</id>
-    <author>
-        <name><![CDATA[pwn_expoit]]></name>
-        <email><![CDATA[pwn_expoit@naver.com]]></email>
-    </author>
-    <generator uri="http://octopress.org/">Octopress</generator>
+  <title><![CDATA[pwn_expoit Blog]]></title>
+  <link href="http://mashirogod.github.io/atom.xml" rel="self"/>
+  <link href="http://mashirogod.github.io/"/>
+  <updated>2016-02-14T03:15:56-08:00</updated>
+  <id>http://mashirogod.github.io/</id>
+  <author>
+    <name><![CDATA[pwn_expoit]]></name>
+    <email><![CDATA[pwn_expoit@naver.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
 
-    
-    <entry>
-        <title type="html"><![CDATA[2016 nullcon pwn 200]]></title>
-        <link href="http://naver.com/blog/2016/01/31/2016-nullcon-pwn-200/"/>
-        <updated>2016-01-31T17:35:45-08:00</updated>
-        <id>http://naver.com/blog/2016/01/31/2016-nullcon-pwn-200</id>
-        <content type="html"><![CDATA[<p>recently, I challenge nullcon 2016. when hold ctf, i catched pwnable.However, pwn 100 is arm exploit that i can&rsquo;t solve. So i decide to challengepwn 200.<br>
+  
+  <entry>
+    <title type="html"><![CDATA[2016 nullcon pwn 200]]></title>
+    <link href="http://mashirogod.github.io/blog/2016/01/31/2016-nullcon-pwn-200/"/>
+    <updated>2016-01-31T17:35:45-08:00</updated>
+    <id>http://mashirogod.github.io/blog/2016/01/31/2016-nullcon-pwn-200</id>
+    <content type="html"><![CDATA[<p>recently, I challenge nullcon 2016. when hold ctf, i catched pwnable.However, pwn 100 is arm exploit that i can&rsquo;t solve. So i decide to challengepwn 200.<br>
 at frist, pwn 200 seem very easy:) . analyzing it, i think that this is sandbox. it was first time for me. <br></p>
 
 <h2>Analysis<br></h2>
@@ -217,17 +217,17 @@ i saved stack. then stack overwrite rip :P.
 </code></pre>
 
 ]]></content>
-    </entry>
-    
-    <entry>
-        <title type="html"><![CDATA[32c3 pwn[200] readme write up]]></title>
-        <link href="http://naver.com/blog/2015/12/31/32c3-pwn-200-readme-write-up/"/>
-        <updated>2015-12-31T07:16:00-08:00</updated>
-        <id>http://naver.com/blog/2015/12/31/32c3-pwn-200-readme-write-up</id>
-        <content type="html"><![CDATA[<p>after 32c3 ctf, i am sorry that sovled readme. so i challenge it again
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[32c3 pwn[200] readme write up]]></title>
+    <link href="http://mashirogod.github.io/blog/2015/12/31/32c3-pwn-200-readme-write-up/"/>
+    <updated>2015-12-31T07:16:00-08:00</updated>
+    <id>http://mashirogod.github.io/blog/2015/12/31/32c3-pwn-200-readme-write-up</id>
+    <content type="html"><![CDATA[<p>after 32c3 ctf, i am sorry that sovled readme. so i challenge it again
 this binary is likely to analysis,but i am too stupid to can&rsquo;t solved</p>
 
-<figure class='code'><figcaption><span>[main func] (readmemain.c)</span> <a href='http://naver.com/codeview/readmemain.c'>download</a></figcaption>
+<figure class='code'><figcaption><span>[main func] (readmemain.c)</span> <a href='http://mashirogod.github.io/codeview/readmemain.c'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -298,7 +298,7 @@ this binary is likely to analysis,but i am too stupid to can&rsquo;t solved</p>
 <p>At first, unfortunately i had thought puts null byte leak(like codegate 2014 nuclear)but IO_gets generate \x00 in string lately
 After many tries, i find out that infomation leak from &ldquo;<strong><em> stack smashing detected </em></strong>&rdquo;</p>
 
-<figure class='code'><figcaption><span>[information leak] (readmeleak)</span> <a href='http://naver.com/codeview/readmeleak'>download</a></figcaption>
+<figure class='code'><figcaption><span>[information leak] (readmeleak)</span> <a href='http://mashirogod.github.io/codeview/readmeleak'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -314,7 +314,7 @@ After many tries, i find out that infomation leak from &ldquo;<strong><em> stack
 
 <p>above printing show argv[0] possible to overwirte. argv[0] pointer is located on $rsp+0x218</p>
 
-<figure class='code'><figcaption><span>[argv[0]] (readmeargv)</span> <a href='http://naver.com/codeview/readmeargv'>download</a></figcaption>
+<figure class='code'><figcaption><span>[argv[0]] (readmeargv)</span> <a href='http://mashirogod.github.io/codeview/readmeargv'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -336,7 +336,7 @@ After many tries, i find out that infomation leak from &ldquo;<strong><em> stack
 
 <p>so i execute Poc</p>
 
-<figure class='code'><figcaption><span>[POC code] (readmepoc.py)</span> <a href='http://naver.com/codeview/readmepoc.py'>download</a></figcaption>
+<figure class='code'><figcaption><span>[POC code] (readmepoc.py)</span> <a href='http://mashirogod.github.io/codeview/readmepoc.py'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -354,7 +354,7 @@ After many tries, i find out that infomation leak from &ldquo;<strong><em> stack
 
 
 
-<figure class='code'><figcaption><span>[POC leak] (readmepoc2)</span> <a href='http://naver.com/codeview/readmepoc2'>download</a></figcaption>
+<figure class='code'><figcaption><span>[POC leak] (readmepoc2)</span> <a href='http://mashirogod.github.io/codeview/readmepoc2'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -375,7 +375,7 @@ After many tries, i find out that infomation leak from &ldquo;<strong><em> stack
 <p>gdb-peda$ x/s 0x400d20
 0x400d20:   &ldquo;32C3_TheServerHasTheFlagHere&hellip;&rdquo;</p>
 
-<figure class='code'><figcaption><span>[POC again] (readmepoc3)</span> <a href='http://naver.com/codeview/readmepoc3'>download</a></figcaption>
+<figure class='code'><figcaption><span>[POC again] (readmepoc3)</span> <a href='http://mashirogod.github.io/codeview/readmepoc3'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -393,7 +393,7 @@ After many tries, i find out that infomation leak from &ldquo;<strong><em> stack
 finally i open other write up, i notice &lsquo;LIBC_FATAL_STDERR_=1&rsquo;
 above the environment variable it make that show error messege on remote server</p>
 
-<figure class='code'><figcaption><span>[memory] (readmememory)</span> <a href='http://naver.com/codeview/readmememory'>download</a></figcaption>
+<figure class='code'><figcaption><span>[memory] (readmememory)</span> <a href='http://mashirogod.github.io/codeview/readmememory'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -427,7 +427,7 @@ above the environment variable it make that show error messege on remote server<
 
 <p>this is final payload</p>
 
-<figure class='code'><figcaption><span>[final] (readmepayload.py)</span> <a href='http://naver.com/codeview/readmepayload.py'>download</a></figcaption>
+<figure class='code'><figcaption><span>[final] (readmepayload.py)</span> <a href='http://mashirogod.github.io/codeview/readmepayload.py'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -461,18 +461,18 @@ above the environment variable it make that show error messege on remote server<
 </span></code></pre></td></tr></table></div></figure>
 
 ]]></content>
-    </entry>
-    
-    <entry>
-        <title type="html"><![CDATA[Plaid ctf kappa[275] in 2014]]></title>
-        <link href="http://naver.com/blog/2015/12/26/plaid-ctf-kappa-275-in-2014/"/>
-        <updated>2015-12-26T01:13:36-08:00</updated>
-        <id>http://naver.com/blog/2015/12/26/plaid-ctf-kappa-275-in-2014</id>
-        <content type="html"><![CDATA[<p>i recently prepare Codegate held in 2016,So i needed to write up ctf. i writed up ezhp(plaid ctf), now it&rsquo;s time to write up kappa. Let&rsquo;s start breaking kappa</p>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Plaid ctf kappa[275] in 2014]]></title>
+    <link href="http://mashirogod.github.io/blog/2015/12/26/plaid-ctf-kappa-275-in-2014/"/>
+    <updated>2015-12-26T01:13:36-08:00</updated>
+    <id>http://mashirogod.github.io/blog/2015/12/26/plaid-ctf-kappa-275-in-2014</id>
+    <content type="html"><![CDATA[<p>i recently prepare Codegate held in 2016,So i needed to write up ctf. i writed up ezhp(plaid ctf), now it&rsquo;s time to write up kappa. Let&rsquo;s start breaking kappa</p>
 
 <p>Kappa is Pokemon Game binary</p>
 
-<figure class='code'><figcaption><span>[Kappa Menu] (kappaMenu.c)</span> <a href='http://naver.com/codeview/kappaMenu.c'>download</a></figcaption>
+<figure class='code'><figcaption><span>[Kappa Menu] (kappaMenu.c)</span> <a href='http://mashirogod.github.io/codeview/kappaMenu.c'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -540,7 +540,7 @@ above the environment variable it make that show error messege on remote server<
 
 <p>there are 1-5 select that can choose. opening binary with IDA pro, i could see select function and Battle function.</p>
 
-<figure class='code'><figcaption><span>[Choose 1] (KappaChoose1.c)</span> <a href='http://naver.com/codeview/KappaChoose1.c'>download</a></figcaption>
+<figure class='code'><figcaption><span>[Choose 1] (KappaChoose1.c)</span> <a href='http://mashirogod.github.io/codeview/KappaChoose1.c'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -595,7 +595,7 @@ it is algorithm that encounter pokemon with &lsquo;an&rsquo; sequence(0: fail, 1
 <p>wild Pokemon is producted with other function. this function product struct using malloc.
 this method can become vulnerability on UAF. for now, i perceived it vulnerabilty</p>
 
-<figure class='code'><figcaption><span>[wild Pokemon struct] (kappawild.c)</span> <a href='http://naver.com/codeview/kappawild.c'>download</a></figcaption>
+<figure class='code'><figcaption><span>[wild Pokemon struct] (kappawild.c)</span> <a href='http://mashirogod.github.io/codeview/kappawild.c'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -667,7 +667,7 @@ this method can become vulnerability on UAF. for now, i perceived it vulnerabilt
 
 <p>this vulnerability is happened when i throw pokeball to wild pokemon with filling all of pokeball room</p>
 
-<figure class='code'><figcaption><span>[type confusion] (kappavuln.c)</span> <a href='http://naver.com/codeview/kappavuln.c'>download</a></figcaption>
+<figure class='code'><figcaption><span>[type confusion] (kappavuln.c)</span> <a href='http://mashirogod.github.io/codeview/kappavuln.c'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -723,7 +723,7 @@ this method can become vulnerability on UAF. for now, i perceived it vulnerabilt
 
 <p>it ignore their type, blindly cover type field. then attacker can overflow in select 5</p>
 
-<figure class='code'><figcaption><span>[change art] (kappaart.c)</span> <a href='http://naver.com/codeview/kappaart.c'>download</a></figcaption>
+<figure class='code'><figcaption><span>[change art] (kappaart.c)</span> <a href='http://mashirogod.github.io/codeview/kappaart.c'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -771,7 +771,7 @@ this method can become vulnerability on UAF. for now, i perceived it vulnerabilt
 <p>charizar struct:
 |name|       art      |0x204|hp|attack|technic|func_ptr</p>
 
-<figure class='code'><figcaption><span>[exploit] (kappaexploit.c)</span> <a href='http://naver.com/codeview/kappaexploit.c'>download</a></figcaption>
+<figure class='code'><figcaption><span>[exploit] (kappaexploit.c)</span> <a href='http://mashirogod.github.io/codeview/kappaexploit.c'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -926,14 +926,14 @@ this method can become vulnerability on UAF. for now, i perceived it vulnerabilt
 
 
 ]]></content>
-    </entry>
-    
-    <entry>
-        <title type="html"><![CDATA[exploit-exercise fusion level4]]></title>
-        <link href="http://naver.com/blog/2015/11/15/exploit-exercise-fusion-level4/"/>
-        <updated>2015-11-15T05:51:33-08:00</updated>
-        <id>http://naver.com/blog/2015/11/15/exploit-exercise-fusion-level4</id>
-        <content type="html"><![CDATA[<figure class='code'><figcaption><span>[fusion 4 only exploit] (fusion.py)</span> <a href='http://naver.com/codeview/fusion.py'>download</a></figcaption>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[exploit-exercise fusion level4]]></title>
+    <link href="http://mashirogod.github.io/blog/2015/11/15/exploit-exercise-fusion-level4/"/>
+    <updated>2015-11-15T05:51:33-08:00</updated>
+    <id>http://mashirogod.github.io/blog/2015/11/15/exploit-exercise-fusion-level4</id>
+    <content type="html"><![CDATA[<figure class='code'><figcaption><span>[fusion 4 only exploit] (fusion.py)</span> <a href='http://mashirogod.github.io/codeview/fusion.py'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -1269,14 +1269,14 @@ this method can become vulnerability on UAF. for now, i perceived it vulnerabilt
 </span></code></pre></td></tr></table></div></figure>
 
 ]]></content>
-    </entry>
-    
-    <entry>
-        <title type="html"><![CDATA[2015 DEFCON babyfirstheap]]></title>
-        <link href="http://naver.com/blog/2015/11/15/2015-defcon-babyfirstheap/"/>
-        <updated>2015-11-15T04:21:48-08:00</updated>
-        <id>http://naver.com/blog/2015/11/15/2015-defcon-babyfirstheap</id>
-        <content type="html"><![CDATA[<p>This binary how to using doubler free bug rather than finding vuln '</p>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[2015 DEFCON babyfirstheap]]></title>
+    <link href="http://mashirogod.github.io/blog/2015/11/15/2015-defcon-babyfirstheap/"/>
+    <updated>2015-11-15T04:21:48-08:00</updated>
+    <id>http://mashirogod.github.io/blog/2015/11/15/2015-defcon-babyfirstheap</id>
+    <content type="html"><![CDATA[<p>This binary how to using doubler free bug rather than finding vuln '</p>
 
 <div class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="k">for</span> <span class="p">(</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mh">0x13</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span> <span class="p">)</span>
   <span class="p">{</span>
@@ -1287,7 +1287,7 @@ this method can become vulnerability on UAF. for now, i perceived it vulnerabilt
 
 <p>when open binary to hex-rays, i could see that successive free. it is very vulnerable So i debuged binary, then i faced segment fault</p>
 
-<figure class='code'><figcaption><span>[crash the binary] (debug)</span> <a href='http://naver.com/codeview/debug'>download</a></figcaption>
+<figure class='code'><figcaption><span>[crash the binary] (debug)</span> <a href='http://mashirogod.github.io/codeview/debug'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -1427,7 +1427,7 @@ this method can become vulnerability on UAF. for now, i perceived it vulnerabilt
 
 <p>i hereby control got overwrite.(specific technic about this vuln that reference<a href="https://www.blackhat.com/presentations/bh-usa-07/Ferguson/Whitepaper/bh-usa-07-ferguson-WP.pdf">https://www.blackhat.com/presentations/bh-usa-07/Ferguson/Whitepaper/bh-usa-07-ferguson-WP.pdf</a></p>
 
-<figure class='code'><figcaption><span>[Baby's first heap] (babyfirstheap.py)</span> <a href='http://naver.com/codeview/babyfirstheap.py'>download</a></figcaption>
+<figure class='code'><figcaption><span>[Baby's first heap] (babyfirstheap.py)</span> <a href='http://mashirogod.github.io/codeview/babyfirstheap.py'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -1479,6 +1479,741 @@ this method can become vulnerability on UAF. for now, i perceived it vulnerabilt
 
 
 ]]></content>
-    </entry>
-    
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
+    <link href="http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-9/"/>
+    <updated>2014-12-22T16:04:23-08:00</updated>
+    <id>http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-9</id>
+    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+<p>Some code:</p>
+
+<pre><code class="js">var hello = function (name) {
+  console.log("Hello, " + name + '.');
+}
+hello('World');   // prints 'Hello, World.' to stdout
+</code></pre>
+
+<!-- More -->
+
+
+<h2>Some more code</h2>
+
+<pre><code class="ruby">def test
+  @answer = 6*9
+  if @answer != 42  # this should never happen
+    raise "Oh no, not again."
+  else
+    print "Don't panic."
+end
+</code></pre>
+
+<h2>this is a sample header</h2>
+
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
+    <link href="http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-8/"/>
+    <updated>2014-12-22T16:04:23-08:00</updated>
+    <id>http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-8</id>
+    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+<p>Some code:</p>
+
+<pre><code class="js">var hello = function (name) {
+  console.log("Hello, " + name + '.');
+}
+hello('World');   // prints 'Hello, World.' to stdout
+</code></pre>
+
+<!-- More -->
+
+
+<h2>Some more code</h2>
+
+<pre><code class="ruby">def test
+  @answer = 6*9
+  if @answer != 42  # this should never happen
+    raise "Oh no, not again."
+  else
+    print "Don't panic."
+end
+</code></pre>
+
+<h2>this is a sample header</h2>
+
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
+    <link href="http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-7/"/>
+    <updated>2014-12-22T16:04:23-08:00</updated>
+    <id>http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-7</id>
+    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+<p>Some code:</p>
+
+<pre><code class="js">var hello = function (name) {
+  console.log("Hello, " + name + '.');
+}
+hello('World');   // prints 'Hello, World.' to stdout
+</code></pre>
+
+<!-- More -->
+
+
+<h2>Some more code</h2>
+
+<pre><code class="ruby">def test
+  @answer = 6*9
+  if @answer != 42  # this should never happen
+    raise "Oh no, not again."
+  else
+    print "Don't panic."
+end
+</code></pre>
+
+<h2>this is a sample header</h2>
+
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
+    <link href="http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-6/"/>
+    <updated>2014-12-22T16:04:23-08:00</updated>
+    <id>http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-6</id>
+    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+<p>Some code:</p>
+
+<pre><code class="js">var hello = function (name) {
+  console.log("Hello, " + name + '.');
+}
+hello('World');   // prints 'Hello, World.' to stdout
+</code></pre>
+
+<!-- More -->
+
+
+<h2>Some more code</h2>
+
+<pre><code class="ruby">def test
+  @answer = 6*9
+  if @answer != 42  # this should never happen
+    raise "Oh no, not again."
+  else
+    print "Don't panic."
+end
+</code></pre>
+
+<h2>this is a sample header</h2>
+
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
+    <link href="http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-5/"/>
+    <updated>2014-12-22T16:04:23-08:00</updated>
+    <id>http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-5</id>
+    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+<p>Some code:</p>
+
+<pre><code class="js">var hello = function (name) {
+  console.log("Hello, " + name + '.');
+}
+hello('World');   // prints 'Hello, World.' to stdout
+</code></pre>
+
+<!-- More -->
+
+
+<h2>Some more code</h2>
+
+<pre><code class="ruby">def test
+  @answer = 6*9
+  if @answer != 42  # this should never happen
+    raise "Oh no, not again."
+  else
+    print "Don't panic."
+end
+</code></pre>
+
+<h2>this is a sample header</h2>
+
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
+    <link href="http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-4/"/>
+    <updated>2014-12-22T16:04:23-08:00</updated>
+    <id>http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-4</id>
+    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+<p>Some code:</p>
+
+<pre><code class="js">var hello = function (name) {
+  console.log("Hello, " + name + '.');
+}
+hello('World');   // prints 'Hello, World.' to stdout
+</code></pre>
+
+<!-- More -->
+
+
+<h2>Some more code</h2>
+
+<pre><code class="ruby">def test
+  @answer = 6*9
+  if @answer != 42  # this should never happen
+    raise "Oh no, not again."
+  else
+    print "Don't panic."
+end
+</code></pre>
+
+<h2>this is a sample header</h2>
+
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
+    <link href="http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-3/"/>
+    <updated>2014-12-22T16:04:23-08:00</updated>
+    <id>http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-3</id>
+    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+<p>Some code:</p>
+
+<pre><code class="js">var hello = function (name) {
+  console.log("Hello, " + name + '.');
+}
+hello('World');   // prints 'Hello, World.' to stdout
+</code></pre>
+
+<!-- More -->
+
+
+<h2>Some more code</h2>
+
+<pre><code class="ruby">def test
+  @answer = 6*9
+  if @answer != 42  # this should never happen
+    raise "Oh no, not again."
+  else
+    print "Don't panic."
+end
+</code></pre>
+
+<h2>this is a sample header</h2>
+
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
+    <link href="http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-2/"/>
+    <updated>2014-12-22T16:04:23-08:00</updated>
+    <id>http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-2</id>
+    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+<p>Some code:</p>
+
+<pre><code class="js">var hello = function (name) {
+  console.log("Hello, " + name + '.');
+}
+hello('World');   // prints 'Hello, World.' to stdout
+</code></pre>
+
+<!-- More -->
+
+
+<h2>Some more code</h2>
+
+<pre><code class="ruby">def test
+  @answer = 6*9
+  if @answer != 42  # this should never happen
+    raise "Oh no, not again."
+  else
+    print "Don't panic."
+end
+</code></pre>
+
+<h2>this is a sample header</h2>
+
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
+    <link href="http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-16/"/>
+    <updated>2014-12-22T16:04:23-08:00</updated>
+    <id>http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-16</id>
+    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+<p>Some code:</p>
+
+<pre><code class="js">var hello = function (name) {
+  console.log("Hello, " + name + '.');
+}
+hello('World');   // prints 'Hello, World.' to stdout
+</code></pre>
+
+<!-- More -->
+
+
+<h2>Some more code</h2>
+
+<pre><code class="ruby">def test
+  @answer = 6*9
+  if @answer != 42  # this should never happen
+    raise "Oh no, not again."
+  else
+    print "Don't panic."
+end
+</code></pre>
+
+<h2>this is a sample header</h2>
+
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
+    <link href="http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-15/"/>
+    <updated>2014-12-22T16:04:23-08:00</updated>
+    <id>http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-15</id>
+    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+<p>Some code:</p>
+
+<pre><code class="js">var hello = function (name) {
+  console.log("Hello, " + name + '.');
+}
+hello('World');   // prints 'Hello, World.' to stdout
+</code></pre>
+
+<!-- More -->
+
+
+<h2>Some more code</h2>
+
+<pre><code class="ruby">def test
+  @answer = 6*9
+  if @answer != 42  # this should never happen
+    raise "Oh no, not again."
+  else
+    print "Don't panic."
+end
+</code></pre>
+
+<h2>this is a sample header</h2>
+
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
+    <link href="http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-14/"/>
+    <updated>2014-12-22T16:04:23-08:00</updated>
+    <id>http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-14</id>
+    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+<p>Some code:</p>
+
+<pre><code class="js">var hello = function (name) {
+  console.log("Hello, " + name + '.');
+}
+hello('World');   // prints 'Hello, World.' to stdout
+</code></pre>
+
+<!-- More -->
+
+
+<h2>Some more code</h2>
+
+<pre><code class="ruby">def test
+  @answer = 6*9
+  if @answer != 42  # this should never happen
+    raise "Oh no, not again."
+  else
+    print "Don't panic."
+end
+</code></pre>
+
+<h2>this is a sample header</h2>
+
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
+    <link href="http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-13/"/>
+    <updated>2014-12-22T16:04:23-08:00</updated>
+    <id>http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-13</id>
+    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+<p>Some code:</p>
+
+<pre><code class="js">var hello = function (name) {
+  console.log("Hello, " + name + '.');
+}
+hello('World');   // prints 'Hello, World.' to stdout
+</code></pre>
+
+<!-- More -->
+
+
+<h2>Some more code</h2>
+
+<pre><code class="ruby">def test
+  @answer = 6*9
+  if @answer != 42  # this should never happen
+    raise "Oh no, not again."
+  else
+    print "Don't panic."
+end
+</code></pre>
+
+<h2>this is a sample header</h2>
+
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
+    <link href="http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-12/"/>
+    <updated>2014-12-22T16:04:23-08:00</updated>
+    <id>http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-12</id>
+    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+<p>Some code:</p>
+
+<pre><code class="js">var hello = function (name) {
+  console.log("Hello, " + name + '.');
+}
+hello('World');   // prints 'Hello, World.' to stdout
+</code></pre>
+
+<!-- More -->
+
+
+<h2>Some more code</h2>
+
+<pre><code class="ruby">def test
+  @answer = 6*9
+  if @answer != 42  # this should never happen
+    raise "Oh no, not again."
+  else
+    print "Don't panic."
+end
+</code></pre>
+
+<h2>this is a sample header</h2>
+
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
+    <link href="http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-11/"/>
+    <updated>2014-12-22T16:04:23-08:00</updated>
+    <id>http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-11</id>
+    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+<p>Some code:</p>
+
+<pre><code class="js">var hello = function (name) {
+  console.log("Hello, " + name + '.');
+}
+hello('World');   // prints 'Hello, World.' to stdout
+</code></pre>
+
+<!-- More -->
+
+
+<h2>Some more code</h2>
+
+<pre><code class="ruby">def test
+  @answer = 6*9
+  if @answer != 42  # this should never happen
+    raise "Oh no, not again."
+  else
+    print "Don't panic."
+end
+</code></pre>
+
+<h2>this is a sample header</h2>
+
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
+    <link href="http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-10/"/>
+    <updated>2014-12-22T16:04:23-08:00</updated>
+    <id>http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-10</id>
+    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+<p>Some code:</p>
+
+<pre><code class="js">var hello = function (name) {
+  console.log("Hello, " + name + '.');
+}
+hello('World');   // prints 'Hello, World.' to stdout
+</code></pre>
+
+<!-- More -->
+
+
+<h2>Some more code</h2>
+
+<pre><code class="ruby">def test
+  @answer = 6*9
+  if @answer != 42  # this should never happen
+    raise "Oh no, not again."
+  else
+    print "Don't panic."
+end
+</code></pre>
+
+<h2>this is a sample header</h2>
+
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+]]></content>
+  </entry>
+  
 </feed>
